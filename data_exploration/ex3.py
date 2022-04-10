@@ -19,3 +19,5 @@ print(np.unique(base_credit['default'], return_counts=True))
 
 # Gera um gráfico de barras mostrando a quantidade de cada uma das possibilidades. Nesse caso, a quantidade de 0 e 1 
 sns.countplot(x = base_credit['default'])
+# Como, por padrão, o gráfico não aparece na tela, eu preciso chamá-lo
+plt.show()
