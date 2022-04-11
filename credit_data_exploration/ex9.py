@@ -11,5 +11,14 @@ caminho_csv = os.path.join(caminho_arquivo, caminho_novo)
 
 base_credit = pd.read_csv(caminho_csv)
 
-# Tratando dados incoerentes, forma 02:
-# Apagar os resistros com valores incoerentes
+print('\n\n', base_credit[base_credit['age'] < 0].index, '\n\n')  # Int64Index([15, 21, 26], dtype='int64') 
+
+# Tratando dados inconsistentes, forma 02:
+# Apagar os resistros com valores inconsistentes
+base_credit_2 = base_credit.drop(base_credit[base_credit['age'] < 0].index)
+print(base_credit_2.head(27))  # Perceba que os elementos com os índices 15, 21 e 26 foram apagados por possuírem idade incosistente 
+
+print('\n\n\n')
+
+print(base_credit_2[base_credit_2['age'] < 0])  # Vazio
+# Forma alternativa: print(base_credit_2.loc[base_credit_2['age'] < 0])
