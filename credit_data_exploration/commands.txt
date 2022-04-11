@@ -18,4 +18,8 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 
 .loc[base de dados[coluna] (condição se tiver)] -> Localiza os dados de alguma coluna; podendo ser também aplicado algum filtro
 
+.drop() -> Recebe como parâmetro o índice de um elemento que cumpre determianda condição, sendo que, os elementos que cumprirem tal condição serão apagados da base de dados
 
+.index -> Informa o índice de algo
+
+.mean() -> Informa a média de algo
