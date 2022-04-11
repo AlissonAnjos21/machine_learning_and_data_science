@@ -23,3 +23,7 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 .index -> Informa o índice de algo
 
 .mean() -> Informa a média de algo
+
+.isnull() -> Informa se valores da tabela que são ou não nulos retornando True. Caso seja passado como parâmetro uma base de dados com determinada coluna, ele retorna True para os valores nulos dentro daquela coluna.
+
+.isin -> Informa True caso o valor ao qual ele esteja acessando esteja dentro de um intervalo que foi informado como parâmetro
