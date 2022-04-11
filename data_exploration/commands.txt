@@ -1,0 +1,17 @@
+ pd.read_csv((base de dados)) -> Recebe o caminho (sistema de pastas) de um arquivo csv e lê ele possibilitando, assim, sua manipulação
+
+.head() -> Exibe os 5 primeiros valores da base de dados utilizada, esse número pode ser alterado ao se informar um parâmetro
+
+.tail() -> Exibe os 5 últimos valores da base de dados utilizada, esse número pode ser alterado ao se informar um parâmetro
+
+.describe() -> Exibe algumas coisas úteis, como número de respostas, médias, desvios padrão, etc
+
+np.unique(base de dados[coluna]) -> Recebe como parâmetro uma coluna da base de dados e retorna a as diferentes respostas presentes nas mesmas, ou seja, não repete valores iguais. Ao passar-se como parâmetro return_counts=True, ele informa a quantida de vezes que aquele dado apareceu
+
+sns.countplot(x=(valor)) -> Recebe como parâmetro um valor para x e assim controi uma gráfico de barras mostrando a quantidade de cada uma das possibilidades desse valor x.
+
+plt.show() -> Exibe o gráfico criado para o usuário através de uma interface gráfica.
+
+plt.hist(x=(valor)) -> Recebe um valor de x, criando com ele um gráfico de barras com intervalos
+
+px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe como parâmetros a base de dados e as colunas que serão exibidas e produz um gráfico para cada coluna com os campos tanto na direção vertical quanto na horizontal. Possui como um dos parâmetros opcionais o color, que recebe uma das colunas e, assim, exibe quais itens do gráfico correspondem ao item da coluna informada.
