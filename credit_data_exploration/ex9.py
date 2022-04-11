@@ -20,5 +20,5 @@ print(base_credit_2.head(27))  # Perceba que os elementos com os índices 15, 21
 
 print('\n\n\n')
 
-print(base_credit_2[base_credit_2['age'] < 0])  # Vazio
 # Forma alternativa: print(base_credit_2.loc[base_credit_2['age'] < 0])
+print(base_credit_2[base_credit_2['age'] < 0])  # Vazio
