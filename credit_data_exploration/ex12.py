@@ -17,5 +17,8 @@ base_credit = pd.read_csv(caminho_csv)
 X_base = base_credit.iloc[:, 1:4].values  # Primeiro parâmetro é referente a quais linhas pegar (nesse caso todas), já o segundo parâmetro, é relativo a quais colunas pegar (nesse caso, da 1 à 3 (4 não é incluído))
 Y_base = base_credit.iloc[:, 4].values  # Colocando a coluna 4 em uma única variável
 
-print(X_base)  # Funcionou!
-print(Y_base)  # Funcionou!
+# O tipo da base de dados (base_credit) é um objeto pandas. Porém, a variável criada a partir do iloc foi automáticamente convertida para um objeto numpy durante a sua criação
+
+print(type(base_credit))
+print(X_base, type(X_base))  # Funcionou!
+print(Y_base, type(Y_base))  # Funcionou!
