@@ -1,31 +1,31 @@
- pd.read_csv((base de dados)) -> Recebe o caminho (sistema de pastas) de um arquivo csv e lê ele possibilitando, assim, sua manipulação
+ pd.read_csv((base de dados)) -> Recebe o caminho (sistema de pastas) de um arquivo csv e lê ele possibilitando, assim, a sua manipulação;
 
-.head() -> Exibe os 5 primeiros valores da base de dados utilizada, esse número pode ser alterado ao se informar um parâmetro
+.head() -> Exibe os 5 primeiros valores da base de dados utilizada, esse número pode ser alterado ao se informar um parâmetro;
 
-.tail() -> Exibe os 5 últimos valores da base de dados utilizada, esse número pode ser alterado ao se informar um parâmetro
+.tail() -> Exibe os 5 últimos valores da base de dados utilizada, esse número pode ser alterado ao se informar um parâmetro;
 
-.describe() -> Exibe algumas coisas úteis, como número de respostas, médias, desvios padrão, etc
+.describe() -> Exibe algumas coisas úteis, como número de respostas, médias, desvios padrão, etc;
 
-np.unique(base de dados[coluna]) -> Recebe como parâmetro uma coluna da base de dados e retorna a as diferentes respostas presentes nas mesmas, ou seja, não repete valores iguais. Ao passar-se como parâmetro return_counts=True, ele informa a quantida de vezes que aquele dado apareceu
+np.unique(base de dados[coluna]) -> Recebe como parâmetro uma coluna da base de dados e retorna a as diferentes respostas presentes nas mesmas, ou seja, não repete valores iguais. Ao passar-se como parâmetro return_counts=True, ele informa a quantida de vezes que aquele dado apareceu;
 
-sns.countplot(x=(valor)) -> Recebe como parâmetro um valor para x e assim controi uma gráfico de barras mostrando a quantidade de cada uma das possibilidades desse valor x.
+sns.countplot(x=(valor)) -> Recebe como parâmetro um valor para x e assim controi uma gráfico de barras mostrando a quantidade de cada uma das possibilidades desse valor x;
 
-plt.show() -> Exibe o gráfico criado para o usuário através de uma interface gráfica.
+plt.show() -> Exibe o gráfico criado para o usuário através de uma interface gráfica;
 
-plt.hist(x=(valor)) -> Recebe um valor de x, criando com ele um gráfico de barras com intervalos
+plt.hist(x=(valor)) -> Recebe um valor de x, criando com ele um gráfico de barras com intervalos;
 
-px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe como parâmetros a base de dados e as colunas que serão exibidas e produz um gráfico para cada coluna com os campos tanto na direção vertical quanto na horizontal. Possui como um dos parâmetros opcionais o color, que recebe uma das colunas e, assim, exibe quais itens do gráfico correspondem aos intervalos do item da coluna informada.
+px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe como parâmetros a base de dados e as colunas que serão exibidas e produz um gráfico para cada coluna com os campos tanto na direção vertical quanto na horizontal. Possui como um dos parâmetros opcionais o color, que recebe uma das colunas e, assim, exibe quais itens do gráfico correspondem aos intervalos do item da coluna informada;
 
-.loc[base de dados[coluna] (condição se tiver)] -> Localiza os dados de alguma coluna; podendo ser também aplicado algum filtro
+.loc[base de dados[coluna] (condição se tiver)] -> Localiza os dados de alguma coluna; podendo ser também aplicado algum filtro;
 
-.drop() -> Recebe como parâmetro o índice de um elemento que cumpre determianda condição, sendo que, os elementos que cumprirem tal condição serão apagados da base de dados
+.drop() -> Recebe como parâmetro o índice de um elemento que cumpre determianda condição, sendo que, os elementos que cumprirem tal condição serão apagados da base de dados;
 
-.index -> Informa o índice de algo
+.index -> Informa o índice de algo;
 
-.mean() -> Informa a média de algo
+.mean() -> Informa a média de algo;
 
-.isnull() -> Informa se valores da tabela que são ou não nulos retornando True. Caso seja passado como parâmetro uma base de dados com determinada coluna, ele retorna True para os valores nulos dentro daquela coluna.
+.isnull() -> Informa se valores da tabela que são ou não nulos retornando True. Caso seja passado como parâmetro uma base de dados com determinada coluna, ele retorna True para os valores nulos dentro daquela coluna;
 
-.fillna() -> Recebe um valor como parãmetro e preenche os campos com valores nulos. Para que ele consiga alterar o valor da variável da base de dados e salvar o novo valor nela, é necessário informar que o parâmetro inplace=True
+.fillna() -> Recebe um valor como parãmetro e preenche os campos com valores nulos. Para que ele consiga alterar o valor da variável da base de dados e salvar o novo valor nela, é necessário informar que o parâmetro inplace=True;
 
-.isin -> Informa True caso o valor ao qual ele esteja acessando esteja dentro de um intervalo que foi informado como parâmetro
+.isin -> Informa True caso o valor ao qual ele esteja acessando exista dentro de um intervalo que foi informado como parâmetro. Na maior parte das vezes usa-se uma lista contendo os valores desejados e informa-se como parâmetro;
