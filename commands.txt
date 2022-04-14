@@ -32,7 +32,7 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 
 .isin -> Informa True caso o valor ao qual ele esteja acessando exista dentro de um intervalo que foi informado como parâmetro. Na maior parte das vezes usa-se uma lista contendo os valores desejados e informa-se como parâmetro;
 
-.values -> Informa o valor de determinado item;
+.values -> Informa o valor de determinado item, convertendo-o para um numpy array;
 
 .iloc -> Seleciona linhas e colunas do data frame, sendo que, o primeiro parâmetro é relativo as linhas desejadas. Já o segundo parâmetro, é referente às colunas a serem pegadas. Para selecioná-las, é necessário informar os intervalos, de forma semelhante a uma lista/tupla;
 
