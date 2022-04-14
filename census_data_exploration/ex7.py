@@ -47,3 +47,37 @@ X_censo[:, 13] = label_encoder_contry.fit_transform(X_censo[:, 13])
 # 0 0 0 1 0 0
 # 0 0 0 0 0 1
 # 1 0 0 0 0 0
+
+print('\n\n\n')
+
+print(len(np.unique(base_censo['relationship'])))  # 6 (Ou seja, possibilidades de respostas diferentes)
+
+print('\n\n\n')
+
+# Cada uma das diferentes opções de resposta dessa coluna será considerada uma sub-coluna
+# Quando um dado dentre os possíveis dados não corresponder ao da determinada sub-coluna, ele receberá o valor 0, quando ele corresponder receberá o valor 1. Não é possível ele possuir mais de uma sub-coluna com o valor 1
+
+# Técnica OneHotEncoder:
+
+# Antes de tudo, veremos a quantidade de linhas e colunas da base de dados (Isso será interessante de se saber para ocasiões futuras)
+print(X_censo.shape)  # (32561, 14)
+
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+onehotencoder_censo = ColumnTransformer(transformers=[('OneHot', OneHotEncoder(), [1, 3, 5, 6, 7, 8, 9, 13])], remainder='passthrough')
+
+X_censo = onehotencoder_censo.fit_transform(X_censo).toarray()
+
+print('\n\n\n')
+
+print(X_censo)  # Resultado com todas as colunas Numéricas padrão e as Categóricas que passaram pelo processo de LabelEncoder, anteriormente, e agora pelo processo de OneHotEncoder
+
+print('\n\n\n')
+
+print(X_censo[0])  # Apenas a primeira linha
+
+print('\n\n\n')
+
+# A quantidade de colunas aumentou bastante, é possível visualizar essa mudanção ao usarmos o .shape, novamente, só que agora, após a alteração
+print(X_censo.shape)  # (32561, 108)

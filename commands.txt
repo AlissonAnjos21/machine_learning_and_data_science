@@ -49,3 +49,11 @@ px.parallel_categories(base de dados, dimensions=[coluna1, coluna2, etc]) -> Rec
 .columns -> Informa as colunas presentes na base de dados;
 
 (objeto LabelEncoder).fit_transform(x[:, indice coluna]) -> Transforma um dado do tipo Categórico em um dado do tipo Numérico;
+
+ColumnTransformer(transformers=[('OneHot', OneHotEncoder(), [lista com os índices das colunas que serão sub-divididas])], remainder='passthrough') -> Recebe uma lista com os valores dos índices que se deseja sub-dividir e os sub-divide, ou seja, para cada diferente opção de valor que uma coluna pode ter, ele cria uma sub-coluna, se o valor da linha corresponder ao da sub-coluna o valor dessa sub-coluna é 1, caso o valor da linha não corresponda ao da sub-coluna, o seu valor é 0. Só é possível ter um valor de 1 por cada linha de sub-coluna de coluna. Além disso, ao final, é necessário informar que o ramainder='passthrough', isso faz com que os índices das colunas da base de dados não selecionados continuem os mesmos. Caso contrário, essas colunas não selecionadas seriam pagadas, permecendo apenas aquelas selecionadas;
+
+(objeto OneHotEncoder).fit_transform(x).toarray() -> Executa o processo citado anteriormente e converte o dado obtido para o formato array;
+
+.toarray() -> Converte algo para o formato de array, tem coisas que não são capazes de serem transformadas em array;
+
+.shape -> Retorna a quantidade de, respectivamente, linhas e colunas de uma base de dados;
