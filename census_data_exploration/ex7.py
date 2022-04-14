@@ -60,6 +60,7 @@ print('\n\n\n')
 # Técnica OneHotEncoder:
 
 # Antes de tudo, veremos a quantidade de linhas e colunas da base de dados (Isso será interessante de se saber para ocasiões futuras)
+print('ANTES:')
 print(X_censo.shape)  # (32561, 14)
 
 from sklearn.preprocessing import OneHotEncoder
@@ -80,4 +81,5 @@ print(X_censo[0])  # Apenas a primeira linha
 print('\n\n\n')
 
 # A quantidade de colunas aumentou bastante, é possível visualizar essa mudanção ao usarmos o .shape, novamente, só que agora, após a alteração
+print('DEPOIS:')
 print(X_censo.shape)  # (32561, 108)
