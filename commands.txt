@@ -33,3 +33,9 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 .values -> Informa o valor de determinado item;
 
 .iloc -> Seleciona linhas e colunas do data frame, sendo que, o primeiro parâmetro é relativo as linhas desejadas. Já o segundo parâmetro, é referente às colunas a serem pegadas. Para selecioná-las, é necessário informar os intervalos, de forma semelhante a uma lista/tupla;
+
+.min() -> Seleciona o menor valor de um agrupamento de valores;
+
+.max() -> Seleciona o maior valor de um agrupamento de valores;
+
+.fit_transform() -> Recebe como parâmetro uma lista de dados e os padroniza;
