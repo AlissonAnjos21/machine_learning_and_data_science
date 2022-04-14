@@ -6,7 +6,7 @@
 
 .describe() -> Exibe algumas coisas úteis, como número de respostas, médias, desvios padrão, etc;
 
-np.unique(base de dados[coluna]) -> Recebe como parâmetro uma coluna da base de dados e retorna a as diferentes respostas presentes nas mesmas, ou seja, não repete valores iguais. Ao passar-se como parâmetro return_counts=True, ele informa a quantida de vezes que aquele dado apareceu;
+np.unique(base de dados[coluna]) -> Recebe como parâmetro uma coluna da base de dados e retorna a as diferentes respostas presentes nas mesmas, ou seja, não repete valores iguais. Ao passar-se como parâmetro return_counts=True, ele informa a quantidade de vezes que aquele dado apareceu;
 
 sns.countplot(x=(valor)) -> Recebe como parâmetro um valor para x e assim controi uma gráfico de barras mostrando a quantidade de cada uma das possibilidades desse valor x;
 
@@ -21,6 +21,8 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 .drop() -> Recebe como parâmetro o índice de um elemento que cumpre determianda condição, sendo que, os elementos que cumprirem tal condição serão apagados da base de dados;
 
 .index -> Informa o índice de algo;
+
+.sum -> Retorna a soma de determinada coisa. Dependendo de como utilizada, pode retornar quantas vezes algo apareceu;
 
 .mean() -> Informa a média de algo;
 
