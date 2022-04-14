@@ -34,8 +34,9 @@ from sklearn.compose import ColumnTransformer
 onehotencoder_censo = ColumnTransformer(transformers=[('OneHot', OneHotEncoder(), [1, 3, 5, 6, 7, 8, 9, 13])], remainder='passthrough')
 X_censo = onehotencoder_censo.fit_transform(X_censo).toarray()
 
-# Usando a Padronização para padronizar os valores Numéricos padrão e os valores Númericos que era Categóricos, pois ainda existem valores Numéricos padrão com o valor muito alto 
+# Usando a Padronização para escalonar (padronizar/deixar na mesma escala) os valores Numéricos padrão e os valores Númericos que era Categóricos, pois ainda existem valores Numéricos padrão com o valor muito alto 
 
+# Escalonamento:
 from sklearn.preprocessing import StandardScaler
 scaler_censo = StandardScaler()
 
