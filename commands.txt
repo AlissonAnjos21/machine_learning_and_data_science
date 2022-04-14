@@ -45,3 +45,7 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 px.treemap(base de dados, path=[colunas]) -> Recebe a base de dados e a coluna desejada. Assim, criando uma representação retangularcom base nas respostas. Aquelas respostas que aparecem mais ficam maiores, equanto as que aparecem menos ficam proporcionalmente menores. Quando é informado mais de uma coluna, aparecem outras representações retangulares dentro da representação principal (primeira representação), esses sub-retângulos, assim como o retângulo principal, também são proporcionais ao número de ocorrencias;
 
 px.parallel_categories(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe como parâmetros a base de dados e as colunas que serão exibidas e gera uma representação gráfica que liga as ocorrencias (valores das colunas) uma com a outra por meio de linhas;
+
+.columns -> Informa as colunas presentes na base de dados;
+
+(objeto LabelEncoder).fit_transform(x[:, indice coluna]) -> Transforma um dado do tipo Categórico em um dado do tipo Numérico;
