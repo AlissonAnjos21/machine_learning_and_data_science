@@ -1,5 +1,6 @@
-# Explicando e classificando as colunas da tabela:
+Fonte credit_data (adaptado): https://www.kaggle.com/laotse/credit-risk-dataset;
 
+# Explicando e classificando as colunas da tabela:
 
 
 # clientid: id do cliente, é uma variável do tipo categórica e nominal. Pois, apesar do id ser um número, o id equivale ao nome do cliente, além disso, ele é nominal pois um cliente não é melhor que outro de maior número

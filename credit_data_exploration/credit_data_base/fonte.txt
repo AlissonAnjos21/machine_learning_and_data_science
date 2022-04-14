@@ -1,1 +1,0 @@
-Fonte credit_data (adaptado): https://www.kaggle.com/laotse/credit-risk-dataset;
