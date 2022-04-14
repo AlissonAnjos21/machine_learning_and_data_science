@@ -33,3 +33,6 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 onehotencoder_censo = ColumnTransformer(transformers=[('OneHot', OneHotEncoder(), [1, 3, 5, 6, 7, 8, 9, 13])], remainder='passthrough')
 X_censo = onehotencoder_censo.fit_transform(X_censo).toarray()
+from sklearn.preprocessing import StandardScaler
+scaler_censo = StandardScaler()
+X_censo = scaler_censo.fit_transform(X_censo)
