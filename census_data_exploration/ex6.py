@@ -17,6 +17,7 @@ Y_censo = base_censo.iloc[:, 14].values
 
 # Os algoritmos de machine learning utilizam vários cálculos matemáticos, e não é possível realizar esses cálculos com dados do tipo Categórico (str)
 # Por isso, esses dados do tipo Categórico (str), serão convertidos para o tipo Numérico
+# Para isso, será usada uma técnica chamada LabelEncoder
 
 from sklearn.preprocessing import LabelEncoder
 

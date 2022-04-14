@@ -30,4 +30,9 @@ X_censo[:, 8] = label_encoder_race.fit_transform(X_censo[:, 8])
 X_censo[:, 9] = label_encoder_sex.fit_transform(X_censo[:, 9])
 X_censo[:, 13] = label_encoder_contry.fit_transform(X_censo[:, 13])
 
+# Como foi já mencionado anteriormente, os algoritmos de machine learning realizam suas ações baseados em vários tipos de cálculos matemáticos
+# Porém, acontece que devido a isso, eles possuem a tendência de atribuir que os números maiores possuem maior significância do que os números menores, embora em muitos casos isso realmente funcione dessa forma, existem aqueles casos onde um número maior não significa nada relativo a esse tipo de assunto
+# Um exemplo disso é a quantidade de colunas que uma base de dados possui. Não é porquê o número do índice é 10 que ele é mais importante que o índice 1. São apenas índices diferentes
+# Para corrigir isso, existe a técnica chamada OneHotEncoder
 
+# 
