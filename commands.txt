@@ -40,7 +40,7 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 
 .max() -> Seleciona o maior valor de um agrupamento de valores;
 
-.fit_transform() -> Recebe como parâmetro uma lista de dados e os padroniza;
+(objeto StandardScaler).fit_transform() -> Recebe como parâmetro uma lista de dados e os padroniza;
 
 px.treemap(base de dados, path=[colunas]) -> Recebe a base de dados e a coluna desejada. Assim, criando uma representação retangularcom base nas respostas. Aquelas respostas que aparecem mais ficam maiores, equanto as que aparecem menos ficam proporcionalmente menores. Quando é informado mais de uma coluna, aparecem outras representações retangulares dentro da representação principal (primeira representação), esses sub-retângulos, assim como o retângulo principal, também são proporcionais ao número de ocorrencias;
 
