@@ -31,8 +31,19 @@ X_censo[:, 9] = label_encoder_sex.fit_transform(X_censo[:, 9])
 X_censo[:, 13] = label_encoder_contry.fit_transform(X_censo[:, 13])
 
 # Como foi já mencionado anteriormente, os algoritmos de machine learning realizam suas ações baseados em vários tipos de cálculos matemáticos
-# Porém, acontece que devido a isso, eles possuem a tendência de atribuir que os números maiores possuem maior significância do que os números menores, embora em muitos casos isso realmente funcione dessa forma, existem aqueles casos onde um número maior não significa nada relativo a esse tipo de assunto
-# Um exemplo disso é a quantidade de colunas que uma base de dados possui. Não é porquê o número do índice é 10 que ele é mais importante que o índice 1. São apenas índices diferentes
+# Porém, acontece que devido a isso, eles possuem a tendência de atribuir que os números maiores possuem maior significatividade do que os números menores, embora em muitos casos realmente funcione dessa forma, existem aqueles casos onde um número maior não significa nada relativo a esse tipo de assunto
+# Um exemplo disso é o número do dia da semana. Não é porquê o número do dia da semana é 10 que ele é mais importante que o dia da semana 1. São apenas dias da semana diferentes
 # Para corrigir isso, existe a técnica chamada OneHotEncoder
 
-# 
+# Como funciona?
+# Pense em um dado, ao jogá-lo ele pode fornecer 6 diferentes resultados:
+#
+# Dado: (1, 2, 3, 4, 5, 6)
+#
+# Ao invés de usar os números dessa maneira, faz-se assim, imagine que ao jogar o dado eu obtive o valor 4, depois o valor 6 e depois o valor 1:
+# Dado:
+# 1 2 3 4 5 6
+# ___________
+# 0 0 0 1 0 0
+# 0 0 0 0 0 1
+# 1 0 0 0 0 0
