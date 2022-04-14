@@ -29,3 +29,5 @@ X_censo[:, 7] = label_encoder_relationship.fit_transform(X_censo[:, 7])
 X_censo[:, 8] = label_encoder_race.fit_transform(X_censo[:, 8])
 X_censo[:, 9] = label_encoder_sex.fit_transform(X_censo[:, 9])
 X_censo[:, 13] = label_encoder_contry.fit_transform(X_censo[:, 13])
+
+
