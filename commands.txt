@@ -12,7 +12,7 @@ sns.countplot(x=(valor)) -> Recebe como parâmetro um valor para x e assim contr
 
 plt.show() -> Exibe o gráfico criado para o usuário através de uma interface gráfica;
 
-plt.hist(x=(valor)) -> Recebe um valor de x, criando com ele um gráfico de barras com intervalos;
+plt.hist(x = base de dados[coluna]) -> Recebe um valor de x, com uma coluna da base de dados, criando com ele um gráfico de barras com intervalos;
 
 px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe como parâmetros a base de dados e as colunas que serão exibidas e produz um gráfico para cada coluna com os campos tanto na direção vertical quanto na horizontal. Possui como um dos parâmetros opcionais o color, que recebe uma das colunas e, assim, exibe quais itens do gráfico correspondem aos intervalos do item da coluna informada;
 
