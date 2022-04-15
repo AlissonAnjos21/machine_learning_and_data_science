@@ -51,4 +51,3 @@ X_censo = onehotencoder_censo.fit_transform(X_censo).toarray()
 scaler_censo = StandardScaler()
 X_censo = scaler_censo.fit_transform(X_censo)
 X_censo_treinamento, X_censo_teste, Y_censo_treinamento, Y_censo_teste = train_test_split(X_censo, Y_censo, test_size = 0.15, random_state = 0)
-
