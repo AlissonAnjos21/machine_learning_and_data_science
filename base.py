@@ -8,6 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
 
 caminho_arquivo = os.path.dirname(__file__)
 
@@ -21,6 +22,7 @@ X_credit = base_credit.iloc[:, 1:4].values
 Y_credit = base_credit.iloc[:, 4].values
 data_scaler = StandardScaler()
 X_credit = data_scaler.fit_transform(X_credit)
+X_credit_treinamento, X_credit_teste, Y_credit_treinamento, Y_credit_teste = train_test_split(X_credit, Y_credit, test_size = 0.25, random_state = 0)
 
 # Censo:
 caminho_novo_censo = 'census_and_credit_data_base\census.csv'
@@ -48,3 +50,5 @@ onehotencoder_censo = ColumnTransformer(transformers=[('OneHot', OneHotEncoder()
 X_censo = onehotencoder_censo.fit_transform(X_censo).toarray()
 scaler_censo = StandardScaler()
 X_censo = scaler_censo.fit_transform(X_censo)
+X_censo_treinamento, X_censo_teste, Y_censo_treinamento, Y_censo_teste = train_test_split(X_censo, Y_censo, test_size = 0.15, random_state = 0)
+

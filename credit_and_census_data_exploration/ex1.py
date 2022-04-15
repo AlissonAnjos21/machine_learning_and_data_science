@@ -48,3 +48,23 @@ onehotencoder_censo = ColumnTransformer(transformers=[('OneHot', OneHotEncoder()
 X_censo = onehotencoder_censo.fit_transform(X_censo).toarray()
 scaler_censo = StandardScaler()
 X_censo = scaler_censo.fit_transform(X_censo)
+
+# Dividindo as bases de treinamento e as bases de teste:
+
+from sklearn.model_selection import train_test_split
+
+# Creio as variáveis de treinamento e de teste da base de dados do credit
+X_credit_treinamento, X_credit_teste, Y_credit_treinamento, Y_credit_teste = train_test_split(X_credit, Y_credit, test_size = 0.25, random_state = 0)  # test_size diz respeito a quantos da base de dados total será utilizado para as variáveis de teste (nesse caso 0.25, ou seja, 25%). Já o random_state é que, por padrão, a cada execução ele geraria valores diferentes, já com o random_state definido, sempre que executado o resultado será o mesmo. Isso ajuda em momentos de teste.
+
+# Creio as variáveis de treinamento e de teste da base de dados do censo
+X_censo_treinamento, X_censo_teste, Y_censo_treinamento, Y_censo_teste = train_test_split(X_censo, Y_censo, test_size = 0.15, random_state = 0)
+
+print('\nPREVISORES (X):')
+print(X_credit.shape, X_censo.shape)
+print(X_credit_treinamento.shape, X_censo_treinamento.shape)
+print(X_credit_teste.shape, X_censo_teste.shape, '\n\n\n')
+
+print('CLASSES (Y):')
+print(Y_credit.shape, Y_censo.shape)
+print(Y_credit_treinamento.shape, Y_censo_treinamento.shape)
+print(Y_credit_teste.shape, Y_censo_teste.shape, '\n')

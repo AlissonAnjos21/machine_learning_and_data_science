@@ -57,3 +57,5 @@ ColumnTransformer(transformers=[('OneHot', OneHotEncoder(), [lista com os índic
 .toarray() -> Converte algo para o formato de array, tem coisas que não são capazes de serem transformadas em array;
 
 .shape -> Retorna a quantidade de, respectivamente, linhas e colunas de uma base de dados;
+
+(X_treinamento, X_teste, Y_treinamento, Y_teste) = train_test_split(x, y, test_size=(percentual de dados separados para o teste), random_state = (qualquer número (0 por convenção))) -> Separa dados para as variáveis de treinamento e para as variáveis de teste. O text_size é referente ao percentual de dados que você quer separar para o teste, ex: 0.25 = 25%. O random_state é para que após cada execução ele mantenha um valor padrão para os dados. Caso não fosse utilizado, a cada execução os valores seriam diferentes, por isso, é mais fácil utilizar esse atributo, principalmente em momentos de criação/teste. O número que ele recebe pode ser qualquer um, porém, por convenção, usá-se 0.
