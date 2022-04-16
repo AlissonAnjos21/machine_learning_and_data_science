@@ -1,4 +1,3 @@
-from re import X
 import pandas as pd
 import numpy as np
 import seaborn as sns
@@ -14,7 +13,7 @@ caminho_csv_risk = os.path.join(caminho_arquivo, caminho_risk)
 base_risk = pd.read_csv(caminho_csv_risk)
 
 x_base_risk = base_risk.iloc[:,  0:4].values
-y_base_risk = base_risk.iloc[4].values
+y_base_risk = base_risk.iloc[:, 4].values
 
 from sklearn.preprocessing import LabelEncoder
 
