@@ -25,13 +25,18 @@ print(x_loan_risk)
 
 print(y_loan_risk)  # Alto, Moderado, Baixo
 
-# Momento de realizar a predição:
-
 from sklearn.naive_bayes import GaussianNB
 
 naive_loan_risk = GaussianNB()
 naive_loan_risk.fit(x_loan_risk, y_loan_risk)  # Recebe os previsores e a classe. Após isso, ele os relaciona
 
+# Informações Importantes:
+print('\n')
+print(naive_loan_risk.classes_)  # Informa todas as classes existentes
+print(naive_loan_risk.class_count_)  # Informa quantas vezes cada classe aparece na base de dados
+print(naive_loan_risk.class_prior_)  # Informa frequência de cada diferente tipo de classe (ao multiplicar por 100 obtêm-se a porcentagem)
+
+# Momento de realizar a predição:
 predicao = naive_loan_risk.predict([[0, 0, 1, 2], [2, 0, 0, 0]])  # Valores pegos da tabela acima
 
 # É suposto que o resultado seja Baixo para o primeiro e Moderado para o segundo
