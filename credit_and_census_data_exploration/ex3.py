@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 import os
 
-# Fazendo o pre-processamento da tabela risco crédito, será usado tudo que foi aprendido (com exceção do OneHotEncoder, mas isso é devido apenas ao pequeno porte da tabela, não é como se não desse para tratar, porém ao que se deseja utilizar ela, não é viável)
+# Fazendo o pre-processamento da tabela risco crédito, será usado tudo que foi aprendido (com exceção do OneHotEncoder e do StandardScaler, mas isso é devido apenas ao pequeno porte da tabela, não é como se não desse para tratar, porém ao que se deseja utilizar ela, não é viável)
 
 caminho_arquivo = os.path.dirname(__file__)
 caminho_risk = 'credit_and_census_data_base/risco_credito.csv'
