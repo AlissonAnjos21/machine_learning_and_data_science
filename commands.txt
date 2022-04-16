@@ -67,3 +67,9 @@ pickle.load(arquivo aberto) -> Carrega um arquivo pickle que contém os dados sa
 .fit(x, y) -> Recebe a base de dados histórica para conseguir realizar os cálculos de predição;
 
 .predict(listas contendo novos valores x) -> Recebe uma lista contendo uma ou mais listas com novos valores x. Com base nos dados históricos, ele calculará qual a chance do valor pertencer a uma das classes anteriormente informadas no método fit();
+
+(objeto GaussianNB).classes_ -> Informa as classes existentes;
+
+(objeto GaussianNB).class_count_ -> Informa quantas vezes cada classe aparece na base de dados;
+
+(objeto GaussianNB).class_prior_ -> Informa a frequência em que cada classe aparece;
