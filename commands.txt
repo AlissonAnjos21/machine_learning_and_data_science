@@ -64,7 +64,7 @@ pickle.dump([variáveis], arquivo aberto) -> Possibilita salvar certas variávei
 
 pickle.load(arquivo aberto) -> Carrega um arquivo pickle que contém os dados salvos, como mencionados no exemplo anterior;
 
-.fit(x, y) -> Recebe a base de dados histórica para conseguir realizar os cálculos de predição;
+.fit(x treinamento, y treinamento) -> Recebe a base de dados histórica para conseguir realizar os cálculos de predição;
 
 .predict(listas contendo novos valores x) -> Recebe uma lista contendo uma ou mais listas com novos valores x. Com base nos dados históricos, ele calculará qual a chance do valor pertencer a uma das classes anteriormente informadas no método fit();
 
@@ -73,3 +73,11 @@ pickle.load(arquivo aberto) -> Carrega um arquivo pickle que contém os dados sa
 (objeto GaussianNB).class_count_ -> Informa quantas vezes cada classe aparece na base de dados;
 
 (objeto GaussianNB).class_prior_ -> Informa a frequência em que cada classe aparece;
+
+accuracy_score(y teste, valor obtido por predição) -> Retornará o percentual de acerto;
+
+confusion_matrix(y_teste, valor obtido por predição) -> Retornará uma matriz, onde na primeira linha e na primeira coluna está os valores que eram e ele apontou que eram, na primeira linha e segunda coluna está os valores que não eram e ele apontou como se fossem, na segunda linha e primeira coluna estão os valores que não eram e ele apontou que eram, por fim, na segunda linha e segunda coluna estão os valores que não eram e ele apontou como se não fossem;
+
+(objeto ConfusionMatrix).score(x teste, y teste) -> Após receber o x teste ele realiza os cálculos da técnica Naive Bayes e após isso compara com o resultado oficial, ou seja, com o y teste;
+
+classification_report(y teste, valor obtido por predicao) -> Informa alguns dados interessantes sobre os acertos e os erros da predição;
