@@ -12,7 +12,7 @@ caminho_risk = 'credit_and_census_data_base/risco_credito.csv'
 caminho_csv_risk = os.path.join(caminho_arquivo, caminho_risk)
 base_risk = pd.read_csv(caminho_csv_risk)
 
-x_base_risk = base_risk.iloc[:,  0:4].values
+x_base_risk = base_risk.iloc[:, 0:4].values
 y_base_risk = base_risk.iloc[:, 4].values
 
 from sklearn.preprocessing import LabelEncoder
