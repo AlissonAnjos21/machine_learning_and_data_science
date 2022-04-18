@@ -14,4 +14,6 @@ import pickle
 with open(caminho_final, 'rb') as f:
     x_loan_risk, y_loan_risk = pickle.load(f)
 
-
+print(x_loan_risk)
+print('\n')
+print(y_loan_risk)

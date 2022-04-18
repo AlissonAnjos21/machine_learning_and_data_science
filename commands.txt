@@ -81,3 +81,9 @@ confusion_matrix(y_teste, valor obtido por predição) -> Retornará uma matriz,
 (objeto ConfusionMatrix).score(x teste, y teste) -> Após receber o x teste ele realiza os cálculos da técnica Naive Bayes e após isso compara com o resultado oficial, ou seja, com o y teste;
 
 classification_report(y teste, valor obtido por predicao) -> Informa alguns dados interessantes sobre os acertos e os erros da predição;
+
+DecisionTreeClassifier(criterion='entropy') -> Permite instanciar um objeto para que a partir deste seja criada uma árvore de decisão baseada no ganho da entropia;
+
+(objeto DecisionTreeClassifier).feature_importances_ -> Informa a importância de cada um dos atributos com base no ganho de informação por entropia;
+
+tree.plot_tree(objeto DecisionTreeClassifier, feature_names=(variável com uma lista contendo os atributos), class_names = (objeto DecisionTreeClassifier).classes_, filled = True) -> Informa os ramos da árvore e seus respectivos ganhos de informação com base na entropia. O Parâmetro feature_names auxilia na compreenção do atributo ao qual o galho se refere, o class_names auxilia na compreenção da classe a qual o galho se refere, e o filled = True melhora a representação gráfica da árvore obtida, colorindo-a;
