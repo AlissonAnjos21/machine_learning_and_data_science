@@ -38,7 +38,7 @@ plt.show()
 # Representação gráfica da árvore de decisão:
 from sklearn import tree
 predictors = ['income', 'age', 'loan']
-figure, axes = plt.subplots(nrows=1, ncols=1, figsize= (12,12))
+figure, axes = plt.subplots(nrows=1, ncols=1, figsize=(12,12))
 tree.plot_tree(tree_credit, feature_names=predictors, class_names=['0','1'], filled=True)
 plt.show()
 final_tree_path = os.path.join(caminho_rota, 'credit_and_census_images/credit_tree.png')
