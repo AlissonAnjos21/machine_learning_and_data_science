@@ -82,7 +82,7 @@ confusion_matrix(y_teste, valor obtido por predição) -> Retornará uma matriz,
 
 classification_report(y teste, valor obtido por predicao) -> Informa alguns dados interessantes sobre os acertos e os erros da predição;
 
-DecisionTreeClassifier(criterion='entropy') -> Permite instanciar um objeto para que a partir deste seja criada uma árvore de decisão baseada no ganho da entropia;
+DecisionTreeClassifier(criterion='entropy', random_state = (qualquer número)) -> Permite instanciar um objeto para que a partir deste seja criada uma árvore de decisão baseada no ganho da entropia. O random_state, como já mencionado anteriormente, é útil para que após cada execução os resultados encontrados sejam os mesmos;
 
 (objeto DecisionTreeClassifier).feature_importances_ -> Informa a importância de cada um dos atributos com base no ganho de informação por entropia;
 
