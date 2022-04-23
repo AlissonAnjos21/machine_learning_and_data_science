@@ -90,7 +90,7 @@ tree.plot_tree(objeto DecisionTreeClassifier, feature_names=(variável com uma l
 
 RandomForestClassifier(n_estimators=(número de árvores que você quer), criterion='entropy', random_state=(qualquer número)) -> Cria um número pré-definido de árvores de decisão, cada uma dessas árvores é feita a partir de certas colunas da base de dados, essas colunas são escolhidas randomicamente, ao contrário de uma árvore comum que usa apenas uma árvore com todas as colunas da base de dados. O parâmetro n_estimators recebe o número de árvores que se deseja criar, o parâmetro criterion recebe o valor entropy para que as árvores criadas sejam baseadas no ganho de informação por entropia, já o random_state recebe um valor qualquer para que após cada execução, os valores não se alterem, sendo útil para testes;
 
-###############################################################################################
+################################################################################################################
 Orange:
 
 Orange.data.Table((caminho do arquivo csv)) -> Lê um arquivo csv;
@@ -105,4 +105,4 @@ Orange.data.Table((caminho do arquivo csv)) -> Lê um arquivo csv;
 
 (objeto base de dados Orange).domain.class_var.values -> Retorna uma tupla que informa as classes existentes na base de dados, cada opção de classe pode ser representada pelo índice da tupla retornada;
 
-###############################################################################################
+################################################################################################################
