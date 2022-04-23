@@ -12,6 +12,13 @@ training_and_test_censo_data_base = Orange.evaluation.testing.sample(censo_base,
 training_censo_data_base = training_and_test_censo_data_base[1]
 test_censo_data_base = training_and_test_censo_data_base[0]
 
+print('TAMANHO BASE TREINAMENTO:')
+print(len(training_censo_data_base))
+print('TAMANHO BASE TESTE:')
+print(len(test_censo_data_base))
+
+print('\n')
+
 cn2 = Orange.classification.rules.CN2Learner()
 censo_rules = cn2(training_censo_data_base)  # Cria as regras
 
