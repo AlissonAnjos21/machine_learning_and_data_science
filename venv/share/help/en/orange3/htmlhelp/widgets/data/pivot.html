@@ -1,0 +1,118 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pivot Table</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Python Script" href="pythonscript.html" />
+    <link rel="prev" title="Paint Data" href="paintdata.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pivot-table">
+<h1>Pivot Table</h1>
+<p>Reshape data table based on column values.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input data set</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Pivot Table: contingency matrix as shown in the widget</li>
+<li>Filtered Data: subset selected from the plot</li>
+<li>Grouped Data: aggregates over groups defined by row values</li>
+</ul>
+<p><strong>Pivot Table</strong> summarizes the data of a more extensive table into a table of statistics. The statistics can include sums, averages, counts, etc. The widget also allows selecting a subset from the table and grouping by row values, which have to be a discrete variable. Data with only numeric variables cannot be displayed in the table.</p>
+<p><img alt="../../_images/Pivot-stamped.png" src="../../_images/Pivot-stamped.png" /></p>
+<ol class="simple">
+<li>Discrete or numeric variable used for row values. Numeric variables are considered as integers.</li>
+<li>Discrete variable used for column values. Variable values will appear as columns in the table.</li>
+<li>Values used for aggregation. Aggregated values will appear as cells in the table.</li>
+<li>Aggregation methods:<ul>
+<li>For any variable type:<ul>
+<li><em>Count</em>: number of instances with the given row and column value.</li>
+<li><em>Count defined</em>: number of instances where the aggregation value is defined.</li>
+</ul>
+</li>
+<li>For numeric variables:<ul>
+<li><em>Sum</em>: sum of values.</li>
+<li><em>Mean</em>: average of values.</li>
+<li><em>Mode</em>: most frequent value of the subset.</li>
+<li><em>Min</em>: smallest value.</li>
+<li><em>Max</em>: highest value.</li>
+<li><em>Median</em>: middle value.</li>
+<li><em>Var</em>: variance of the subset.</li>
+</ul>
+</li>
+<li>For discrete variables:<ul>
+<li><em>Majority</em>: most frequent value of the subset.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tick the box on the left to automatically output any changes. Alternatively, press <em>Apply</em> .</li>
+</ol>
+<div class="section" id="discrete-variables">
+<h2>Discrete variables</h2>
+<p><img alt="../../_images/Pivot-discrete.png" src="../../_images/Pivot-discrete.png" /></p>
+<p>Example of a pivot table with only discrete variables selected. We are using <em>heart-disease</em> data set for this example. Rows correspond to values of <em>diameter narrowing</em> variable. Our columns are values of <em>gender</em>, namely female and male. We are using <em>thal</em> as values in our cells.</p>
+<p>We have selected <em>Count</em> and <em>Majority</em> as aggregation methods. In the pivot table, we can see the number of instances that do not have diameter narrowing and are female. There are 72 such patients. Concurrently, there are 92 male patients that don’t have diameter narrowing. Thal values don’t have any effect here, we are just counting occurrences in the data.</p>
+<p>The second row shows majority. This means most female patients that don’t have diameter narrowing have normal thal results. Conversely, female patients that have diameter narrowing most often have reversable defect.</p>
+</div>
+<div class="section" id="numeric-variables">
+<h2>Numeric variables</h2>
+<p><img alt="../../_images/Pivot-continuous.png" src="../../_images/Pivot-continuous.png" /></p>
+<p>Example of a pivot table with numeric variables. We are using <em>heart-disease</em> data set for this example. Rows correspond to values of <em>diameter narrowing</em> variable. Our columns are values of <em>gender</em>, namely female and male. We are using <em>rest SBP</em> as values in our cells.</p>
+<p>We have selected <em>Count</em>, <em>Sum</em> and <em>Median</em> as aggregation methods. Under <em>Count</em>, we see there are 72 female patients that don’t have diameter narrowing, same as before for discrete values. What is different are the sum and median aggregations. We see that the sum of resting systolic blood pressure for female patients that don’t have diameter narrowing is 9269 and the median value is 130.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>We are using <em>Forest Fires</em> for this example. The data is loaded in the <a class="reference internal" href="datasets.html"><span class="doc">Datasets</span></a> widget and passed to <strong>Pivot Table</strong>. <em>Forest Fires</em> datasets reports forest fires by the month and day they happened. We can aggregate all occurrences of forest fires by selecting <em>Count</em> as aggregation method and using <em>month</em> as row and <em>day</em> as column values. Since we are using <em>Count</em>, <em>Values</em> variable will have no effect.</p>
+<p>We can plot the counts in <a class="reference internal" href="../visualize/lineplot.html"><span class="doc">Line Plot</span></a>. But first, let us organize our data a bit. With <a class="reference internal" href="editdomain.html"><span class="doc">Edit Domain</span></a>, we will reorder rows values so that months will appear in the correct order, namely from January to December. To do the same for columns, we will use <a class="reference internal" href="selectcolumns.html"><span class="doc">Select Columns</span></a> and reorder day to go from Monday to Sunday.</p>
+<p>Finally, our data is ready. Let us pass it to <strong>Line Plot</strong>. We can see that forest fires are most common in August and September, while their frequency is higher during the weekend than during weekdays.</p>
+<p><img alt="../../_images/Pivot-example.png" src="../../_images/Pivot-example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/pivot.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

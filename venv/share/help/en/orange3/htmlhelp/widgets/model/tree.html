@@ -1,0 +1,96 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tree</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Random Forest" href="randomforest.html" />
+    <link rel="prev" title="kNN" href="knn.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="tree">
+<h1>Tree</h1>
+<p>A tree algorithm with forward pruning.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: decision tree learning algorithm</li>
+<li>Model: trained model</li>
+</ul>
+<p><strong>Tree</strong> is a simple algorithm that splits the data into nodes by class purity (information gain for categorical and MSE for numeric target variable). It is a precursor to <a class="reference internal" href="randomforest.html"><span class="doc">Random Forest</span></a>. Tree in Orange is designed in-house and can handle both categorical and numeric datasets.</p>
+<p>It can also be used for both classification and regression tasks.</p>
+<p><img alt="../../_images/Tree-stamped.png" src="../../_images/Tree-stamped.png" /></p>
+<ol class="simple">
+<li>The learner can be given a name under which it will appear in other widgets. The default name is “Tree”.</li>
+<li>Tree parameters:<ul>
+<li><strong>Induce binary tree</strong>: build a binary tree (split into two child nodes)</li>
+<li><strong>Min. number of instances in leaves</strong>: if checked, the algorithm will never construct a split which would put less than the specified number of training examples into any of the branches.</li>
+<li><strong>Do not split subsets smaller than</strong>: forbids the algorithm to split the nodes with less than the given number of instances.</li>
+<li><strong>Limit the maximal tree depth</strong>: limits the depth of the classification tree to the specified number of node levels.</li>
+</ul>
+</li>
+<li><strong>Stop when majority reaches [%]</strong>: stop splitting the nodes after a specified majority threshold is reached</li>
+<li>Produce a report. After changing the settings, you need to click <em>Apply</em>, which will put the new learner on the output and, if the training examples are given, construct a new classifier and output it as well. Alternatively, tick the box on the left and changes will be communicated automatically.</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Tree does not use any preprocessing.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>There are two typical uses for this widget. First, you may want to induce a model and check what it looks like in <a class="reference internal" href="../visualize/treeviewer.html"><span class="doc">Tree Viewer</span></a>.</p>
+<p><img alt="../../_images/Tree-classification-visualize.png" src="../../_images/Tree-classification-visualize.png" /></p>
+<p>The second schema trains a model and evaluates its performance against <a class="reference internal" href="logisticregression.html"><span class="doc">Logistic Regression</span></a>.</p>
+<p><img alt="../../_images/Tree-classification-model.png" src="../../_images/Tree-classification-model.png" /></p>
+<p>We used the <em>iris</em> dataset in both examples. However, <strong>Tree</strong> works for regression tasks as well. Use <em>housing</em> dataset and pass it to <strong>Tree</strong>. The selected tree node from <a class="reference internal" href="../visualize/treeviewer.html"><span class="doc">Tree Viewer</span></a> is presented in the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> and we can see that the selected examples exhibit the same features.</p>
+<p><img alt="../../_images/Tree-regression-subset.png" src="../../_images/Tree-regression-subset.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/tree.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

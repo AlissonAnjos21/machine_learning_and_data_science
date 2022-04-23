@@ -1,0 +1,89 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-Organizing Map</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="prev" title="Manifold Learning" href="manifoldlearning.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="self-organizing-map">
+<h1>Self-Organizing Map</h1>
+<p>Computation of a self-organizing map.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the plot</li>
+<li>Data: data with an additional column showing whether a point is selected</li>
+</ul>
+<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Self-organizing_map" target="_blank">self-organizing map (SOM)</a> is a type of artificial neural network (ANN) that is trained using unsupervised learning to produce a two-dimensional, discretized representation of the data. It is a method to do dimensionality reduction. Self-organizing maps use a neighborhood function to preserve the topological properties of the input space.</p>
+<p>The points in the grid represent data instances. By default, the size of the point corresponds to the number of instances represented by the point. The points are colored by majority class (if available), while the intensity of interior color shows the proportion of majority class. To see the class distribution, select <em>Show pie charts</em> option.</p>
+<p>Just like other visualization widgets, <strong>Self-Organizing Maps</strong> also supports interactive selection of groups. Use Shift key to select a new group and Ctr+Shift to add to the existing group.</p>
+<p><img alt="../../_images/Self-Organizing_Map-stamped.png" src="../../_images/Self-Organizing_Map-stamped.png" /></p>
+<ol class="simple">
+<li>SOM properties:<ul>
+<li>Set the grid type. Options are hexagonal or square grid.</li>
+<li>If <em>Set dimensions automatically</em> is checked, the size of the plot will be set automatically. Alternatively, set the size manually.</li>
+<li>Set the initialization type for the SOM projection. Options are PCA initialization, random initialization and replicable random (random_seed = 0).</li>
+<li>Once the parameters are set, press <em>Start</em> to re-run the optimization.</li>
+</ul>
+</li>
+<li>Set the color of the instances in the plot. The widget colors by class by default (if available).<ul>
+<li><em>Show pie charts</em> turns points into pie-charts that show the distributions of the values used for coloring.</li>
+<li><em>Size by number of instances</em> scales the points according to the number of instances represented by the point.</li>
+</ul>
+</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Self-organizing maps are low-dimensional projections of the input data. We will use the <em>brown-selected</em> data and display the data instance in a 2-D projection. Seems like the three gene types are well-separated. We can select a subset from the grid and display it in a Data Table.</p>
+<p><img alt="../../_images/Self-Organizing_Map_Example.png" src="../../_images/Self-Organizing_Map_Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/selforganizingmap.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

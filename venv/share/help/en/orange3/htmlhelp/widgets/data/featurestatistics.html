@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Statistics</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Melt" href="melt.html" />
+    <link rel="prev" title="Color" href="color.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="feature-statistics">
+<h1>Feature Statistics</h1>
+<p>Show basic statistics for data features.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input data</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Reduced data: table containing only selected features</li>
+<li>Statistics: table containing statistics of the selected features</li>
+</ul>
+<p>The <strong>Feature Statistics</strong> widget provides a quick way to inspect and find interesting features in a given data set.</p>
+<p><img alt="../../_images/feature_statistics-stamped.png" src="../../_images/feature_statistics-stamped.png" /></p>
+<p>The Feature Statistics widget on the <em>heart-disease</em> data set. The feature <em>exerc ind ang</em> was manually changed to a meta variable for illustration purposes.</p>
+<ol class="simple">
+<li>Info on the current data set size and number and types of features</li>
+<li>The histograms on the right can be colored by any feature. If the selected feature is categorical, a discrete color palette is used (as shown in the example). If the selected feature is numerical, a continuous color palette is used. The table on the right contains statistics about each feature in the data set. The features can be sorted by each statistic, which we now describe.</li>
+<li>The feature type - can be one of categorical, numeric, time and string.</li>
+<li>The name of the feature.</li>
+<li>A histogram of feature values. If the feature is numeric, we appropriately discretize the values into bins. If the feature is categorical, each value is assigned its own bar in the histogram.</li>
+<li>The central tendency of the feature values. For categorical features, this is the <a class="reference external" href="https://en.wikipedia.org/wiki/Mode_(statistics)" target="_blank">mode</a>. For numeric features, this is <a class="reference external" href="https://en.wikipedia.org/wiki/Mean" target="_blank">mean</a> value.</li>
+<li>The dispersion of the feature values. For categorical features, this is the <a class="reference external" href="https://en.wikipedia.org/wiki/Entropy_(information_theory)" target="_blank">entropy</a> of the value distribution. For numeric features, this is the <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_variation" target="_blank">coefficient of variation</a>.</li>
+<li>The minimum value. This is computed for numerical and ordinal categorical features.</li>
+<li>The maximum value. This is computed for numerical and ordinal categorical features.</li>
+<li>The number of missing values in the data.</li>
+</ol>
+<p>Notice also that some rows are colored differently. White rows indicate regular features, gray rows indicate class variables and the lighter gray indicates meta variables.</p>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>The Feature Statistics widget is most often used after the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget to inspect and find potentially interesting features in the given data set. In the following examples, we use the <em>heart-disease</em> data set.</p>
+<p><img alt="../../_images/feature_statistics_workflow.png" src="../../_images/feature_statistics_workflow.png" /></p>
+<p>Once we have found a subset of potentially interesting features, or we have found features that we would like to exclude, we can simply select the features we want to keep. The widget outputs a new data set with only these features.</p>
+<p><img alt="../../_images/feature_statistics_example1.png" src="../../_images/feature_statistics_example1.png" /></p>
+<p>Alternatively, if we want to store feature statistics, we can use the <em>Statistics</em> output and manipulate those values as needed. In this example, we simply select all the features and display the statistics in a table.</p>
+<p><img alt="../../_images/feature_statistics_example2.png" src="../../_images/feature_statistics_example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/featurestatistics.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

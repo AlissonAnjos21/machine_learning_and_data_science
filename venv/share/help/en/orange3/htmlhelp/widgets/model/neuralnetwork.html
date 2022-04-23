@@ -1,0 +1,118 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural Network</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Stochastic Gradient Descent" href="stochasticgradient.html" />
+    <link rel="prev" title="Curve Fit" href="curvefit.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="neural-network">
+<h1>Neural Network</h1>
+<p>A multi-layer perceptron (MLP) algorithm with backpropagation.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: multi-layer perceptron learning algorithm</li>
+<li>Model: trained model</li>
+</ul>
+<p>The <strong>Neural Network</strong> widget uses sklearn’s <a class="reference external" href="http://scikit-learn.org/stable/modules/neural_networks_supervised.html" target="_blank">Multi-layer Perceptron algorithm</a> that can learn non-linear models as well as linear.</p>
+<p><img alt="../../_images/NeuralNetwork-stamped.png" src="../../_images/NeuralNetwork-stamped.png" /></p>
+<ol>
+<li><p class="first">A name under which it will appear in other widgets. The default name is “Neural Network”.</p>
+</li>
+<li><p class="first">Set model parameters:</p>
+<ul class="simple">
+<li>Neurons per hidden layer: defined as the ith element represents the number of neurons in the ith hidden layer. E.g. a neural network with 3 layers can be defined as 2, 3, 2.</li>
+<li>Activation function for the hidden layer:<ul>
+<li>Identity: no-op activation, useful to implement linear bottleneck</li>
+<li>Logistic: the logistic sigmoid function</li>
+<li>tanh: the hyperbolic tan function</li>
+<li>ReLu: the rectified linear unit function</li>
+</ul>
+</li>
+<li>Solver for weight optimization:<ul>
+<li>L-BFGS-B: an optimizer in the family of quasi-Newton methods</li>
+<li>SGD: stochastic gradient descent</li>
+<li>Adam: stochastic gradient-based optimizer</li>
+</ul>
+</li>
+<li>Alpha: L2 penalty (regularization term) parameter</li>
+<li>Max iterations: maximum number of iterations</li>
+</ul>
+<p>Other parameters are set to <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html" target="_blank">sklearn’s defaults</a>.</p>
+</li>
+<li><p class="first">Produce a report.</p>
+</li>
+<li><p class="first">When the box is ticked (<em>Apply Automatically</em>), the widget will communicate changes automatically. Alternatively, click <em>Apply</em>.</p>
+</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Neural Network uses default preprocessing when no other preprocessors are given. It executes them in the following order:</p>
+<ul class="simple">
+<li>removes instances with unknown target values</li>
+<li>continuizes categorical variables (with one-hot-encoding)</li>
+<li>removes empty columns</li>
+<li>imputes missing values with mean values</li>
+<li>normalizes the data by centering to mean and scaling to standard deviation of 1</li>
+</ul>
+<p>To remove default preprocessing, connect an empty <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget to the learner.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>The first example is a classification task on <em>iris</em> dataset. We compare the results of <strong>Neural Network</strong> with the <a class="reference internal" href="logisticregression.html"><span class="doc">Logistic Regression</span></a>.</p>
+<p><img alt="../../_images/NN-Example-Test.png" src="../../_images/NN-Example-Test.png" /></p>
+<p>The second example is a prediction task, still using the <em>iris</em> data. This workflow shows how to use the <em>Learner</em> output. We input the <strong>Neural Network</strong> prediction model into <a class="reference internal" href="../evaluate/predictions.html"><span class="doc">Predictions</span></a> and observe the predicted values.</p>
+<p><img alt="../../_images/NN-Example-Predict.png" src="../../_images/NN-Example-Predict.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/neuralnetwork.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

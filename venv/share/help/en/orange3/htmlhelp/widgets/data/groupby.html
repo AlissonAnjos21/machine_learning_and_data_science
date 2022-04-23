@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group by</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Box Plot" href="../visualize/boxplot.html" />
+    <link rel="prev" title="Unique" href="unique.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="group-by">
+<h1>Group by</h1>
+<p>Groups data by selected variables and aggregate columns with selected aggregations.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input data table</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: aggregated data</li>
+</ul>
+<p>Group By widget first identifies groups based on selected variables in the <strong>Group by</strong> list. Groups are defined by all distinct combinations of values in selected variables.</p>
+<p>In the second step, the widget computes aggregations defined in the table on the right side of the widget for each group.</p>
+<p><img alt="../../_images/Group-by-stamped.png" src="../../_images/Group-by-stamped.png" /></p>
+<ol class="simple">
+<li>Select variables that define groups</li>
+<li>View variables and their aggregations. To change aggregation for one or more variables, select them in the table.</li>
+<li>Change aggregations for variables selected in the view above.</li>
+<li>When the <em>Send automatically</em> box is ticked, all changes will be automatically communicated to other widgets.</li>
+<li>Get documentation, observe a number of items on input or output</li>
+</ol>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>We first load <strong>heart_disease</strong> dataset in the <strong>File</strong> widget. In the <strong>Group By</strong> widget, we set variables that define groups – <strong>diameter narrowing</strong> and <strong>gender</strong>. Each group includes items (rows) that belong to one combination of both variables.</p>
+<p>In the table on the right-hand side of the widget, we set that we want to compute <strong>mean</strong> and  <strong>median</strong> for values of <strong>rest SBP</strong> variable in each group, <strong>median</strong> for values of <strong>cholesterol</strong> variable, and <strong>mean</strong> for <strong>major vessels colored</strong>.</p>
+<p>In the <strong>Data Table</strong> widget, we can see that both females and males have lower average values for <strong>rest SBP</strong> when <strong>diameter narrowing</strong> is 0. The difference is greater for females. The median of <strong>rest SBP</strong> is different only for females, while for males is the same.</p>
+<p>You can also observe differences between median <strong>cholesterol</strong> level and mean value of <strong>major vessel colored</strong> between groups.</p>
+<p><img alt="../../_images/Group-by-example.png" src="../../_images/Group-by-example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/groupby.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

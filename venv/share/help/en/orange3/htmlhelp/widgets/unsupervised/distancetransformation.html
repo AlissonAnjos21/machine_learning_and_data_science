@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distance Transformation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Distance File" href="distancefile.html" />
+    <link rel="prev" title="Distance Matrix" href="distancematrix.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="distance-transformation">
+<h1>Distance Transformation</h1>
+<p>Transforms distances in a dataset.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Distances: distance matrix</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Distances: transformed distance matrix</li>
+</ul>
+<p>The <strong>Distances Transformation</strong> widget is used for the normalization and inversion of distance matrices. The normalization of data is necessary to bring all the variables into proportion with one another.</p>
+<p><img alt="../../_images/DistanceTransformation-stamped.png" src="../../_images/DistanceTransformation-stamped.png" /></p>
+<ol class="simple">
+<li>Choose the type of <a class="reference external" href="https://en.wikipedia.org/wiki/Normalization_(statistics)" target="_blank">Normalization</a>:<ul>
+<li><strong>No normalization</strong></li>
+<li><strong>To interval [0, 1]</strong></li>
+<li><strong>To interval [-1, 1]</strong></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Sigmoid_function" target="_blank">Sigmoid function</a>: 1/(1+exp(-X))</li>
+</ul>
+</li>
+<li>Choose the type of Inversion:<ul>
+<li><strong>No inversion</strong></li>
+<li><strong>-X</strong></li>
+<li><strong>1 - X</strong></li>
+<li><strong>max(X) - X</strong></li>
+<li><strong>1/X</strong></li>
+</ul>
+</li>
+<li>Produce a report.</li>
+<li>After changing the settings, you need to click <em>Apply</em> to commit changes to other widgets. Alternatively, tick <em>Apply automatically</em>.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>In the snapshot below, you can see how transformation affects the distance matrix. We loaded the <em>Iris</em> dataset and calculated the distances between rows with the help of the <a class="reference internal" href="distances.html"><span class="doc">Distances</span></a> widget. In order to demonstrate how <strong>Distance Transformation</strong> affects the <a class="reference internal" href="distancematrix.html"><span class="doc">Distance Matrix</span></a>, we created the workflow below and compared the transformed distance matrix with the “original” one.</p>
+<p><img alt="../../_images/DistanceTransformation-Example.png" src="../../_images/DistanceTransformation-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/distancetransformation.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

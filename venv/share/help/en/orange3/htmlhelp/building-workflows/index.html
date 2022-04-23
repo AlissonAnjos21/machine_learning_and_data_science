@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Building Workflows</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="next" title="Exporting Models" href="../exporting-models/index.html" />
+    <link rel="prev" title="Loading your Data" href="../loading-your-data/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="building-workflows">
+<h1>Building Workflows</h1>
+<p>The core principle of Orange is visual programming, which means each analytical step in contained within a widget. Widgets are placed on the canvas and connected into an analytical workflow, which is executed from left to right. Orange never passes data backwards.</p>
+<div class="section" id="simple-workflow">
+<h2>Simple workflow</h2>
+<p>Let us start with a simple workflow. We will load the data with the File widget, say the famous <em>Iris</em> data set. Right-click on the canvas. A menu will appear. Start typing “File”, then press Enter to confirm the selection. <a class="reference internal" href="../widgets/data/file.html"><span class="doc">File</span></a> widget will be placed on the canvas.</p>
+<p><img alt="../_images/file.gif" src="../_images/file.gif" /></p>
+<p><strong>File</strong> widget has an “ear” on its right side – this is the output of the widget. Click on the “ear” and drag a connection out of it. Upon releasing the connection, a menu will appear. Start typing the name of the widget to connect with the File widget, say Data Table. Select the widget and press enter. The widget is added to the canvas.</p>
+<p><img alt="../_images/file-datatable.gif" src="../_images/file-datatable.gif" /></p>
+<p>This is a simple workflow. The File widget loads the data and sends it to the output. Data Table receives the data and displays it in a table. Please note that Data Table is a viewer and passes onwards only the selection. The data is always available at the source - in the File widget.</p>
+<p><img alt="../_images/DataTable-wrong.png" src="../_images/DataTable-wrong.png" /></p>
+</div>
+<div class="section" id="workflows-with-subsets">
+<h2>Workflows with subsets</h2>
+<p>Visualizations in Orange are interactive, which means the user can select data instances from the plot and pass them downstream. Let us look at two examples with subsets.</p>
+<div class="section" id="selecting-subsets">
+<h3>Selecting subsets</h3>
+<p>Place <strong>File</strong> widget on the canvas. Then connect <a class="reference internal" href="../widgets/visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> to it. Click and drag a rectangle around a subset of points. Connect <a class="reference internal" href="../widgets/data/datatable.html"><span class="doc">Data Table</span></a> to Scatter Plot. Data Table will show selected points.</p>
+<p><img alt="../_images/subset-selection.gif" src="../_images/subset-selection.gif" /></p>
+</div>
+<div class="section" id="highlighting-workflows">
+<h3>Highlighting workflows</h3>
+<p>Place <strong>File</strong> widget on the canvas. Then connect <strong>Scatter Plot</strong> to it and a <strong>Data Table</strong>. Connect Data Table to Scatter Plot. Select a subset of points from the Data Table. Scatter Plot will highlight selected points.</p>
+<p><img alt="../_images/subset-highlight.gif" src="../_images/subset-highlight.gif" /></p>
+</div>
+</div>
+<div class="section" id="workflows-with-models">
+<h2>Workflows with models</h2>
+<p>Predictive models are evaluated in <a class="reference internal" href="../widgets/evaluate/testandscore.html"><span class="doc">Test and Score</span></a> widget, while predictions on new data are done in <a class="reference internal" href="../widgets/evaluate/predictions.html"><span class="doc">Predictions</span></a>. Test and Score accepts several inputs: data (data set for evaluating models), learners (algorithms to use for training the model), and an optional preprocessor (for normalization or feature selection).</p>
+<p><img alt="../_images/prediction-workflow.png" src="../_images/prediction-workflow.png" /></p>
+<p>For prediction, the training data is first passed to the model. Once the model is trained, it is passed to <strong>Predictions</strong>. The Predictions widget also needs data to predict on, which are passed as a second input.</p>
+<p><img alt="../_images/prediction-workflow2.png" src="../_images/prediction-workflow2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/building-workflows/index.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

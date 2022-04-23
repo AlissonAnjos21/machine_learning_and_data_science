@@ -1,0 +1,103 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="CSV File Import" href="csvfileimport.html" />
+    <link rel="prev" title="Report" href="../../report/index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="file">
+<h1>File</h1>
+<p>Reads attribute-value data from an input file.</p>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset from the file</li>
+</ul>
+<p>The <strong>File</strong> widget <a class="reference internal" href="../../loading-your-data/index.html"><span class="doc">reads the input data file</span></a> (data table with data instances) and sends the dataset to its output channel. The history of most recently opened files is maintained in the widget. The widget also includes a directory with sample datasets that come pre-installed with Orange.</p>
+<p>The widget reads data from Excel (<strong>.xlsx</strong>), simple tab-delimited (<strong>.txt</strong>), comma-separated files (<strong>.csv</strong>) or URLs. For other formats see Other Formats section below.</p>
+<p><img alt="../../_images/File-stamped.png" src="../../_images/File-stamped.png" /></p>
+<ol class="simple">
+<li>Browse through previously opened data files, or load any of the sample ones.</li>
+<li>Browse for a data file.</li>
+<li>Reloads currently selected data file.</li>
+<li>Insert data from URL addresses, including data from Google Sheets.</li>
+<li>Information on the loaded dataset: dataset size, number and types of data features.</li>
+<li>Additional information on the features in the dataset. Features can be edited by double-clicking on them. The user can change the attribute names, select the type of variable per each attribute (<em>Continuous</em>, <em>Nominal</em>, <em>String</em>, <em>Datetime</em>), and choose how to further define the attributes (as <em>Features</em>, <em>Targets</em> or <em>Meta</em>). The user can also decide to ignore an attribute.</li>
+<li>Browse documentation datasets.</li>
+<li>Produce a report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Most Orange workflows would probably start with the <strong>File</strong> widget. In the schema below, the widget is used to read the data that is sent to both the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> and the <a class="reference internal" href="../visualize/boxplot.html"><span class="doc">Box Plot</span></a> widget.</p>
+<p><img alt="../../_images/File-Workflow.png" src="../../_images/File-Workflow.png" /></p>
+<div class="section" id="loading-your-data">
+<h3>Loading your data</h3>
+<ul class="simple">
+<li>Orange can import any comma, .xlsx or tab-delimited data file or URL. Use the <strong>File</strong> widget and then, if needed, select class and meta attributes.</li>
+<li>To specify the domain and the type of the attribute, attribute names can be preceded with a label followed by a hash. Use c for class and m for meta attribute, i to ignore a column, and C, D, S for continuous, discrete and string attribute types. Examples: C#mpg, mS#name, i#dummy.</li>
+<li>Orange’s native format is a tab-delimited text file with three header rows. The first row contains attribute names, the second the type (<em>continuous</em>, <em>discrete</em> or <em>string</em>), and the third the optional element (<em>class</em>, <em>meta</em> or <em>time</em>).</li>
+</ul>
+<p><img alt="../../_images/spreadsheet-simple-head11.png" src="../../_images/spreadsheet-simple-head11.png" /></p>
+<p>Read more on loading your data <a class="reference internal" href="../../loading-your-data/index.html"><span class="doc">here</span></a>.</p>
+</div>
+<div class="section" id="other-formats">
+<h3>Other Formats</h3>
+<p>Supported formats and the widgets to load them:</p>
+<ul class="simple">
+<li>distance matrix: <a class="reference internal" href="../unsupervised/distancefile.html"><span class="doc">Distance File</span></a></li>
+<li>predictive model: <a class="reference internal" href="../model/loadmodel.html"><span class="doc">Load Model</span></a></li>
+<li>network: Network File from Network add-on</li>
+<li>images: Import Images from Image Analytics add-on</li>
+<li>text/corpus: Corpus or Import Documents from Text add-on</li>
+<li>single cell data: Load Data from Single Cell add-on</li>
+<li>several spectroscopy files: Multifile from Spectroscopy add-on</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/file.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

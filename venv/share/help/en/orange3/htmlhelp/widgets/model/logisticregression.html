@@ -1,0 +1,97 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logistic Regression</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Naive Bayes" href="naivebayes.html" />
+    <link rel="prev" title="Linear Regression" href="linearregression.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="logistic-regression">
+<h1>Logistic Regression</h1>
+<p>The logistic regression classification algorithm with LASSO (L1) or ridge (L2) regularization.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: logistic regression learning algorithm</li>
+<li>Model: trained model</li>
+<li>Coefficients: logistic regression coefficients</li>
+</ul>
+<p><strong>Logistic Regression</strong> learns a <a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_regression" target="_blank">Logistic Regression</a> model from the data. It only works for classification tasks.</p>
+<p><img alt="../../_images/LogisticRegression-stamped.png" src="../../_images/LogisticRegression-stamped.png" /></p>
+<ol class="simple">
+<li>A name under which the learner appears in other widgets. The default name is “Logistic Regression”.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Regularization_(mathematics)" target="_blank">Regularization</a> type (either <a class="reference external" href="https://en.wikipedia.org/wiki/Least_squares#Lasso_method" target="_blank">L1</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Tikhonov_regularization" target="_blank">L2</a>). Set the cost strength (default is C=1).</li>
+<li>Press <em>Apply</em> to commit changes. If <em>Apply Automatically</em> is ticked, changes will be communicated automatically.</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Logistic Regression uses default preprocessing when no other preprocessors are given. It executes them in the following order:</p>
+<ul class="simple">
+<li>removes instances with unknown target values</li>
+<li>continuizes categorical variables (with one-hot-encoding)</li>
+<li>removes empty columns</li>
+<li>imputes missing values with mean values</li>
+</ul>
+<p>To remove default preprocessing, connect an empty <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget to the learner.</p>
+</div>
+<div class="section" id="feature-scoring">
+<h2>Feature Scoring</h2>
+<p>Logistic Regression can be used with Rank for feature scoring. See <a class="reference internal" href="../../learners-as-scorers/index.html"><span class="doc">Learners as Scorers</span></a> for an example.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>The widget is used just as any other widget for inducing a classifier. This is an example demonstrating prediction results with logistic regression on the <em>hayes-roth</em> dataset. We first load <em>hayes-roth_learn</em> in the <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> widget and pass the data to <strong>Logistic Regression</strong>. Then we pass the trained model to <a class="reference internal" href="../evaluate/predictions.html"><span class="doc">Predictions</span></a>.</p>
+<p>Now we want to predict class value on a new dataset. We load <em>hayes-roth_test</em> in the second <strong>File</strong> widget and connect it to <strong>Predictions</strong>. We can now observe class values predicted with <strong>Logistic Regression</strong> directly in <strong>Predictions</strong>.</p>
+<p><img alt="../../_images/LogisticRegression-classification.png" src="../../_images/LogisticRegression-classification.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/logisticregression.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

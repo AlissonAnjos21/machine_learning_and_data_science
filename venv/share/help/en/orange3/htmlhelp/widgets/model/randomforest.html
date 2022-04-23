@@ -1,0 +1,114 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Forest</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Gradient Boosting" href="gradientboosting.html" />
+    <link rel="prev" title="Tree" href="tree.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="random-forest">
+<h1>Random Forest</h1>
+<p>Predict using an ensemble of decision trees.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: random forest learning algorithm</li>
+<li>Model: trained model</li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Random_forest" target="_blank">Random forest</a> is an ensemble learning method used for classification, regression and other tasks. It was first proposed by Tin Kam Ho and further developed by Leo Breiman (Breiman, 2001) and Adele Cutler.</p>
+<p><strong>Random Forest</strong> builds a set of decision trees. Each tree is developed from a bootstrap sample from the training data. When developing individual trees, an arbitrary subset of attributes is drawn (hence the term “Random”), from which the best attribute for the split is selected. The final model is based on the majority vote from individually developed trees in the forest.</p>
+<p><strong>Random Forest</strong> works for both classification and regression tasks.</p>
+<p><img alt="../../_images/RandomForest.png" src="../../_images/RandomForest.png" /></p>
+<ol class="simple">
+<li>Specify the name of the model. The default name is “Random Forest”.</li>
+<li>Basic properties:<ul>
+<li><em>Number of trees</em>: Specify how many decision trees will be included in the forest.</li>
+<li><em>Number of trees considered at each split</em>: Specify how many attributes will be arbitrarily drawn for consideration at each node. If the latter is not specified (option <em>Number of attributes…</em> left unchecked), this number is equal to the square root of the number of attributes in the data.</li>
+<li><em>Replicable training</em>: Fix the seed for tree generation, which enables replicability of the results.</li>
+<li><em>Balance class distribution</em>: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.utils.class_weight.compute_class_weight.html?highlight=sklearn%20utils%20class_weight" target="_blank">Weigh classes</a> inversely proportional to their frequencies.</li>
+</ul>
+</li>
+<li>Growth control:<ul>
+<li><em>Limit depth of individual trees</em>: Original Breiman’s proposal is to grow the trees without any pre-pruning, but since pre-pruning often works quite well and is faster, the user can set the depth to which the trees will be grown.</li>
+<li><em>Do not split subsets smaller than</em>: Select the smallest subset that can be split.</li>
+</ul>
+</li>
+<li>Click <em>Apply</em> to communicate the changes to other widgets. Alternatively, tick the box on the left side of the <em>Apply</em> button and changes will be communicated automatically.</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Random Forest uses default preprocessing when no other preprocessors are given. It executes them in the following order:</p>
+<ul class="simple">
+<li>removes instances with unknown target values</li>
+<li>continuizes categorical variables (with one-hot-encoding)</li>
+<li>removes empty columns</li>
+<li>imputes missing values with mean values</li>
+</ul>
+<p>To remove default preprocessing, connect an empty <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget to the learner.</p>
+</div>
+<div class="section" id="feature-scoring">
+<h2>Feature Scoring</h2>
+<p>Random Forest can be used with Rank for feature scoring. See <a class="reference internal" href="../../learners-as-scorers/index.html"><span class="doc">Learners as Scorers</span></a> for an example.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>For classification tasks, we use <em>iris</em> dataset. Connect it to <a class="reference internal" href="../evaluate/predictions.html"><span class="doc">Predictions</span></a>. Then, connect <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> to <strong>Random Forest</strong> and <a class="reference internal" href="tree.html"><span class="doc">Tree</span></a> and connect them further to <a class="reference internal" href="../evaluate/predictions.html"><span class="doc">Predictions</span></a>. Finally, observe the predictions for the two models.</p>
+<p><img alt="../../_images/RandomForest-classification.png" src="../../_images/RandomForest-classification.png" /></p>
+<p>For regressions tasks, we will use <em>housing</em> data. Here, we will compare different models, namely <strong>Random Forest</strong>, <a class="reference internal" href="linearregression.html"><span class="doc">Linear Regression</span></a> and <a class="reference internal" href="constant.html"><span class="doc">Constant</span></a>, in the <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test &amp; Score</span></a> widget.</p>
+<p><img alt="../../_images/RandomForest-regression.png" src="../../_images/RandomForest-regression.png" /></p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p>Breiman, L. (2001). Random Forests. In Machine Learning, 45(1), 5-32. Available <a class="reference external" href="https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf" target="_blank">here</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/randomforest.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

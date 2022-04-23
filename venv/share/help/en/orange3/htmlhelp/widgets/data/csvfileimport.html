@@ -1,0 +1,121 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV File Import</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Datasets" href="datasets.html" />
+    <link rel="prev" title="File" href="file.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="csv-file-import">
+<h1>CSV File Import</h1>
+<p>Import a data table from a CSV formatted file.</p>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset from the .csv file</li>
+<li>Data Frame: pandas DataFrame object</li>
+</ul>
+<p>The <strong>CSV File Import</strong> widget reads comma-separated files and sends the dataset to its output channel. File separators can be commas, semicolons, spaces, tabs or manually-defined delimiters. The history of most recently opened files is maintained in the widget.</p>
+<p><em>Data Frame</em> output can be used in the <a class="reference internal" href="pythonscript.html"><span class="doc">Python Script</span></a> widget by connecting it to the <code class="docutils literal notranslate"><span class="pre">in_object</span></code> input (e.g. <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">in_object</span></code>). Then it can be used a regular DataFrame.</p>
+<div class="section" id="import-options">
+<h2>Import Options</h2>
+<p>The import window where the user sets the import parameters. Can be re-opened by pressing <em>Import Options</em> in the widget.</p>
+<p>Right click on the column name to set the column type. Right click on the row index (on the left) to mark a row as a header, skipped or a normal data row.</p>
+<p><img alt="../../_images/CSVFileImport-ImportOptions-stamped.png" src="../../_images/CSVFileImport-ImportOptions-stamped.png" /></p>
+<ol class="simple">
+<li>File encoding. Default is UTF-8. See Encoding subchapter for details.</li>
+<li>Import settings:<ul>
+<li><em>Cell delimiter</em>:<ul>
+<li>Tab</li>
+<li>Comma</li>
+<li>Semicolon</li>
+<li>Space</li>
+<li>Other (set the delimiter in the field to the right)</li>
+</ul>
+</li>
+<li><em>Quote character</em>: either “ or ‘. Defines what is considered a text.</li>
+<li><em>Number separators</em>:<ul>
+<li>Grouping: delimiters for thousands, e.g. 1,000</li>
+<li>Decimal: delimiters for decimals, e.g. 1.234</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Column type: select the column in the preview and set its type. Column type can be set also by right-clicking on the selected column.<ul>
+<li><em>Auto</em>: Orange will automatically try to determine column type. (default)</li>
+<li><em>Numeric</em>: for continuous data types, e.g. (1.23, 1.32, 1.42, 1.32)</li>
+<li><em>Categorical</em>: for discrete data types, e.g. (brown, green, blue)</li>
+<li><em>Text</em>: for string data types, e.g. (John, Olivia, Mike, Jane)</li>
+<li><em>Datetime</em>: for time variables, e.g. (1970-01-01)</li>
+<li><em>Ignore</em>: do not output the column.</li>
+</ul>
+</li>
+<li>Pressing <em>Reset</em> will return the settings to the previously set state (saved by pressing OK in the Import Options dialogue). <em>Restore Defaults</em> will set the settings to their default values. <em>Cancel</em> aborts the import, while <em>OK</em> imports the data and saves the settings.</li>
+</ol>
+</div>
+<div class="section" id="widget">
+<h2>Widget</h2>
+<p>The widget once the data is successfully imported.</p>
+<p><img alt="../../_images/CSVFileImport-widget-stamped.png" src="../../_images/CSVFileImport-widget-stamped.png" /></p>
+<ol class="simple">
+<li>The folder icon opens the dialogue for import the local .csv file. It can be used to either load the first file or change the existing file (load new data). The <em>File</em> dropdown stores paths to previously loaded data sets.</li>
+<li>Information on the imported data set. Reports on the number of instances (rows), variables (features or columns) and meta variables (special columns).</li>
+<li><em>Import Options</em> re-opens the import dialogue where the user can set delimiters, encodings, text fields and so on. <em>Cancel</em> aborts data import. <em>Reload</em> imports the file once again, adding to the data any changes made in the original file.</li>
+</ol>
+</div>
+<div class="section" id="encoding">
+<h2>Encoding</h2>
+<p>The dialogue for settings custom encodings list in the Import Options - Encoding dropdown. Select <em>Customize Encodings List…</em> to change which encodings appear in the list. To save the changes, simply close the dialogue. Closing and reopening Orange (even with Reset widget settings) will not re-set the list. To do this, press <em>Restore Defaults</em>. To have all the available encodings in the list, press <em>Select all</em>.</p>
+<p><img alt="../../_images/CSVFileImport-encodings.png" src="../../_images/CSVFileImport-encodings.png" /></p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p><strong>CSV File Import</strong> works almost exactly like the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget, with the added options for importing different types of .csv files. In this workflow, the widget read the data from the file and sends it to the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> for inspection.</p>
+<p><img alt="../../_images/CSVFileImport-Example.png" src="../../_images/CSVFileImport-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/csvfileimport.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

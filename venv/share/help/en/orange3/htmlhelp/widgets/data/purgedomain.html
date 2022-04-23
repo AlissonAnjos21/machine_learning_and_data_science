@@ -1,0 +1,87 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purge Domain</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Rank" href="rank.html" />
+    <link rel="prev" title="Apply Domain" href="applydomain.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="purge-domain">
+<h1>Purge Domain</h1>
+<p>Removes unused attribute values and useless attributes, sorts the remaining values.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: filtered dataset</li>
+</ul>
+<p>Definitions of nominal attributes sometimes contain values which don’t appear in the data. Even if this does not happen in the original data, filtering the data, selecting exemplary subsets and alike can remove all examples for which the attribute has some particular value. Such values clutter data presentation, especially various visualizations, and should be removed.</p>
+<p>After purging an attribute, it may become single-valued or, in extreme case, have no values at all (if the value of this attribute was undefined for all examples). In such cases, the attribute can be removed.</p>
+<p>A different issue is the order of attribute values: if the data is read from a file in a format in which values are not declared in advance, they are sorted “in order of appearance”. Sometimes we would prefer to have them sorted alphabetically.</p>
+<p><img alt="../../_images/PurgeDomain-stamped.png" src="../../_images/PurgeDomain-stamped.png" /></p>
+<ol class="simple">
+<li>Purge attributes.</li>
+<li>Purge classes.</li>
+<li>Purge meta attributes.</li>
+<li>Information on the filtering process.</li>
+<li>Produce a report.</li>
+<li>If <em>Apply automatically</em> is ticked, the widget will output data at
+each change of widget settings.</li>
+</ol>
+<p>Such purification is done by the widget <strong>Purge Domain</strong>. Ordinary attributes and class attributes are treated separately. For each, we can decide if we want the values sorted or not. Next, we may allow the widget to remove attributes with less than two values or remove the class attribute if there are less than two classes. Finally, we can instruct the widget to check which values of attributes actually appear in the data and remove the unused values. The widget cannot remove values if it is not allowed to remove the attributes, since having attributes without values makes no sense.</p>
+<p>The new, reduced attributes get the prefix “R”, which distinguishes them from the original ones. The values of new attributes can be computed from the old ones, but not the other way around. This means that if you construct a classifier from the new attributes, you can use it to classify the examples described by the original attributes. But not the opposite: constructing a classifier from the old attributes and using it on examples described by the reduced ones won’t work. Fortunately, the latter is seldom the case. In a typical setup, one would explore the data, visualize it, filter it, purify it… and then test the final model on the original data.</p>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>The <strong>Purge Domain</strong> widget would typically appear after data filtering, for instance when selecting a subset of visualized examples.</p>
+<p>In the above schema, we play with the <em>adult.tab</em> dataset: we visualize it and select a portion of the data, which contains only four out of the five original classes. To get rid of the empty class, we put the data through <strong>Purge Domain</strong> before going on to the <a class="reference internal" href="../visualize/boxplot.html"><span class="doc">Box Plot</span></a> widget. The latter shows only the four classes which are in the <strong>Purge Data</strong> output. To see the effect of data purification, uncheck <em>Remove unused class variable values</em> and observe the effect this has on <a class="reference internal" href="../visualize/boxplot.html"><span class="doc">Box Plot</span></a>.</p>
+<p><img alt="../../_images/PurgeDomain-example.png" src="../../_images/PurgeDomain-example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/purgedomain.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

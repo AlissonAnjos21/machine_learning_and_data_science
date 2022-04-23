@@ -1,0 +1,97 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Table</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Save Data" href="save.html" />
+    <link rel="prev" title="Datasets" href="datasets.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sql-table">
+<h1>SQL Table</h1>
+<p>Reads data from an SQL database.</p>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset from the database</li>
+</ul>
+<p>The <strong>SQL</strong> widget accesses data stored in an SQL database. It can connect to PostgreSQL (requires <a class="reference external" href="http://initd.org/psycopg/" target="_blank">psycopg2</a> module) or <a class="reference external" href="https://www.microsoft.com/en-us/sql-server/" target="_blank">SQL Server</a> (requires <a class="reference external" href="http://pymssql.org/en/stable/" target="_blank">pymssql</a> module).</p>
+<p>To handle large databases, Orange attempts to execute a part of the computation in the database itself without downloading the data. This only works with PostgreSQL database and requires quantile and tsm_system_time <a class="reference external" href="https://github.com/biolab/orange3/wiki/Installation-of-SQL-extensions" target="_blank">extensions</a> installed on server. If these extensions are not installed, the data will be downloaded locally.</p>
+<p><img alt="../../_images/SQLTable-stamped.png" src="../../_images/SQLTable-stamped.png" /></p>
+<ol class="simple">
+<li>Database type (can be either PostgreSQL or MSSQL).</li>
+<li>Host name.</li>
+<li>Database name.</li>
+<li>Username.</li>
+<li>Password.</li>
+<li>Press the blue button to connect to the database. Then select the table in the dropdown.</li>
+<li><em>Auto-discover categorical variables</em> will cast INT and CHAR columns with less than 20 distinct values as categorical variables (finding all distinct values can be slow on large tables). When not selected, INT will be treated as numeric and CHAR as text. <em>Download to local memory</em> downloads the selected table to your local machine.</li>
+</ol>
+<p>##Installation Instructions</p>
+<p>###PostgreSQL</p>
+<p>Install the backend.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
+</pre></div>
+</div>
+<p>Alternatively, you can follow <a class="reference external" href="https://blog.biolab.si/2018/02/16/how-to-enable-sql-widget-in-orange/" target="_blank">these instructions</a> for installing the backend.</p>
+<p>If the installation of <code class="docutils literal notranslate"><span class="pre">psycopg2</span></code> fails, follow to instructions in the error message you get (it explains how to solve the error) or install an already compiled version of <code class="docutils literal notranslate"><span class="pre">psycopg2-binary</span></code> package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span><span class="o">-</span><span class="n">binary</span>
+</pre></div>
+</div>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">psycopg2-binary</span></code> comes with own versions of a few C libraries, among which libpq and libssl, which will be used regardless of other libraries available on the client: upgrading the system libraries will not upgrade the libraries used by psycopg2. Please build psycopg2 from source if you want to maintain binary upgradeability.</p>
+<p><a class="reference external" href="https://github.com/biolab/orange3/wiki/Installation-of-SQL-extensions" target="_blank">Install the extensions</a>. [optional]</p>
+<p>###MSSQL</p>
+<p>Install the backend.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pymssql</span>
+</pre></div>
+</div>
+<p>If you are encountering issues, follow <a class="reference external" href="https://github.com/biolab/orange3/wiki/Installation-of-SQL-extensions#mssql" target="_blank">these instructions</a>.</p>
+<p>##Example</p>
+<p>Here is a simple example on how to use the <strong>SQL Table</strong> widget. Place the widget on the canvas, enter your database credentials and connect to your database. Then select the table you wish to analyse.</p>
+<p>Connect <strong>SQL Table</strong> to <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget to inspect the output. If the table is populated, your data has transferred correctly. Now, you can use the <strong>SQL Table</strong> widget in the same way as the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget.</p>
+<p><img alt="../../_images/SQLTable-Example.png" src="../../_images/SQLTable-Example.png" /></p>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/sqltable.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

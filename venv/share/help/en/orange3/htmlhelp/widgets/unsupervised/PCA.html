@@ -1,0 +1,94 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCA</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Correspondence Analysis" href="correspondenceanalysis.html" />
+    <link rel="prev" title="Test and Score" href="../evaluate/testandscore.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pca">
+<h1>PCA</h1>
+<p>PCA linear transformation of input data.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Transformed Data: PCA transformed data</li>
+<li>Components: <a class="reference external" href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" target="_blank">Eigenvectors</a>.</li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Principal_component_analysis" target="_blank">Principal Component Analysis</a> (PCA) computes the PCA linear transformation of the input data. It outputs either a transformed dataset with weights of individual instances or weights of principal components.</p>
+<p><img alt="../../_images/PCA-stamped.png" src="../../_images/PCA-stamped.png" /></p>
+<ol class="simple">
+<li>Select how many principal components you wish in your output. It is best to choose as few as possible with variance covered as high as possible. You can also set how much variance you wish to cover with your principal components.</li>
+<li>You can normalize data to adjust the values to common scale. If checked, columns are divided by their standard deviations.</li>
+<li>When <em>Apply Automatically</em> is ticked, the widget will automatically communicate all changes. Alternatively, click <em>Apply</em>.</li>
+<li>Press <em>Save Image</em> if you want to save the created image to your computer.</li>
+<li>Produce a report.</li>
+<li>Principal components graph, where the red (lower) line is the variance covered per component and the green (upper) line is cumulative variance covered by components.</li>
+</ol>
+<p>The number of components of the transformation can be selected either in the <em>Components Selection</em> input box or by dragging the vertical cutoff line in the graph.</p>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>The widget preprocesses the input data in the following order:</p>
+<ul class="simple">
+<li>continuizes categorical variables (with one-hot-encoding)</li>
+<li>imputes missing values with mean values</li>
+<li>if <em>Normalize variables</em> is checked, it divides columns by their standard deviation.</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p><strong>PCA</strong> can be used to simplify visualizations of large datasets. Below, we used the <em>Iris</em> dataset to show how we can improve the visualization of the dataset with PCA. The transformed data in the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> show a much clearer distinction between classes than the default settings.</p>
+<p><img alt="../../_images/PCAExample.png" src="../../_images/PCAExample.png" /></p>
+<p>The widget provides two outputs: transformed data and principal components. Transformed data are weights for individual instances in the new coordinate system, while components are the system descriptors (weights for principal components). When fed into the <a class="reference internal" href="../data/datatable.html"><span class="doc">Data Table</span></a>, we can see both outputs in numerical form. We used two data tables in order to provide a more clean visualization of the workflow, but you can also choose to edit the links in such a way that you display the data in just one data table. You only need to create two links and connect the <em>Transformed data</em> and <em>Components</em> inputs to the <em>Data</em> output.</p>
+<p><img alt="../../_images/PCAExample2.png" src="../../_images/PCAExample2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/PCA.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

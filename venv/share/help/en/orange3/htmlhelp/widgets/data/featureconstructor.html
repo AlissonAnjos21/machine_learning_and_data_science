@@ -1,0 +1,114 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Constructor</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Edit Domain" href="editdomain.html" />
+    <link rel="prev" title="Python Script" href="pythonscript.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="feature-constructor">
+<h1>Feature Constructor</h1>
+<p>Add new features to your dataset.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset with additional features</li>
+</ul>
+<p>The <strong>Feature Constructor</strong> allows you to manually add features (columns) into your dataset. The new feature can be a computation of an existing one or a combination of several (addition, subtraction, etc.). You can choose what type of feature it will be (discrete, continuous or string) and what its parameters are (name, value, expression). For continuous variables you only have to construct an expression in Python.</p>
+<p><img alt="../../_images/feature-constructor1-stamped.png" src="../../_images/feature-constructor1-stamped.png" /></p>
+<ol class="simple">
+<li>List of constructed variables</li>
+<li>Add or remove variables</li>
+<li>New feature name</li>
+<li>Expression in Python</li>
+<li>Select a feature</li>
+<li>Select a function</li>
+<li>Produce a report</li>
+<li>Press <em>Send</em> to communicate changes</li>
+</ol>
+<p>For discrete variables, however, there’s a bit more work. First add or remove the values you want for the new feature. Then select the base value and the expression. In the example below, we have constructed an expression with ‘if lower than’ and defined three conditions; the program ascribes 0 (which we renamed to lower) if the original value is lower than 6, 1 (mid) if it is lower than 7 and 2 (higher) for all the other values. Notice that we use an underscore for the feature name (e.g. petal_length).</p>
+<p><img alt="../../_images/feature-constructor2-stamped.png" src="../../_images/feature-constructor2-stamped.png" /></p>
+<ol class="simple">
+<li>List of variable definitions</li>
+<li>Add or remove variables</li>
+<li>New feature name</li>
+<li>Expression in Python</li>
+<li>Select a feature</li>
+<li>Select a function</li>
+<li>Assign values</li>
+<li>Produce a report</li>
+<li>Press <em>Send</em> to communicate changes</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>With the <strong>Feature Constructor</strong> you can easily adjust or combine existing features into new ones. Below, we added one new discrete feature to the <em>Titanic</em> dataset. We created a new attribute called <em>Financial status</em> and set the values to be <em>rich</em> if the person belongs to the first class (status = first) and <em>not rich</em> for everybody else. We can see the new dataset with <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget.</p>
+<p><img alt="../../_images/FeatureConstructor-Example.png" src="../../_images/FeatureConstructor-Example.png" /></p>
+</div>
+<div class="section" id="hints">
+<h2>Hints</h2>
+<p>If you are unfamiliar with Python math language, here’s a quick introduction.</p>
+<ul class="simple">
+<li>+, - to add, subtract</li>
+<li>* to multiply</li>
+<li>/ to divide</li>
+<li>% to divide and return the remainder</li>
+<li>** for exponent (for square root square by 0.5)</li>
+<li>// for floor division</li>
+<li>&lt;, &gt;, &lt;=, &gt;= less than, greater than, less or equal, greater or equal</li>
+<li>== for equal</li>
+<li>!= for not equal</li>
+</ul>
+<p>As in the example: (<em>value</em>) if (<em>feature name</em>) &lt; (<em>value</em>), else (<em>value</em>) if (<em>feature name</em>) &lt; (<em>value</em>), else (<em>value</em>)</p>
+<p>[Use value 1 if feature is less than specified value, else use value 2 if feature is less than specified value 2, else use value 3.]</p>
+<p>See more <a class="reference external" href="http://www.tutorialspoint.com/python/python_basic_operators.htm" target="_blank">here</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/featureconstructor.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

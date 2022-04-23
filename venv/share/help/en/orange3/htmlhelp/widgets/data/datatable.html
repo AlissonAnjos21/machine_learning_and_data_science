@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Table</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Select Columns" href="selectcolumns.html" />
+    <link rel="prev" title="Aggregate Columns" href="aggregatecolumns.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="data-table">
+<h1>Data Table</h1>
+<p>Displays attribute-value data in a spreadsheet.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the table</li>
+</ul>
+<p>The <strong>Data Table</strong> widget receives one or more datasets in its input and presents them as a spreadsheet. Data instances may be sorted by attribute values. The widget also supports manual selection of data instances.</p>
+<p><img alt="../../_images/DataTable-stamped.png" src="../../_images/DataTable-stamped.png" /></p>
+<ol class="simple">
+<li>The name of the dataset (usually the input data file). Data
+instances are in rows and their attribute values in columns. In this
+example, the dataset is sorted by the attribute “sepal length”.</li>
+<li>Info on current dataset size and number and types of attributes</li>
+<li>Values of continuous attributes can be visualized with bars; colors
+can be attributed to different classes.</li>
+<li>Data instances (rows) can be selected and sent to the widget’s output
+channel.</li>
+<li>Use the <em>Restore Original Order</em> button to reorder data instances after
+attribute-based sorting.</li>
+<li>Produce a report.</li>
+<li>While auto-send is on, all changes will be automatically communicated
+to other widgets. Otherwise, press <em>Send Selected Rows</em>.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>We used two <a class="reference internal" href="file.html"><span class="doc">File</span></a> widgets to read the <em>Iris</em> and <em>Glass</em> dataset (provided in Orange distribution), and send them to the <strong>Data Table</strong> widget.</p>
+<p><img alt="../../_images/DataTable-Schema.png" src="../../_images/DataTable-Schema.png" /></p>
+<p>Selected data instances in the first <strong>Data Table</strong> are passed to the second <strong>Data Table</strong>. Notice that we can select which dataset to view (iris or glass). Changing from one dataset to another alters the communicated selection of data instances if <em>Commit on any change</em> is selected.</p>
+<p><img alt="../../_images/DataTable-Example.png" src="../../_images/DataTable-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/datatable.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

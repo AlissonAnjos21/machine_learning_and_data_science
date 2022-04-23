@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Louvain Clustering</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="DBSCAN" href="DBSCAN.html" />
+    <link rel="prev" title="k-Means" href="kmeans.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="louvain-clustering">
+<h1>Louvain Clustering</h1>
+<p>Groups items using the Louvain clustering algorithm.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset with cluster label as a meta attribute</li>
+<li>Graph (with the Network addon): the weighted k-nearest neighbor graph</li>
+</ul>
+<p>The widget first converts the input data into a k-nearest neighbor graph. To preserve the notions of distance, the Jaccard index for the number of shared neighbors is used to weight the edges. Finally, a <a class="reference external" href="https://en.wikipedia.org/wiki/Louvain_Modularity" target="_blank">modularity optimization</a> community detection algorithm is applied to the graph to retrieve clusters of highly interconnected nodes. The widget outputs a new dataset in which the cluster label is used as a meta attribute.</p>
+<p><img alt="../../_images/LouvainClustering.png" src="../../_images/LouvainClustering.png" /></p>
+<ol class="simple">
+<li>Information on the number of clusters found.</li>
+<li><strong>Preprocessing</strong>:<ul>
+<li><em>Normalize data</em>: Center to mean and scale to standard deviation of 1.</li>
+<li><em>Apply PCA preprocessing</em>: PCA processing is typically applied to the original data to remove noise (see <a class="reference internal" href="PCA.html"><span class="doc">PCA</span></a> widget).</li>
+<li><em>PCA Components</em>: number of principal components used.</li>
+</ul>
+</li>
+<li><strong>Graph parameters</strong>:<ul>
+<li><em>Distance metric</em>: The distance metric is used for finding specified number of nearest neighbors (Euclidean, Manhattan, Cosine).</li>
+<li><em>k neighbors</em>: The number of nearest neighbors to use to form the KNN graph.</li>
+<li><em>Resolution</em> is a parameter for the Louvain community detection algorithm that affects the size of the recovered clusters. Smaller resolutions recover smaller clusters and therefore a larger number of them, while, conversely, larger values recover clusters containing more data points.</li>
+</ul>
+</li>
+<li>When <em>Apply Automatically</em> is ticked, the widget will automatically communicate all changes. Alternatively, click <em>Apply</em>.</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Louvain Clustering uses default preprocessing if necessary. It executes it in the following order:</p>
+<ul class="simple">
+<li>continuizes categorical variables (with one feature per value)</li>
+<li>imputes missing values with mean values</li>
+</ul>
+<p>To override default preprocessing, preprocess the data beforehand with <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p><em>Louvain Clustering</em> converts the dataset into a graph, where it finds highly interconnected nodes. In the example below, we used the iris data set from the <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> widget, then passed it to <strong>Louvain Clustering</strong>, which found 4 clusters. We plotted the data with <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a>, where we colored the data points according to clusters labels.</p>
+<p><img alt="../../_images/LouvainClustering-Example.png" src="../../_images/LouvainClustering-Example.png" /></p>
+<p>We can visualize the graph itself using the <strong>Network Explorer</strong> from the Network addon.</p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p>Blondel, Vincent D., et al. “<a class="reference external" href="https://arxiv.org/abs/0803.0476" target="_blank">Fast unfolding of communities in large networks.</a>” Journal of statistical mechanics: theory and experiment 2008.10 (2008): P10008.</p>
+<p>Lambiotte, Renaud, J-C. Delvenne, and Mauricio Barahona. “Laplacian dynamics and multiscale modular structure in networks.” arXiv preprint, <a class="reference external" href="https://arxiv.org/abs/0812.1770" target="_blank">arXiv:0812</a>.1770 (2008).</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/louvainclustering.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

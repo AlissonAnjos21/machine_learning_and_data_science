@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impute</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Merge Data" href="mergedata.html" />
+    <link rel="prev" title="Edit Domain" href="editdomain.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="impute">
+<h1>Impute</h1>
+<p>Replaces unknown values in the data.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Learner: learning algorithm for imputation</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset with imputed values</li>
+</ul>
+<p>Some Orange’s algorithms and visualizations cannot handle unknown values in the data. This widget does what statisticians call imputation: it substitutes missing values by values either computed from the data or set by the user. The default imputation is (1-NN).</p>
+<p><img alt="../../_images/impute-stamped.png" src="../../_images/impute-stamped.png" /></p>
+<ol class="simple">
+<li>In the top-most box, <em>Default method</em>, the user can specify a general imputation technique for all attributes.<ul>
+<li><strong>Don’t Impute</strong> does nothing with the missing values.</li>
+<li><strong>Average/Most-frequent</strong> uses the average value (for continuous attributes) or the most common value (for discrete attributes).</li>
+<li><strong>As a distinct value</strong> creates new values to substitute the missing ones.</li>
+<li><strong>Model-based imputer</strong> constructs a model for predicting the missing value, based on values of other attributes; a separate model is constructed for each attribute. The default model is 1-NN learner, which takes the value from the most similar example (this is sometimes referred to as hot deck imputation). This algorithm can be substituted by one that the user connects to the input signal Learner for Imputation. Note, however, that if there are discrete and continuous attributes in the data, the algorithm needs to be capable of handling them both; at the moment only 1-NN learner can do that. (In the future, when Orange has more regressors, the Impute widget may have separate input signals for discrete and continuous models.)</li>
+<li><strong>Random values</strong> computes the distributions of values for each attribute and then imputes by picking random values from them.</li>
+<li><strong>Remove examples with missing values</strong> removes the example containing missing values. This check also applies to the class attribute if <em>Impute class values</em> is checked.</li>
+</ul>
+</li>
+<li>It is possible to specify individual treatment for each attribute, which overrides the default treatment set. One can also specify a manually defined value used for imputation. In the screenshot, we decided not to impute the values of “<em>normalized-losses</em>” and “<em>make</em>”, the missing values of “<em>aspiration</em>” will be replaced by random values, while the missing values of “<em>body-style</em>” and “<em>drive-wheels</em>” are replaced by “<em>hatchback</em>” and “<em>fwd</em>”,respectively. If the values of “<em>length</em>”, “<em>width</em>” or “<em>height</em>” are missing, the example is discarded. Values of all other attributes use the default method set above (model-based imputer, in our case).</li>
+<li>The imputation methods for individual attributes are the same as default methods.</li>
+<li><em>Restore All to Default</em> resets the individual attribute treatments to default.</li>
+<li>Produce a report.</li>
+<li>All changes are committed immediately if <em>Apply automatically</em> is checked. Otherwise, <em>Apply</em> needs to be ticked to apply any new settings.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>To demonstrate how the <strong>Impute</strong> widget works, we played around with the <em>Iris</em> dataset and deleted some of the data. We used the <strong>Impute</strong> widget and selected the <em>Model-based imputer</em> to impute the missing values. In another <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a>, we see how the question marks turned into distinct values (“Iris-setosa, “Iris-versicolor”).</p>
+<p><img alt="../../_images/Impute-Example.png" src="../../_images/Impute-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/impute.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

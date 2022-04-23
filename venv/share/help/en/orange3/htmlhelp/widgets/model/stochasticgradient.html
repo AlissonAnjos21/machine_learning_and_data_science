@@ -1,0 +1,148 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stochastic Gradient Descent</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Stacking" href="stacking.html" />
+    <link rel="prev" title="Neural Network" href="neuralnetwork.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="stochastic-gradient-descent">
+<h1>Stochastic Gradient Descent</h1>
+<p>Minimize an objective function using a stochastic approximation of gradient descent.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: stochastic gradient descent learning algorithm</li>
+<li>Model: trained model</li>
+</ul>
+<p>The <strong>Stochastic Gradient Descent</strong> widget uses <a class="reference external" href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank">stochastic gradient descent</a> that minimizes a chosen loss function with a linear function. The algorithm approximates a true gradient by considering one sample at a time, and simultaneously updates the model based on the gradient of the loss function. For regression, it returns predictors as minimizers of the sum, i.e. M-estimators, and is especially useful for large-scale and sparse datasets.</p>
+<p><img alt="../../_images/StochasticGradientDescent-stamped.png" src="../../_images/StochasticGradientDescent-stamped.png" /></p>
+<ol>
+<li><p class="first">Specify the name of the model. The default name is “SGD”.</p>
+</li>
+<li><p class="first">Algorithm parameters:</p>
+<ul class="simple">
+<li>Classification loss function:<ul>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Hinge_loss" target="_blank">Hinge</a> (linear SVM)</li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html#sklearn.linear_model.LogisticRegression" target="_blank">Logistic Regression</a> (logistic regression SGD)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Huber_loss" target="_blank">Modified Huber</a> (smooth loss that brings tolerance to outliers as well as probability estimates)</li>
+<li><em>Squared Hinge</em> (quadratically penalized hinge)</li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html#sklearn.linear_model.Perceptron" target="_blank">Perceptron</a> (linear loss used by the perceptron algorithm)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mean_squared_error#Regression" target="_blank">Squared Loss</a> (fitted to ordinary least-squares)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Huber_loss" target="_blank">Huber</a> (switches to linear loss beyond &#949;)</li>
+<li><a class="reference external" href="http://kernelsvm.tripod.com/" target="_blank">Epsilon insensitive</a> (ignores errors within &#949;, linear beyond it)</li>
+<li><em>Squared epsilon insensitive</em> (loss is squared beyond &#949;-region).</li>
+</ul>
+</li>
+<li>Regression loss function:<ul>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mean_squared_error#Regression" target="_blank">Squared Loss</a> (fitted to ordinary least-squares)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Huber_loss" target="_blank">Huber</a> (switches to linear loss beyond &#949;)</li>
+<li><a class="reference external" href="http://kernelsvm.tripod.com/" target="_blank">Epsilon insensitive</a> (ignores errors within &#949;, linear beyond it)</li>
+<li><em>Squared epsilon insensitive</em> (loss is squared beyond &#949;-region).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="first">Regularization norms to prevent overfitting:</p>
+<ul class="simple">
+<li>None.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Taxicab_geometry" target="_blank">Lasso (L1)</a> (L1 leading to sparse solutions)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Norm_(mathematics)#p-norm" target="_blank">Ridge (L2)</a> (L2, standard regularizer)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Elastic_net_regularization" target="_blank">Elastic net</a> (mixing both penalty norms).</li>
+</ul>
+<p>Regularization strength defines how much regularization will be applied (the less we regularize, the more we allow the model to fit the data) and the mixing parameter what the ratio between L1 and L2 loss will be (if set to 0 then the loss is L2, if set to 1 then it is L1).</p>
+</li>
+<li><p class="first">Learning parameters.</p>
+<ul class="simple">
+<li>Learning rate:<ul>
+<li><em>Constant</em>: learning rate stays the same through all epochs (passes)</li>
+<li><a class="reference external" href="http://leon.bottou.org/projects/sgd" target="_blank">Optimal</a>: a heuristic proposed by Leon Bottou</li>
+<li><a class="reference external" href="http://users.ics.aalto.fi/jhollmen/dippa/node22.html" target="_blank">Inverse scaling</a>: earning rate is inversely related to the number of iterations</li>
+</ul>
+</li>
+<li>Initial learning rate.</li>
+<li>Inverse scaling exponent: learning rate decay.</li>
+<li>Number of iterations: the number of passes through the training data.</li>
+<li>If <em>Shuffle data after each iteration</em> is on, the order of data instances is mixed after each pass.</li>
+<li>If <em>Fixed seed for random shuffling</em> is on, the algorithm will use a fixed random seed and enable replicating the results.</li>
+</ul>
+</li>
+<li><p class="first">Produce a report.</p>
+</li>
+<li><p class="first">Press <em>Apply</em> to commit changes. Alternatively, tick the box on the left side of the <em>Apply</em> button and changes will be communicated automatically.</p>
+</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>SGD uses default preprocessing when no other preprocessors are given. It executes them in the following order:</p>
+<ul class="simple">
+<li>removes instances with unknown target values</li>
+<li>continuizes categorical variables (with one-hot-encoding)</li>
+<li>removes empty columns</li>
+<li>imputes missing values with mean values</li>
+<li>normalizes the data by centering to mean and scaling to standard deviation of 1</li>
+</ul>
+<p>To remove default preprocessing, connect an empty <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget to the learner.</p>
+</div>
+<div class="section" id="feature-scoring">
+<h2>Feature Scoring</h2>
+<p>Stochastic Gradient Descent can be used with Rank for feature scoring. See <a class="reference internal" href="../../learners-as-scorers/index.html"><span class="doc">Learners as Scorers</span></a> for an example.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>For the classification task, we will use <em>iris</em> dataset and test two models on it. We connected <a class="reference internal" href="#"><span class="doc">Stochastic Gradient Descent</span></a> and <a class="reference internal" href="tree.html"><span class="doc">Tree</span></a> to <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test &amp; Score</span></a>. We also connected <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> to <strong>Test &amp; Score</strong> and observed model performance in the widget.</p>
+<p><img alt="../../_images/StochasticGradientDescent-classification.png" src="../../_images/StochasticGradientDescent-classification.png" /></p>
+<p>For the regression task, we will compare three different models to see which predict what kind of results. For the purpose of this example, the <em>housing</em> dataset is used. We connect the <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> widget to <strong>Stochastic Gradient Descent</strong>, <a class="reference internal" href="linearregression.html"><span class="doc">Linear Regression</span></a> and <a class="reference internal" href="knn.html"><span class="doc">kNN</span></a> widget and all four to the <a class="reference internal" href="../evaluate/predictions.html"><span class="doc">Predictions</span></a> widget.</p>
+<p><img alt="../../_images/StochasticGradientDescent-regression.png" src="../../_images/StochasticGradientDescent-regression.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/stochasticgradient.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

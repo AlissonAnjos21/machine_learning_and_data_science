@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save Data</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Data Info" href="datainfo.html" />
+    <link rel="prev" title="SQL Table" href="sqltable.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="save-data">
+<h1>Save Data</h1>
+<p>Saves data to a file.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p>The <strong>Save Data</strong> widget considers a dataset provided in the input channel and saves it to a data file with a specified name. It can save the data as:</p>
+<ul class="simple">
+<li>a tab-delimited file (.tab)</li>
+<li>comma-separated file (.csv)</li>
+<li>pickle (.pkl), used for storing preprocessing of <a class="reference external" href="https://orange.biolab.si/widget-catalog/text-mining/corpus-widget/" target="_blank">Corpus</a> objects</li>
+<li>Excel spreadsheets (.xlsx)</li>
+<li>spectra ASCII (.dat)</li>
+<li>hyperspectral map ASCII (.xyz)</li>
+<li>compressed formats (.tab.gz, .csv.gz, .pkl.gz)</li>
+</ul>
+<p>The widget does not save the data every time it receives a new signal in the input as this would constantly (and, mostly, inadvertently) overwrite the file. Instead, the data is saved only after a new file name is set or the user pushes the <em>Save</em> button.</p>
+<p>If the file is saved to the same directory as the workflow or in the subtree of that directory, the widget remembers the relative path. Otherwise, it will store an absolute path but disable auto save for security reasons.</p>
+<p><img alt="../../_images/SaveData.png" src="../../_images/SaveData.png" /></p>
+<ul class="simple">
+<li><em>Add type annotations to header</em>: Include Orange’s three-row header in the output file.</li>
+<li><em>Autosave when receiving new data</em>: Always save new data. Be careful! This will overwrite existing data on your system.</li>
+<li><em>Save</em> by overwriting the existing file.</li>
+<li><em>Save as</em> to create a new file.</li>
+</ul>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>In the workflow below, we used the <em>Zoo</em> dataset. We loaded the data into the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> widget, with which we selected a subset of data instances and pushed them to the <strong>Save Data</strong> widget to store them in a file.</p>
+<p><img alt="../../_images/Save-Workflow.png" src="../../_images/Save-Workflow.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/save.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

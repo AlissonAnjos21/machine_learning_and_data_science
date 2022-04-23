@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sieve Diagram</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Pythagorean Tree" href="pythagoreantree.html" />
+    <link rel="prev" title="Linear Projection" href="linearprojection.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="sieve-diagram">
+<h1>Sieve Diagram</h1>
+<p>Plots a sieve diagram for a pair of attributes.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p>A <strong>Sieve Diagram</strong> is a graphical method for visualizing frequencies in a two-way contingency table and comparing them to <a class="reference external" href="http://cnx.org/contents/d396c4ad-2fd7-47cd-be84-152b44880feb&#64;2/What-is-an-expected-frequency" target="_blank">expected frequencies</a> under assumption of independence. It was proposed by Riedwyl and Schüpbach in a technical report in 1983 and later called a parquet diagram (Riedwyl and Schüpbach 1994). In this display, the area of each rectangle is proportional to the expected frequency, while the observed frequency is shown by the number of squares in each rectangle. The difference between observed and expected frequency (proportional to the standard Pearson residual) appears as the density of shading, using color to indicate whether the deviation from independence is positive (blue) or negative (red).</p>
+<p><img alt="../../_images/SieveDiagram-stamped.png" src="../../_images/SieveDiagram-stamped.png" /></p>
+<ol class="simple">
+<li>Select the attributes you want to display in the sieve plot.</li>
+<li>Score combinations enables you to fin the best possible combination of attributes.</li>
+<li><em>Save Image</em> saves the created image to your computer in a .svg or .png format.</li>
+<li>Produce a report.</li>
+</ol>
+<p>The snapshot below shows a sieve diagram for the <em>Titanic</em> dataset and has the attributes <em>sex</em> and <em>survived</em> (the latter is a class attribute in this dataset). The plot shows that the two variables are highly associated, as there are substantial differences between observed and expected frequencies in all of the four quadrants. For example, and as highlighted in the balloon, the chance for surviving the accident was much higher for female passengers than expected (0.06 vs. 0.15).</p>
+<p><img alt="../../_images/SieveDiagram-Titanic.png" src="../../_images/SieveDiagram-Titanic.png" /></p>
+<p>Pairs of attributes with interesting associations have a strong shading, such as the diagram shown in the above snapshot. For contrast, a sieve diagram of the least interesting pair (age vs. survival) is shown below.</p>
+<p><img alt="../../_images/SieveDiagram-Titanic-age-survived.png" src="../../_images/SieveDiagram-Titanic-age-survived.png" /></p>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Below, we see a simple schema using the <em>Titanic</em> dataset, where we use the
+<a class="reference internal" href="../data/rank.html"><span class="doc">Rank</span></a> widget to select the best attributes (the ones with the highest information gain, gain ratio or Gini index) and feed them into the <strong>Sieve Diagram</strong>. This displays the sieve plot for the two best attributes, which in our case are sex and status. We see that the survival rate on the Titanic was very high for women of the first class and very low for female crew members.</p>
+<p><img alt="../../_images/SieveDiagram-Example2.PNG" src="../../_images/SieveDiagram-Example2.PNG" /></p>
+<p>The <strong>Sieve Diagram</strong> also features the <em>Score Combinations</em> option, which makes the ranking of attributes even easier.</p>
+<p><img alt="../../_images/SieveDiagram-Example1.PNG" src="../../_images/SieveDiagram-Example1.PNG" /></p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p>Riedwyl, H., and Schüpbach, M. (1994). Parquet diagram to plot contingency tables. In Softstat ‘93: Advances in Statistical Software, F. Faulbaum (Ed.). New York: Gustav Fischer, 293-299.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/sievediagram.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

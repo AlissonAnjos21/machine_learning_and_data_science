@@ -1,0 +1,139 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manifold Learning</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Self-Organizing Map" href="selforganizingmap.html" />
+    <link rel="prev" title="t-SNE" href="tsne.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="manifold-learning">
+<h1>Manifold Learning</h1>
+<p>Nonlinear dimensionality reduction.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Transformed Data: dataset with reduced coordinates</li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction" target="_blank">Manifold Learning</a> is a technique which finds a non-linear manifold within the higher-dimensional space. The widget then outputs new coordinates which correspond to a two-dimensional space. Such data can be later visualized with <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> or other visualization widgets.</p>
+<p><img alt="../../_images/manifold-learning-stamped.png" src="../../_images/manifold-learning-stamped.png" /></p>
+<ol class="simple">
+<li>Method for manifold learning:<ul>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/manifold.html#t-distributed-stochastic-neighbor-embedding-t-sne" target="_blank">t-SNE</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/manifold.html#multi-dimensional-scaling-mds" target="_blank">MDS</a>, see also <a class="reference internal" href="mds.html"><span class="doc">MDS widget</span></a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/manifold.html#isomap" target="_blank">Isomap</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/manifold.html#locally-linear-embedding" target="_blank">Locally Linear Embedding</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/manifold.html#spectral-embedding" target="_blank">Spectral Embedding</a></li>
+</ul>
+</li>
+<li>Set parameters for the method:<ul>
+<li>t-SNE (distance measures):<ul>
+<li><em>Euclidean</em> distance</li>
+<li><em>Manhattan</em></li>
+<li><em>Chebyshev</em></li>
+<li><em>Jaccard</em></li>
+<li><em>Mahalanobis</em></li>
+<li><em>Cosine</em></li>
+</ul>
+</li>
+<li>MDS (iterations and initialization):<ul>
+<li><em>max iterations</em>: maximum number of optimization interactions</li>
+<li><em>initialization</em>: method for initialization of the algorithm (PCA or random)</li>
+</ul>
+</li>
+<li>Isomap:<ul>
+<li>number of <em>neighbors</em></li>
+</ul>
+</li>
+<li>Locally Linear Embedding:<ul>
+<li><em>method</em>:<ul>
+<li>standard</li>
+<li>modified</li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/manifold.html#hessian-eigenmapping" target="_blank">hessian eigenmap</a></li>
+<li>local</li>
+</ul>
+</li>
+<li>number of <em>neighbors</em></li>
+<li><em>max iterations</em></li>
+</ul>
+</li>
+<li>Spectral Embedding:<ul>
+<li><em>affinity</em>:<ul>
+<li>nearest neighbors</li>
+<li>RFB kernel</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Output: the number of reduced features (components).</li>
+<li>If <em>Apply automatically</em> is ticked, changes will be propagated automatically. Alternatively, click <em>Apply</em>.</li>
+<li>Produce a report.</li>
+</ol>
+<p><strong>Manifold Learning</strong> widget produces different embeddings for high-dimensional data.</p>
+<p><img alt="../../_images/collage-manifold.png" src="../../_images/collage-manifold.png" /></p>
+<p>From left to right, top to bottom: t-SNE, MDS, Isomap, Locally Linear Embedding and Spectral Embedding.</p>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>All projections use default preprocessing if necessary. It is executed in the following order:</p>
+<ul class="simple">
+<li>continuization of categorical variables (with one feature per value)</li>
+<li>imputation of missing values with mean values</li>
+</ul>
+<p>To override default preprocessing, preprocess the data beforehand with <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p><em>Manifold Learning</em> widget transforms high-dimensional data into a lower dimensional approximation. This makes it great for visualizing datasets with many features. We used <em>voting.tab</em> to map 16-dimensional data onto a 2D graph. Then we used <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> to plot the embeddings.</p>
+<p><img alt="../../_images/manifold-learning-example.png" src="../../_images/manifold-learning-example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/manifoldlearning.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

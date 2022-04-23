@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Boosting</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="SVM" href="svm.html" />
+    <link rel="prev" title="Random Forest" href="randomforest.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="gradient-boosting">
+<h1>Gradient Boosting</h1>
+<p>Predict using gradient boosting on decision trees.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: gradient boosting learning algorithm</li>
+<li>Model: trained model</li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_boosting" target="_blank">Gradient Boosting</a> is a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees.</p>
+<p><img alt="../../_images/GradientBoosting-stamped.png" src="../../_images/GradientBoosting-stamped.png" /></p>
+<ol class="simple">
+<li>Specify the name of the model. The default name is “Gradient Boosting”.</li>
+<li>Select a gradient boosting method:<ul>
+<li><a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html" target="_blank">Gradient Boosting (scikit-learn)</a></li>
+<li><a class="reference external" href="https://xgboost.readthedocs.io/en/latest/index.html" target="_blank">Extreme Gradient Boosting (xgboost)</a></li>
+<li><a class="reference external" href="https://xgboost.readthedocs.io/en/latest/index.html" target="_blank">Extreme Gradient Boosting Random Forest (xgboost)</a></li>
+<li><a class="reference external" href="https://catboost.ai/docs/concepts/python-quickstart.html" target="_blank">Gradient Boosting (catboost)</a></li>
+</ul>
+</li>
+<li>Basic properties:<ul>
+<li><em>Number of trees</em>: Specify how many gradient boosted trees will be included. A large number usually results in better performance.</li>
+<li><em>Learning rate</em>: Specify the boosting learning rate. Learning rate shrinks the contribution of each tree.</li>
+<li><em>Replicable training</em>: Fix the random seed, which enables replicability of the results.</li>
+<li><em>Regularization</em>: Specify the L2 regularization term. Available only for <em>xgboost</em> and <em>catboost</em> methods.</li>
+</ul>
+</li>
+<li>Growth control:<ul>
+<li><em>Limit depth of individual trees</em>: Specify the maximum depth of the individual tree.</li>
+<li><em>Do not split subsets smaller than</em>: Specify the smallest subset that can be split. Available only for <em>scikit-learn</em> methods.</li>
+</ul>
+</li>
+<li>Subsampling:<ul>
+<li><em>Fraction of training instances</em>: Specify the percentage of the training instances for fitting the individual tree. Available for <em>scikit-learn</em> and <em>xgboost</em> methods.</li>
+<li><em>Fraction of features for each tree</em>: Specify the percentage of features to use when constructing each tree. Available for <em>xgboost</em> and <em>catboost</em> methods.</li>
+<li><em>Fraction of features for each level</em>: Specify the percentage of features to use for each level. Available only for <em>xgboost</em> methods.</li>
+<li><em>Fraction of features for each split</em>: Specify the percentage of features to use for each split. Available only for <em>xgboost</em> methods.</li>
+</ul>
+</li>
+<li>Click <em>Apply</em> to communicate the changes to other widgets. Alternatively, tick the box on the left side of the <em>Apply</em> button and changes will be communicated automatically.</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Gradient Boosting uses default preprocessing when no other preprocessors are given. It executes them in the following order:</p>
+<ul class="simple">
+<li>removes instances with unknown target values</li>
+<li>continuizes categorical variables (with one-hot-encoding)</li>
+<li>removes empty columns</li>
+<li>imputes missing values with mean values</li>
+</ul>
+<p>To remove default preprocessing, connect an empty <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget to the learner.</p>
+</div>
+<div class="section" id="feature-scoring">
+<h2>Feature Scoring</h2>
+<p>Gradient Boosting can be used with Rank for feature scoring. See <a class="reference internal" href="../../learners-as-scorers/index.html"><span class="doc">Learners as Scorers</span></a> for an example.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>For a classification tasks, we use the <em>heart disease</em> data. Here, we compare all available methods in the <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test &amp; Score</span></a> widget.</p>
+<p><img alt="../../_images/GradientBoosting-example.png" src="../../_images/GradientBoosting-example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/gradientboosting.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stacking</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Load Model" href="loadmodel.html" />
+    <link rel="prev" title="Stochastic Gradient Descent" href="stochasticgradient.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="stacking">
+<h1>Stacking</h1>
+<p>Stack multiple models.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+<li>Learners: learning algorithm</li>
+<li>Aggregate: model aggregation method</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: aggregated (stacked) learning algorithm</li>
+<li>Model: trained model</li>
+</ul>
+<p><strong>Stacking</strong> is an ensemble method that computes a meta model from several base models. The <strong>Stacking</strong> widget has the <strong>Aggregate</strong> input, which provides a method for aggregating the input models. If no aggregation input is given the default methods are used. Those are <strong>Logistic Regression</strong> for classification and <strong>Ridge Regression</strong> for regression problems.</p>
+<p><img alt="../../_images/Stacking-stamped.png" src="../../_images/Stacking-stamped.png" /></p>
+<ol class="simple">
+<li>The meta learner can be given a name under which it will appear in other widgets. The default name is “Stack”.</li>
+<li>Click <em>Apply</em> to commit the aggregated model. That will put the new learner in the output and, if the training examples are given, construct a new model and output it as well. To communicate changes automatically tick <em>Apply Automatically</em>.</li>
+<li>Access help and produce a report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>We will use <a class="reference internal" href="../data/paintdata.html"><span class="doc">Paint Data</span></a> to demonstrate how the widget is used. We painted a complex dataset with 4 class labels and sent it to <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test &amp; Score</span></a>. We also provided three <a class="reference internal" href="knn.html"><span class="doc">kNN</span></a> learners, each with a different parameters (number of neighbors is 5, 10 or 15). Evaluation results are good, but can we do better?</p>
+<p>Let’s use <strong>Stacking</strong>. <strong>Stacking</strong> requires several learners on the input and an aggregation method. In our case, this is <a class="reference internal" href="logisticregression.html"><span class="doc">Logistic Regression</span></a>. A constructed meta learner is then sent to <strong>Test &amp; Score</strong>. Results have improved, even if only marginally. <strong>Stacking</strong> normally works well on complex data sets.</p>
+<p><img alt="../../_images/Stacking-Example.png" src="../../_images/Stacking-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/stacking.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

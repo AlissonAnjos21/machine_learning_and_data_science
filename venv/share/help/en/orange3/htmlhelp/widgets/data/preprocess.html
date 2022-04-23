@@ -1,0 +1,141 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preprocess</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Apply Domain" href="applydomain.html" />
+    <link rel="prev" title="Outliers" href="outliers.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="preprocess">
+<h1>Preprocess</h1>
+<p>Preprocesses data with selected methods.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Preprocessor: preprocessing method</li>
+<li>Preprocessed Data: data preprocessed with selected methods</li>
+</ul>
+<p>Preprocessing is crucial for achieving better-quality analysis results. The <strong>Preprocess</strong> widget offers several preprocessing methods that can be combined in a single preprocessing pipeline. Some methods are available as separate widgets, which offer advanced techniques and greater parameter tuning.</p>
+<p><img alt="../../_images/preprocess-stamped.png" src="../../_images/preprocess-stamped.png" /></p>
+<ol class="simple">
+<li>List of preprocessors. Double click the preprocessors you wish to use and shuffle their order by dragging them up or down. You can also add preprocessors by dragging them from the left menu to the right.</li>
+<li>Preprocessing pipeline.</li>
+<li>When the box is ticked (<em>Send Automatically</em>), the widget will communicate changes automatically. Alternatively, click <em>Send</em>.</li>
+</ol>
+<div class="section" id="preprocessors">
+<h2>Preprocessors</h2>
+<p><img alt="../../_images/Preprocess1.png" src="../../_images/Preprocess1.png" /></p>
+<ol class="simple">
+<li>List of preprocessors.</li>
+<li>Discretization of continuous values:<ul>
+<li><a class="reference external" href="http://sci2s.ugr.es/keel/pdf/algorithm/congreso/fayyad1993.pdf" target="_blank">Entropy-MDL discretization</a> by Fayyad and Irani that uses <a class="reference external" href="http://kevinmeurer.com/a-simple-guide-to-entropy-based-discretization/" target="_blank">expected information</a> to determine bins.</li>
+<li><em>Equal frequency discretization</em> splits by frequency (same number of instances in each bin.</li>
+<li><em>Equal width discretization</em> creates bins of equal width (span of each bin is the same).</li>
+<li><em>Remove numeric features</em> altogether.</li>
+</ul>
+</li>
+<li>Continuization of discrete values:<ul>
+<li><em>Most frequent as base</em> treats the most frequent discrete value as 0 and others as 1. The discrete attributes with more than 2 values, the most frequent will be considered as a base and contrasted with remaining values in corresponding columns.</li>
+<li><em>One feature per value</em> creates columns for each value, place 1 where an instance has that value and 0 where it doesn’t. Essentially <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html" target="_blank">One Hot Encoding</a>.</li>
+<li><em>Remove non-binary features</em> retains only categorical features that have values of either 0 or 1 and transforms them into continuous.</li>
+<li><em>Remove categorical features</em> removes categorical features altogether.</li>
+<li><em>Treat as ordinal</em> takes discrete values and treats them as numbers. If discrete values are categories, each category will be assigned a number as they appear in the data.</li>
+<li><em>Divide by number of values</em> is similar to treat as ordinal, but the final values will be divided by the total number of values and hence the range of the new continuous variable will be [0, 1].</li>
+</ul>
+</li>
+<li>Impute missing values:<ul>
+<li><em>Average/Most frequent</em> replaces missing values (NaN) with the average (for continuous) or most frequent (for discrete) value.</li>
+<li><em>Replace with random value</em> replaces missing values with random ones within the range of each variable.</li>
+<li><em>Remove rows with missing values</em>.</li>
+</ul>
+</li>
+<li>Select relevant features:<ul>
+<li>Similar to <a class="reference internal" href="rank.html"><span class="doc">Rank</span></a>, this preprocessor outputs only the most informative features. Score can be determined by information gain, <a class="reference external" href="https://en.wikipedia.org/wiki/Information_gain_ratio" target="_blank">gain ratio</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Gini_coefficient" target="_blank">gini index</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Relief_(feature_selection)" target="_blank">ReliefF</a>, <a class="reference external" href="https://www.aaai.org/Papers/ICML/2003/ICML03-111.pdf" target="_blank">fast correlation based filter</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance" target="_blank">ANOVA</a>, <a class="reference external" href="https://en.wikipedia.org/wiki/Chi-squared_distribution" target="_blank">Chi2</a>, <a class="reference external" href="http://lkm.fri.uni-lj.si/rmarko/papers/robnik03-mlj.pdf" target="_blank">RReliefF</a>, and <a class="reference external" href="http://scikit-learn.org/stable/modules/feature_selection.html#feature-selection-using-selectfrommodel" target="_blank">Univariate Linear Regression</a>.</li>
+<li><em>Strategy</em> refers to how many variables should be on the output. <em>Fixed</em> returns a fixed number of top scored variables, while <em>Percentile</em> return the selected top percent of the features.</li>
+</ul>
+</li>
+<li><em>Select random features</em> outputs either a fixed number of features from the original data or a percentage. This is mainly used for advanced testing and educational purposes.</li>
+</ol>
+<p><img alt="../../_images/Preprocess2.png" src="../../_images/Preprocess2.png" /></p>
+<ol class="simple">
+<li>Normalize adjusts values to a common scale. Center values by mean or median or omit centering altogether. Similar for scaling, one can scale by SD (standard deviation), by span or not at all.</li>
+<li>Randomize instances. Randomize classes shuffles class values and destroys connection between instances and class. Similarly, one can randomize features or meta data. If replicable shuffling is on, randomization results can be shared and repeated with a saved workflow. This is mainly used for advanced testing and educational purposes.</li>
+<li><em>Remove sparse features</em> retains features that have more than a number/percentage of non-zero/missing values. The rest are discarded.</li>
+<li>Principal component analysis outputs results of a PCA transformation. Similar to the <a class="reference internal" href="../unsupervised/PCA.html"><span class="doc">PCA</span></a> widget.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/CUR_matrix_approximation" target="_blank">CUR matrix decomposition</a> is a dimensionality reduction method, similar to SVD.</li>
+</ol>
+</div>
+<div class="section" id="preprocessing-for-predictive-modeling">
+<h2>Preprocessing for predictive modeling</h2>
+<p>When building predictive models, one has to be careful about how to do preprocessing. There are two possible ways to do it in Orange, each slightly different:</p>
+<ol>
+<li><p class="first">Connect <strong>Preprocess</strong> to the learner. This will override the default preprocessing pipeline for the learner and apply only custom preprocessing pipeline (default preprocessing steps are described in each learner’s documentation).</p>
+<p><img alt="../../_images/Preprocess-Models1.png" src="../../_images/Preprocess-Models1.png" /></p>
+</li>
+<li><p class="first">Connect <strong>Preprocess</strong> to Test and Score. This will apply the preprocessors to each batch within cross-validation. Then the learner’s preprocessors will be applied to the preprocessed subset.</p>
+<p><img alt="../../_images/Preprocess-Models2.png" src="../../_images/Preprocess-Models2.png" /></p>
+</li>
+</ol>
+<p>Finally, there’s a wrong way to do it. Connecting <strong>Preprocess</strong> directly to the original data and outputting preprocessed data set will likely overfit the model. Don’t do it.</p>
+<p><img alt="../../_images/Preprocess-Models3.png" src="../../_images/Preprocess-Models3.png" /></p>
+</div>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>In the first example, we have used the <em>heart_disease.tab</em> dataset available in the dropdown menu of the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget. then we used <strong>Preprocess</strong> to impute missing values and normalize features. We can observe the changes in the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> and compare it to the non-processed data.</p>
+<p><img alt="../../_images/Preprocess-Example1.png" src="../../_images/Preprocess-Example1.png" /></p>
+<p>In the second example, we show how to use <strong>Preprocess</strong> for predictive modeling.</p>
+<p>This time we are using the <em>heart_disease.tab</em> data from the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget. You can access the data in the dropdown menu. This is a dataset with 303 patients that came to the doctor suffering from a chest pain. After the tests were done, some patients were found to have diameter narrowing and others did not (this is our class variable).</p>
+<p>Some values are missing in our data set, so we would like to impute missing values before evaluating the model. We do this by passing a preprocessor directly to <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test and Score</span></a>. In <strong>Preprocess</strong>, we set the correct preprocessing pipeline (in our example only a single preprocessor with <em>Impute missing values</em>), then connect it to the Preprocessor input of Test and Score.</p>
+<p>We also pass the data and the learner (in this case, a <a class="reference internal" href="../model/logisticregression.html"><span class="doc">Logistic Regression</span></a>). This is the correct way to pass a preprocessor to cross-validation as each fold will independently get preprocessed in the training phase. This is particularly important for feature selection.</p>
+<p><img alt="../../_images/Preprocess-Example2.png" src="../../_images/Preprocess-Example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/preprocess.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

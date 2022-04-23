@@ -1,0 +1,118 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scatter Plot</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Line Plot" href="lineplot.html" />
+    <link rel="prev" title="Heat Map" href="heatmap.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="scatter-plot">
+<h1>Scatter Plot</h1>
+<p>Scatter plot visualization with exploratory analysis and intelligent data visualization enhancements.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Data Subset: subset of instances</li>
+<li>Features: list of attributes</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the plot</li>
+<li>Data: data with an additional column showing whether a point is selected</li>
+</ul>
+<p>The <strong>Scatter Plot</strong> widget provides a 2-dimensional scatter plot visualization. The data is displayed as a collection of points, each having the value of the x-axis attribute determining the position on the horizontal axis and the value of the y-axis attribute determining the position on the vertical axis. Various properties of the graph, like color, size and shape of the points, axis titles, maximum point size and jittering can be adjusted on the left side of the widget. A snapshot below shows the scatter plot of the <em>Iris</em> dataset with the coloring matching of the class attribute.</p>
+<p><img alt="../../_images/Scatterplot-Iris-stamped.png" src="../../_images/Scatterplot-Iris-stamped.png" /></p>
+<ol class="simple">
+<li>Select the x and y attribute. Optimize your projection with <strong>Find Informative Projections</strong>. This feature scores attribute pairs by average classification accuracy and returns the top scoring pair with a simultaneous visualization update.</li>
+<li><em>Attributes</em>: Set the color of the displayed points (you will get colors for categorical values and blue-green-yellow points for numeric). Set label, shape and size to differentiate between points. <em>Label only selected points</em> allows you to select individual data instances and label only those.</li>
+<li>Set symbol size and opacity for all data points. Set <a class="reference external" href="https://en.wikipedia.org/wiki/Jitter" target="_blank">jittering</a> to prevent the dots overlapping. Jittering will randomly scatter point only around categorical values. If <em>Jitter numeric values</em> is checked, points are also scattered around their actual numeric values.<ul>
+<li><em>Show color regions</em> colors the graph by class (see the screenshot below).</li>
+<li><em>Show legend</em> displays a legend on the right. Click and drag the legend to move it.</li>
+<li><em>Show gridlines</em> displays the grid behind the plot.</li>
+<li><em>Show all data on mouse hover</em> enables information bubbles if the cursor is placed on a dot.</li>
+<li><em>Show regression line</em> draws the regression line for pair of numeric attributes. If a categorical variable is selected for coloring the plot, individual regression lines for each class value will be displayed. The reported r value corresponds to the <code class="docutils literal notranslate"><span class="pre">rvalue</span></code> from <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.linregress.html" target="_blank">linear least-squares regression</a>, which is equal to the Pearson’s correlation coefficient.</li>
+<li><em>Treat variables as independent</em> fits regression line to a group of points (minimize distance from points), rather than fitting y as a function of x (minimize vertical distances).</li>
+</ul>
+</li>
+<li><em>Select, zoom, pan and zoom to fit</em> are the options for exploring the graph. The manual selection of data instances works as an angular/square selection tool. Double click to move the projection. Scroll in or out for zoom.</li>
+<li>If <em>Send automatically</em> is ticked, changes are communicated automatically. Alternatively, press <em>Send</em>.</li>
+</ol>
+<p>Here is an example of the <strong>Scatter Plot</strong> widget if the <em>Show color regions</em> and <em>Show regression line</em> boxes are ticked.</p>
+<p><img alt="../../_images/Scatterplot-ClassDensity.png" src="../../_images/Scatterplot-ClassDensity.png" /></p>
+<div class="section" id="intelligent-data-visualization">
+<h2>Intelligent Data Visualization</h2>
+<p>If a dataset has many attributes, it is impossible to manually scan through all the pairs to find interesting or useful scatter plots. Orange implements intelligent data visualization with the <strong>Find Informative Projections</strong> option in the widget.</p>
+<p>If a categorical variable is selected in the Color section, the <a class="reference external" href="http://eprints.fri.uni-lj.si/210/" target="_blank">score</a> is computed as follows. For each data instance, the method finds 10 nearest neighbors in the projected 2D space, that is, on the combination of attribute pairs. It then checks how many of them have the same color. The total score of the projection is then the average number of same-colored neighbors.</p>
+<p>Computation for numeric colors is similar, except that the <a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination" target="_blank">coefficient of determination</a> is used for measuring the local homogeneity of the projection.</p>
+<p>To use this method, go to the <em>Find Informative Projections</em> option in the widget, open the subwindow and press <em>Start Evaluation</em>. The feature will return a list of attribute pairs by average classification accuracy score.</p>
+<p>Below, there is an example demonstrating the utility of ranking. The first scatter plot projection was set as the default sepal width to sepal length plot (we used the Iris dataset for simplicity). Upon running <em>Find Informative Projections</em> optimization, the scatter plot converted to a much better projection of petal width to petal length plot.</p>
+<p><img alt="../../_images/ScatterPlotExample-Ranking.png" src="../../_images/ScatterPlotExample-Ranking.png" /></p>
+</div>
+<div class="section" id="selection">
+<h2>Selection</h2>
+<p>Selection can be used to manually defined subgroups in the data. Use Shift modifier when selecting data instances to put them into a new group. Shift + Ctrl (or Shift + Cmd on macOs) appends instances to the last group.</p>
+<p>Signal data outputs a data table with an additional column that contains group indices.</p>
+<p><img alt="../../_images/ScatterPlot-selection.png" src="../../_images/ScatterPlot-selection.png" /></p>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h2>Exploratory Data Analysis</h2>
+<p>The <strong>Scatter Plot</strong>, as the rest of Orange widgets, supports zooming-in and out of part of the plot and a manual selection of data instances. These functions are available in the lower left corner of the widget.</p>
+<p>The default tool is <em>Select</em>, which selects data instances within the chosen rectangular area. <em>Pan</em> enables you to move the scatter plot around the pane. With <em>Zoom</em> you can zoom in and out of the pane with a mouse scroll, while <em>Reset zoom</em> resets the visualization to its optimal size. An example of a simple schema, where we selected data instances from a rectangular region and sent them to the <a class="reference internal" href="../data/datatable.html"><span class="doc">Data Table</span></a> widget, is shown below. Notice that the scatter plot doesn’t show all 52 data instances, because some data instances overlap (they have the same values for both attributes used).</p>
+<p><img alt="../../_images/ScatterPlotExample-Explorative.png" src="../../_images/ScatterPlotExample-Explorative.png" /></p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>The <strong>Scatter Plot</strong> can be combined with any widget that outputs a list of selected data instances. In the example below, we combine <a class="reference internal" href="../model/tree.html"><span class="doc">Tree</span></a> and <strong>Scatter Plot</strong> to display instances taken from a chosen decision tree node (clicking on any node of the tree will send a set of selected data instances to the scatter plot and mark selected instances with filled symbols).</p>
+<p><img alt="../../_images/ScatterPlotExample-Classification.png" src="../../_images/ScatterPlotExample-Classification.png" /></p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p>Gregor Leban and Blaz Zupan and Gaj Vidmar and Ivan Bratko (2006) VizRank: Data Visualization Guided by Machine Learning. Data Mining and Knowledge Discovery, 13 (2). pp. 119-136. Available <a class="reference external" href="http://eprints.fri.uni-lj.si/210/" target="_blank">here</a>.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/scatterplot.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

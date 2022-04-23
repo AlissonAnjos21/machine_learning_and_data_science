@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Violin Plot</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Distributions" href="distributions.html" />
+    <link rel="prev" title="Box Plot" href="boxplot.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="violin-plot">
+<h1>Violin Plot</h1>
+<p>Visualize the distribution of feature values in a violin plot.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the plot</li>
+<li>Data: data with an additional column showing whether a point is selected</li>
+</ul>
+<p>The <strong>Violin Plot</strong> widget plays a similar role as a <a class="reference internal" href="boxplot.html"><span class="doc">Box Plot</span></a>. It shows the distribution of quantitative data across several levels of a categorical variable such that those distributions can be compared. Unlike the Box Plot, in which all of the plot components correspond to actual data points, the Violin Plot features a kernel density estimation of the underlying distribution.</p>
+<p><img alt="../../_images/ViolinPlot-stamped.png" src="../../_images/ViolinPlot-stamped.png" /></p>
+<ol>
+<li><p class="first">Select the variable you want to plot. Tick <em>Order by relevance to subgroups</em> to order variables by Chi2 or ANOVA over the selected subgroup.</p>
+</li>
+<li><p class="first">Choose <em>Subgroups</em> to see <a class="reference external" href="https://en.wikipedia.org/wiki/Violin_plot" target="_blank">violin plots</a> displayed by a discrete subgroup. Tick <em>Order by relevance to variable</em> to order subgroups by Chi2 or ANOVA over the selected variable.</p>
+</li>
+<li><p class="first"><em>Box plot</em>: Tick to show the underlying box plot.
+<img alt="../../_images/ViolinPlot-boxplot.png" src="../../_images/ViolinPlot-boxplot.png" /></p>
+<p><em>Strip plot</em>: Tick to show the underlying data represented by points.</p>
+<p><em>Rug plot</em>: Tick to show the underlying data represented by lines.</p>
+<p><em>Order subgroups</em>: Tick to order violins by <em>median</em> (ascending).</p>
+<p><em>Orientation</em>: Determine violin orientation.</p>
+</li>
+<li><p class="first"><em>Kernel</em>: Select the kernel used to estimate the density. Possible kernels are: <em>Normal</em>, <em>Epanechnikov</em> and <em>Linear</em>.</p>
+<p><em>Scale</em>: Select the method used to scale the width of each violin. If <em>area</em> is selected, each violin will have the same area. If <em>count</em> is selected, the width of the violins will be scaled by the number of observations in that bin. If <em>width</em> is selected, each violin will have the same width.</p>
+</li>
+</ol>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>The <strong>Violin Plot</strong> widget is most commonly used immediately after the <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> widget to observe the statistical properties of a dataset. In the first example, we have used <em>heart-disease</em> data to inspect our variables.</p>
+<p><img alt="../../_images/ViolinPlot-example1.png" src="../../_images/ViolinPlot-example1.png" /></p>
+<p>The <strong>Violin Plot</strong> could also be used for <em>outlier detection</em>. In the next example we eliminate the outliers by selecting only instances that fall inside the <a class="reference external" href="https://en.wikipedia.org/wiki/Interquartile_range" target="_blank">Q1 &#8722; 1.5  and Q3 + 1.5 IQR</a>.</p>
+<p><img alt="../../_images/ViolinPlot-example2.png" src="../../_images/ViolinPlot-example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/violinplot.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Correspondence Analysis</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Distance Map" href="distancemap.html" />
+    <link rel="prev" title="PCA" href="PCA.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="correspondence-analysis">
+<h1>Correspondence Analysis</h1>
+<p>Correspondence analysis for categorical multivariate data.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Coordinates: coordinates of all components</li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Correspondence_analysis" target="_blank">Correspondence Analysis</a> (CA) computes the CA linear transformation of the input data. While it is similar to PCA, CA computes linear transformation on discrete rather than on continuous data.</p>
+<p><img alt="../../_images/CorrespondenceAnalysis-stamped.png" src="../../_images/CorrespondenceAnalysis-stamped.png" /></p>
+<ol class="simple">
+<li>Select the variables you want to see plotted.</li>
+<li>Select the component for each axis.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Sylvester%27s_law_of_inertia" target="_blank">Inertia</a> values (percentage of independence from transformation, i.e. variables are in the same dimension).</li>
+<li>Produce a report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Below, is a simple comparison between the <strong>Correspondence Analysis</strong> and <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> widgets on the <em>Titanic</em> dataset. While the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> shows fairly well which class and sex had a good survival rate and which one didn’t, <strong>Correspondence Analysis</strong> can plot several variables in a 2-D graph, thus making it easy to see the relations between variable values. It is clear from the graph that “no”, “male” and “crew” are related to each other. The same goes for “yes”, “female” and “first”.</p>
+<p><img alt="../../_images/CorrespondenceAnalysis-Example.png" src="../../_images/CorrespondenceAnalysis-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/correspondenceanalysis.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

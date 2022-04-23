@@ -1,0 +1,149 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading your Data</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="next" title="Building Workflows" href="../building-workflows/index.html" />
+    <link rel="prev" title="Orange Visual Programming" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="loading-your-data">
+<h1>Loading your Data</h1>
+<p>Orange comes with its <a class="reference external" href="https://docs.biolab.si/3/data-mining-library/tutorial/data.html#data-input" target="_blank">own data format</a>, but can also handle native Excel, comma- or tab-delimited data files. The input data set is usually a table, with data instances (samples) in rows and data attributes in columns. Attributes can be of different <em>types</em> (numeric, categorical, datetime, and text) and have assigned <em>roles</em> (input features, meta attributes, and class). Data attribute type and role can be provided in the data table header. They can also be changed in the <a class="reference internal" href="../widgets/data/file.html"><span class="doc">File</span></a> widget, while data role can also be modified with <a class="reference internal" href="../widgets/data/selectcolumns.html"><span class="doc">Select Columns</span></a> widget.</p>
+<div class="section" id="in-a-nutshell">
+<h2>In a Nutshell</h2>
+<ul class="simple">
+<li>Orange can import any comma- or tab-delimited data file, or Excel’s native files or Google Sheets document. Use <a class="reference internal" href="../widgets/data/file.html"><span class="doc">File</span></a> widget to load the data and, if needed, define the class and meta attributes.</li>
+<li>Types and roles can be set in the File widget.</li>
+<li>Attribute names in the column header can be preceded with a label followed by a hash. Use c for class and m for meta attribute, i to ignore a column, w for weights column, and C, D, T, S for continuous, discrete, time, and string attribute types. Examples: C#mph, mS#name, i#dummy.</li>
+<li>An alternative to the hash notation is Orange’s native format with three header rows: the first with attribute names, the second specifying the type (<strong>continuous</strong>, <strong>discrete</strong>, <strong>time</strong>, or <strong>string</strong>), and the third proving information on the attribute role (<strong>class</strong>, <strong>meta</strong>, <strong>weight</strong> or <strong>ignore</strong>).</li>
+</ul>
+</div>
+<div class="section" id="data-from-excel">
+<h2>Data from Excel</h2>
+<p>Here is an example dataset (<a class="reference external" href="http://file.biolab.si/datasets/sample.xlsx" target="_blank">sample.xlsx</a>) as entered in Excel:</p>
+<p><img alt="../_images/spreadsheet1.png" src="../_images/spreadsheet1.png" /></p>
+<p>The file contains a header row, eight data instances (rows) and seven data attributes (columns). Empty cells in the table denote missing data entries. Rows represent genes; their function (class) is provided in the first column and their name in the second. The remaining columns store measurements that characterize each gene. With this data, we could, say, develop a classifier that would predict gene function from its characteristic measurements.</p>
+<p>Let us start with a simple workflow that reads the data and displays it in a table:</p>
+<p><img alt="../_images/file-data-table-workflow.png" src="../_images/file-data-table-workflow.png" /></p>
+<p>To load the data, open the File widget (double click on the icon of the widget), click on the file browser icon (“…”) and locate the downloaded file (called <a class="reference external" href="http://file.biolab.si/datasets/sample.xlsx" target="_blank">sample.xlsx</a>) on your disk:</p>
+<p><img alt="../_images/File.png" src="../_images/File.png" /></p>
+<div class="section" id="file-widget-setting-the-attribute-type-and-role">
+<h3>File Widget: Setting the Attribute Type and Role</h3>
+<p>The <strong>File</strong> widget sends the data to the <strong>Data Table</strong>. Double click the <strong>Data Table</strong> to see its contents:</p>
+<p><img alt="../_images/table-widget.png" src="../_images/table-widget.png" /></p>
+<p>Orange correctly assumed that a column with gene names is meta information, which is displayed in the <strong>Data Table</strong> in columns shaded with light-brown. It has not guessed that <em>function</em>, the first non-meta column in our data file, is a class column. To correct this in Orange, we can adjust attribute role in the column display of File widget (below). Double-click the <em>feature</em> label in the <em>function</em> row and select <em>target</em> instead. This will set <em>function</em> attribute as our target (class) variable.</p>
+<p><img alt="../_images/File-set-feature-kind.png" src="../_images/File-set-feature-kind.png" /></p>
+<p>You can also change attribute type from nominal to numeric, from string to datetime, and so on. Naturally, data values have to suit the specified attribute type. Datetime accepts only values in <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> format, e.g. 2016-01-01 16:16:01. Orange would also assume the attribute is numeric if it has several different values, else it would be considered nominal. All other types are considered strings and are as such automatically categorized as meta attributes.</p>
+<p>Change of attribute roles and types should be confirmed by clicking the <strong>Apply</strong> button.</p>
+</div>
+<div class="section" id="select-columns-setting-the-attribute-role">
+<h3>Select Columns: Setting the Attribute Role</h3>
+<p>Another way to set the data role is to feed the data to the <a class="reference internal" href="../widgets/data/selectcolumns.html"><span class="doc">Select Columns</span></a> widget:</p>
+<p><img alt="../_images/select-columns-schema.png" src="../_images/select-columns-schema.png" /></p>
+<p>Opening <a class="reference internal" href="../widgets/data/selectcolumns.html"><span class="doc">Select Columns</span></a> reveals Orange’s classification of attributes. We would like all of our continuous attributes to be data features, gene function to be our target variable and gene names considered as meta attributes. We can obtain this by dragging the attribute names around the boxes in <strong>Select Columns</strong>:</p>
+<p><img alt="../_images/select-columns-start.png" src="../_images/select-columns-start.png" /></p>
+<p>To correctly reassign attribute types, drag attribute named <em>function</em> to a <strong>Class</strong> box, and attribute named <em>gene</em> to a <strong>Meta Attribute</strong> box. The <a class="reference internal" href="../widgets/data/selectcolumns.html"><span class="doc">Select Columns</span></a> widget should now look like this:</p>
+<p><img alt="../_images/select-columns-reassigned.png" src="../_images/select-columns-reassigned.png" /></p>
+<p>Change of attribute types in <em>Select Columns</em> widget should be confirmed by clicking the <strong>Apply</strong> button. The data from this widget is fed into <a class="reference internal" href="../widgets/data/datatable.html"><span class="doc">Data Table</span></a> that now renders the data just the way we intended:</p>
+<p><img alt="../_images/data-table-with-class1.png" src="../_images/data-table-with-class1.png" /></p>
+<p>We could also define the domain for this dataset in a different way. Say, we could make the dataset ready for regression, and use <em>heat 0</em> as a continuous class variable, keep gene function and name as meta variables, and remove <em>heat 10</em> and <em>heat 20</em> from the dataset:</p>
+<p><img alt="../_images/select-columns-regression.png" src="../_images/select-columns-regression.png" /></p>
+<p>By setting the attributes as above, the rendering of the data in the
+Data Table widget gives the following output:</p>
+<p><img alt="../_images/data-table-regression1.png" src="../_images/data-table-regression1.png" /></p>
+</div>
+</div>
+<div class="section" id="header-with-attribute-type-information">
+<h2>Header with Attribute Type Information</h2>
+<p>Consider again the <a class="reference external" href="http://file.biolab.si/datasets/sample.xlsx" target="_blank">sample.xlsx</a> dataset. This time we will augment the names of the attributes with prefixes that define attribute type (continuous, discrete, time, string) and role (class or meta attribute). Prefixes are separated from the attribute name with a hash sign (“#”). Prefixes for attribute roles are:</p>
+<ul class="simple">
+<li>c: class attribute</li>
+<li>m: meta attribute</li>
+<li>i: ignore the attribute</li>
+<li>w: instance weights</li>
+</ul>
+<p>and for the type:</p>
+<ul class="simple">
+<li>C: Continuous</li>
+<li>D: Discrete</li>
+<li>T: Time</li>
+<li>S: String</li>
+</ul>
+<p>This is how the header with augmented attribute names looks like in Excel (<a class="reference external" href="http://file.biolab.si/datasets/sample-head.xlsx" target="_blank">sample-head.xlsx</a>):</p>
+<p><img alt="../_images/spreadsheet-simple-head1.png" src="../_images/spreadsheet-simple-head1.png" /></p>
+<p>We can again use a <strong>File</strong> widget to load this dataset and then render it in the <strong>Data Table</strong>:</p>
+<p><img alt="../_images/select-cols-simplified-header.png" src="../_images/select-cols-simplified-header.png" /></p>
+<p>Notice that the attributes we have ignored (label “i” in the attribute name) are not present in the dataset.</p>
+</div>
+<div class="section" id="three-row-header-format">
+<h2>Three-Row Header Format</h2>
+<p>Orange’s legacy native data format is a tab-delimited text file with three header rows. The first row lists the attribute names, the second row defines their type (continuous, discrete, time and string, or abbreviated c, d, t, and s), and the third row an optional role (class, meta, weight, or ignore). Here is an example:</p>
+<p><img alt="../_images/excel-with-tab1.png" src="../_images/excel-with-tab1.png" /></p>
+</div>
+<div class="section" id="data-from-google-sheets">
+<h2>Data from Google Sheets</h2>
+<p>Orange can read data from Google Sheets, as long as it conforms to the data presentation rules we have presented above. In Google Sheets, copy the shareable link (Share button, then Get shareable link) and paste it in the <em>Data File / URL</em> box of the File widget. For a taste, here’s one such link you can use: <a class="reference external" href="http://bit.ly/1J12Tdp" target="_blank">http://bit.ly/1J12Tdp</a>, and the way we have entered it in the <strong>File</strong> widget:</p>
+<p><img alt="../_images/File-Google-Sheet.png" src="../_images/File-Google-Sheet.png" /></p>
+</div>
+<div class="section" id="data-from-libreoffice">
+<h2>Data from LibreOffice</h2>
+<p>If you are using LibreOffice, simply save your files in Excel (.xlsx) format (available from the drop-down menu under <em>Save As Type</em>).</p>
+<p><img alt="../_images/saving-tab-delimited-files.png" src="../_images/saving-tab-delimited-files.png" /></p>
+</div>
+<div class="section" id="datetime-format">
+<h2>Datetime Format</h2>
+<p>To avoid ambiguity, Orange supports date and/or time formatted in one of the <a class="reference external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> formats. For example, the following values are all valid:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2016</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">27</span>
+<span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">27</span> <span class="mi">14</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">51</span>
+<span class="mi">16</span><span class="p">:</span><span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/loading-your-data/index.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

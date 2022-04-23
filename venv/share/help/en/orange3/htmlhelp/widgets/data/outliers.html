@@ -1,0 +1,111 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outliers</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Preprocess" href="preprocess.html" />
+    <link rel="prev" title="Merge Data" href="mergedata.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="outliers">
+<h1>Outliers</h1>
+<p>Outlier detection widget.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Outliers: instances scored as outliers</li>
+<li>Inliers: instances not scored as outliers</li>
+<li>Data: input dataset appended <em>Outlier</em> variable</li>
+</ul>
+<p>The <strong>Outliers</strong> widget applies one of the four methods for outlier detection. All methods apply classification to the dataset. <em>One-class SVM with non-linear kernels (RBF)</em> performs well with non-Gaussian distributions, while <em>Covariance estimator</em> works only for data with Gaussian distribution. One efficient way to perform outlier detection on moderately high dimensional datasets is to use the <em>Local Outlier Factor</em> algorithm. The algorithm computes a score reflecting the degree of abnormality of the observations. It measures the local density deviation of a given data point with respect to its neighbors. Another efficient way of performing outlier detection in high-dimensional datasets is to use random forests (<em>Isolation Forest</em>).</p>
+<p><img alt="../../_images/Outliers-stamped.png" src="../../_images/Outliers-stamped.png" /></p>
+<ol class="simple">
+<li>Method for outlier detection:<ul>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html" target="_blank">One Class SVM</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.covariance.EllipticEnvelope.html" target="_blank">Covariance Estimator</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.LocalOutlierFactor.html" target="_blank">Local Outlier Factor</a></li>
+<li><a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html" target="_blank">Isolation Forest</a></li>
+</ul>
+</li>
+<li>Set parameters for the method:<ul>
+<li><strong>One class SVM with non-linear kernel (RBF)</strong>: classifies data as similar or different from the core class:<ul>
+<li><em>Nu</em> is a parameter for the upper bound on the fraction of training errors and a lower bound of the fraction of support vectors</li>
+<li><em>Kernel coefficient</em> is a gamma parameter, which specifies how much influence a single data instance has</li>
+</ul>
+</li>
+<li><strong>Covariance estimator</strong>: fits ellipsis to central points with Mahalanobis distance metric:<ul>
+<li><em>Contamination</em> is the proportion of outliers in the dataset</li>
+<li><em>Support fraction</em> specifies the proportion of points included in the estimate</li>
+</ul>
+</li>
+<li><strong>Local Outlier Factor</strong>: obtains local density from the k-nearest neighbors:<ul>
+<li><em>Contamination</em> is the proportion of outliers in the dataset</li>
+<li><em>Neighbors</em> represents number of neighbors</li>
+<li><em>Metric</em> is the distance measure</li>
+</ul>
+</li>
+<li><strong>Isolation Forest</strong>: isolates observations by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature:<ul>
+<li><em>Contamination</em> is the proportion of outliers in the dataset</li>
+<li><em>Replicabe training</em> fixes random seed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If <em>Apply automatically</em> is ticked, changes will be propagated automatically. Alternatively, click <em>Apply</em>.</li>
+<li>Produce a report.</li>
+<li>Number of instances on the input, followed by number of instances scored as inliers.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Below is an example of how to use this widget. We used subset (<em>versicolor</em> and <em>virginica</em> instances) of the <em>Iris</em> dataset to detect the outliers. We chose the <em>Local Outlier Factor</em> method, with <em>Euclidean</em> distance. Then we observed the annotated instances in the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> widget. In the next step we used the <em>setosa</em> instances to demonstrate novelty detection using <a class="reference internal" href="applydomain.html"><span class="doc">Apply Domain</span></a> widget. After concatenating both outputs we examined the outliers in the <em>Scatter Plot (1)</em>.</p>
+<p><img alt="../../_images/Outliers-Example.png" src="../../_images/Outliers-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/outliers.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

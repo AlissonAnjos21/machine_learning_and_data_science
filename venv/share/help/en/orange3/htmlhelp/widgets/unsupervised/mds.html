@@ -1,0 +1,124 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MDS</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="t-SNE" href="tsne.html" />
+    <link rel="prev" title="DBSCAN" href="DBSCAN.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mds">
+<h1>MDS</h1>
+<p>Multidimensional scaling (MDS) projects items onto a plane fitted to given distances between points.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Distances: distance matrix</li>
+<li>Data Subset: subset of instances</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the plot</li>
+<li>Data: dataset with MDS coordinates</li>
+</ul>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Multidimensional_scaling" target="_blank">Multidimensional scaling</a> is a technique which finds a low-dimensional (in our case a two-dimensional) projection of points, where it tries to fit distances between points as well as possible. The perfect fit is typically impossible to obtain since the data is high-dimensional or the distances are not <a class="reference external" href="https://en.wikipedia.org/wiki/Euclidean_distance" target="_blank">Euclidean</a>.</p>
+<p>In the input, the widget needs either a dataset or a matrix of distances. When visualizing distances between rows, you can also adjust the color of the points, change their shape, mark them, and output them upon selection.</p>
+<p>The algorithm iteratively moves the points around in a kind of a simulation of a physical model: if two points are too close to each other (or too far away), there is a force pushing them apart (or together). The change of the point’s position at each time interval corresponds to the sum of forces acting on it.</p>
+<p><img alt="../../_images/MDS-zoo-stamped.png" src="../../_images/MDS-zoo-stamped.png" /></p>
+<ol class="simple">
+<li>The widget redraws the projection during optimization. Optimization is run automatically in the beginning and later by pushing <em>Start</em>.<ul>
+<li><strong>Max iterations</strong>: The optimization stops either when the projection changes only minimally at the last iteration or when a maximum number of iterations has been reached.</li>
+<li><strong>Initialization</strong>: PCA (Torgerson) positions the initial points along principal coordinate axes. <em>Random</em> sets the initial points to a random position and then readjusts them.</li>
+<li><strong>Refresh</strong>: Set how often you want to refresh the visualization. It can be at <em>Every iteration</em>, <em>Every 5/10/25/50 steps</em> or never (<em>None</em>). Setting a lower refresh interval makes the animation more visually appealing, but can be slow if the number of points is high.</li>
+</ul>
+</li>
+<li>Defines how the points are visualized. These options are available only when visualizing distances between rows (selected in the <a class="reference internal" href="distances.html"><span class="doc">Distances</span></a> widget).<ul>
+<li><strong>Color</strong>: Color of points by attribute (gray for continuous, colored for discrete).</li>
+<li><strong>Shape</strong>: Shape of points by attribute (only for discrete).</li>
+<li><strong>Size</strong>: Set the size of points (<em>Same size</em> or select an attribute) or let the size depend on the value of the continuous attribute the point represents (Stress).</li>
+<li><strong>Label</strong>: Discrete attributes can serve as a label.</li>
+<li><strong>Symbol size</strong>: Adjust the size of the dots.</li>
+<li><strong>Symbol opacity</strong>: Adjust the transparency level of the dots.</li>
+<li><strong>Show similar pairs</strong>: Adjust the strength of network lines.</li>
+<li><strong>Jitter</strong>: Set <a class="reference external" href="https://en.wikipedia.org/wiki/Jitter" target="_blank">jittering</a> to prevent the dots from overlapping.</li>
+</ul>
+</li>
+<li>Adjust the graph with <em>Zoom/Select</em>. The arrow enables you to select data instances. The magnifying glass enables zooming, which can be also done by scrolling in and out. The hand allows you to move the graph around. The rectangle readjusts the graph proportionally.</li>
+<li>Select the desired output:<ul>
+<li><strong>Original features only</strong> (input dataset)</li>
+<li><strong>Coordinates only</strong> (MDS coordinates)</li>
+<li><strong>Coordinates as features</strong> (input dataset + MDS coordinates as regular attributes)</li>
+<li><strong>Coordinates as meta attributes</strong> (input dataset + MDS coordinates as meta attributes)</li>
+</ul>
+</li>
+<li>Sending the instances can be automatic if <em>Send selected automatically</em> is ticked. Alternatively, click <em>Send selected</em>.</li>
+<li><strong>Save Image</strong> allows you to save the created image either as .svg or .png file to your device.</li>
+<li>Produce a report.</li>
+</ol>
+<p>The MDS graph performs many of the functions of the Visualizations widget. It is in many respects similar to the <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> widget, so we recommend reading that widget’s description as well.</p>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>When given <em>Distances</em> on the input, preprocessing is not applied. When given <em>Data</em>, MDS uses default preprocessing if necessary. Preprocessing is executed in the following order:</p>
+<ul class="simple">
+<li>continuizes categorical variables (with one feature per value)</li>
+<li>imputes missing values with mean values</li>
+</ul>
+<p>To override default preprocessing, preprocess the data beforehand with <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget.</p>
+</div>
+</div>
+<div class="section" id="example">
+<h1>Example</h1>
+<p>The above graphs were drawn using the following simple schema. We used the <em>iris.tab</em> dataset. Using the <a class="reference internal" href="distances.html"><span class="doc">Distances</span></a> widget we input the distance matrix into the <strong>MDS</strong> widget, where we see the <em>Iris</em> data displayed in a 2-dimensional plane. We can see the appended coordinates in the <a class="reference internal" href="../data/datatable.html"><span class="doc">Data Table</span></a> widget.</p>
+<p><img alt="../../_images/MDS-Example.png" src="../../_images/MDS-Example.png" /></p>
+</div>
+<div class="section" id="references">
+<h1>References</h1>
+<p>Wickelmaier, F. (2003). An Introduction to MDS. Sound Quality Research
+Unit, Aalborg University. Available
+<a class="reference external" href="https://homepages.uni-tuebingen.de/florian.wickelmaier/pubs/Wickelmaier2003SQRU.pdf" target="_blank">here</a>.</p>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/unsupervised/mds.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

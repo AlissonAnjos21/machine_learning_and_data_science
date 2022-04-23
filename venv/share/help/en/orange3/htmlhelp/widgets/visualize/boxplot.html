@@ -1,0 +1,94 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Plot</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Violin Plot" href="violinplot.html" />
+    <link rel="prev" title="Group by" href="../data/groupby.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="box-plot">
+<h1>Box Plot</h1>
+<p>Shows distribution of attribute values.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the plot</li>
+<li>Data: data with an additional column showing whether a point is selected</li>
+</ul>
+<p>The <strong>Box Plot</strong> widget shows the distributions of attribute values. It is a good practice to check any new data with this widget to quickly discover any anomalies, such as duplicated values (e.g., gray and grey), outliers, and alike. Bars can be selected - for example, values for categorical data or the quantile range for numeric data.</p>
+<p><img alt="../../_images/BoxPlot-Continuous.png" src="../../_images/BoxPlot-Continuous.png" /></p>
+<ol class="simple">
+<li>Select the variable you want to plot. Tick <em>Order by relevance to subgroups</em> to order variables by Chi2 or ANOVA over the selected subgroup.</li>
+<li>Choose <em>Subgroups</em> to see <a class="reference external" href="https://en.wikipedia.org/wiki/Box_plot" target="_blank">box plots</a> displayed by a discrete subgroup. Tick <em>Order by relevance to variable</em> to order subgroups by Chi2 or ANOVA over the selected variable.</li>
+<li>When instances are grouped by a subgroup, you can change the display mode. Annotated boxes will display the end values, the mean and the median, while comparing medians and compare means will, naturally, compare the selected value between subgroups.
+<img alt="continuous" src="../../_images/BoxPlot-Continuous-small.png" /></li>
+<li>The mean (the dark blue vertical line). The thin blue line represents the <a class="reference external" href="http://mathworld.wolfram.com/StandardDeviation.html" target="_blank">standard deviation</a>.</li>
+<li>Values of the first (25%) and the third (75%) quantile. The blue highlighted area represents the values between the first and the third quartile.</li>
+<li>The median (yellow vertical line).</li>
+</ol>
+<p>For discrete attributes, the bars represent the number of instances with each particular attribute value. The plot shows the number of different animal types in the <em>Zoo</em> dataset: there are 41 mammals, 13 fish, 20 birds, and so on.</p>
+<p>Display shows:</p>
+<ul class="simple">
+<li><em>Stretch bars</em>: Shows relative values (proportions) of data instances. The unticked box shows absolute values.</li>
+<li><em>Show box labels</em>: Display discrete values above each bar.</li>
+<li><em>Sort by subgroup frequencies</em>: Sort subgroups by their descending frequency.</li>
+</ul>
+<p><img alt="../../_images/BoxPlot-Discrete.png" src="../../_images/BoxPlot-Discrete.png" /></p>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>The <strong>Box Plot</strong> widget is most commonly used immediately after the <a class="reference internal" href="../data/file.html"><span class="doc">File</span></a> widget to observe the statistical properties of a dataset. In the first example, we have used <em>heart-disease</em> data to inspect our variables.</p>
+<p><img alt="../../_images/BoxPlot-Example1.png" src="../../_images/BoxPlot-Example1.png" /></p>
+<p><strong>Box Plot</strong> is also useful for finding the properties of a specific dataset, for instance, a set of instances manually defined in another widget (e.g. <a class="reference internal" href="scatterplot.html"><span class="doc">Scatter Plot</span></a> or instances belonging to some cluster or a classification tree node. Let us now use <em>zoo</em> data and create a typical clustering workflow with <a class="reference internal" href="../unsupervised/distances.html"><span class="doc">Distances</span></a> and <a class="reference internal" href="../unsupervised/hierarchicalclustering.html"><span class="doc">Hierarchical Clustering</span></a>.</p>
+<p>Now define the threshold for cluster selection (click on the ruler at the top). Connect <strong>Box Plot</strong> to <strong>Hierarchical Clustering</strong>, tick <em>Order by relevance</em>, and select <em>Cluster</em> as a subgroup. This will order attributes by how well they define the selected subgroup, in our case, a cluster. It seems like our clusters indeed correspond very well with the animal type!</p>
+<p><img alt="../../_images/BoxPlot-Example2.png" src="../../_images/BoxPlot-Example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/boxplot.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

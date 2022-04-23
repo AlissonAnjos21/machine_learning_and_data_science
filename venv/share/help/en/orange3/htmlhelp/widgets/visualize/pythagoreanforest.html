@@ -1,0 +1,90 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pythagorean Forest</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="CN2 Rule Viewer" href="cn2ruleviewer.html" />
+    <link rel="prev" title="Pythagorean Tree" href="pythagoreantree.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pythagorean-forest">
+<h1>Pythagorean Forest</h1>
+<p>Pythagorean forest for visualizing random forests.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Random Forest: tree models from random forest</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Tree: selected tree model</li>
+</ul>
+<p><strong>Pythagorean Forest</strong> shows all learned decision tree models from <a class="reference internal" href="../model/randomforest.html"><span class="doc">Random Forest</span></a> widget. It displays them as Pythagorean trees, each visualization pertaining to one randomly constructed tree. In the visualization, you can select a tree and display it in <a class="reference internal" href="pythagoreantree.html"><span class="doc">Pythagorean Tree</span></a> widget. The best tree is the one with the shortest and most strongly colored branches. This means few attributes split the branches well.</p>
+<p>Widget displays both classification and regression results. Classification requires discrete target variable in the dataset, while regression requires a continuous target variable. Still, they both should be fed a <a class="reference internal" href="../model/tree.html"><span class="doc">Tree</span></a> on the input.</p>
+<p><img alt="../../_images/Pythagorean-Forest-stamped.png" src="../../_images/Pythagorean-Forest-stamped.png" /></p>
+<ol class="simple">
+<li>Information on the input random forest model.</li>
+<li>Display parameters:<ul>
+<li><em>Depth</em>: set the depth to which the trees are grown.</li>
+<li><em>Target class</em>: set the target class for coloring the trees. If <em>None</em> is selected, the tree will be white. If the input is a classification tree, you can color the nodes by their respective class. If the input is a regression tree, the options are <em>Class mean</em>, which will color tree nodes by the class mean value and <em>Standard deviation</em>, which will color them by the standard deviation value of the node.</li>
+<li><em>Size</em>: set the size of the nodes. <em>Normal</em> will keep the nodes the size of the subset in the node. <em>Square root</em> and <em>Logarithmic</em> are the respective transformations of the node size.</li>
+<li><em>Zoom</em>: allows you to see the size of the tree visualizations.</li>
+</ul>
+</li>
+<li><em>Save Image</em>: save the visualization to your computer as a <em>.svg</em> or <em>.png</em> file. <em>Report</em>: produce a report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p><strong>Pythagorean Forest</strong> is great for visualizing several built trees at once. In the example below, we’ve used <em>housing</em> dataset and plotted all 10 trees we’ve grown with <a class="reference internal" href="../model/randomforest.html"><span class="doc">Random Forest</span></a>. When changing the parameters in Random Forest, visualization in Pythagorean Forest will change as well.</p>
+<p>Then we’ve selected a tree in the visualization and inspected it further with <a class="reference internal" href="pythagoreantree.html"><span class="doc">Pythagorean Tree</span></a> widget.</p>
+<p><img alt="../../_images/Pythagorean-Forest-Example.png" src="../../_images/Pythagorean-Forest-Example.png" /></p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p>Beck, F., Burch, M., Munz, T., Di Silvestro, L. and Weiskopf, D. (2014). Generalized Pythagoras Trees for Visualizing Hierarchies. In IVAPP ‘14 Proceedings of the 5th International Conference on Information Visualization Theory and Applications, 17-28.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/pythagoreanforest.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

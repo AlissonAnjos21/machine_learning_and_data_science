@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test and Score</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="PCA" href="../unsupervised/PCA.html" />
+    <link rel="prev" title="ROC Analysis" href="rocanalysis.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="test-and-score">
+<h1>Test and Score</h1>
+<p>Tests learning algorithms on data.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Test Data: separate data for testing</li>
+<li>Learner: learning algorithm(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Evaluation Results: results of testing classification algorithms</li>
+</ul>
+<p>The widget tests learning algorithms. Different sampling schemes are available, including using separate test data. The widget does two things. First, it shows a table with different classifier performance measures, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Accuracy_and_precision" target="_blank">classification accuracy</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve" target="_blank">area under the curve</a>. Second, it outputs evaluation results, which can be used by other widgets for analyzing the performance of classifiers, such as <a class="reference internal" href="rocanalysis.html"><span class="doc">ROC Analysis</span></a> or <a class="reference internal" href="confusionmatrix.html"><span class="doc">Confusion Matrix</span></a>.</p>
+<p>The <em>Learner</em> signal has an uncommon property: it can be connected to more than one widget to test multiple learners with the same procedures.</p>
+<p><img alt="../../_images/TestAndScore-stamped.png" src="../../_images/TestAndScore-stamped.png" /></p>
+<ol class="simple">
+<li>The widget supports various sampling methods.<ul>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)" target="_blank">Cross-validation</a> splits the data into a given number of folds (usually 5 or 10). The algorithm is tested by holding out examples from one fold at a time; the model is induced from other folds and examples from the held out fold are classified. This is repeated for all the folds.</li>
+<li><strong>Cross validation by feature</strong> performs cross-validation but folds are defined by the selected categorical feature from meta-features.</li>
+<li><strong>Random sampling</strong> randomly splits the data into the training and testing set in the given proportion (e.g. 70:30); the whole procedure is repeated for a specified number of times.</li>
+<li><strong>Leave-one-out</strong> is similar, but it holds out one instance at a time, inducing the model from all others and then classifying the held out instances. This method is obviously very stable, reliable… and very slow.</li>
+<li><strong>Test on train data</strong> uses the whole dataset for training and then for testing. This method practically always gives wrong results.</li>
+<li><strong>Test on test data</strong>: the above methods use the data from <em>Data</em> signal only. To input another dataset with testing examples (for instance from another file or some data selected in another widget), we select <em>Separate Test Data</em> signal in the communication channel and select Test on test data.</li>
+</ul>
+</li>
+<li>For classification, <em>Target class</em> can be selected at the bottom of the widget. When <em>Target class</em> is (Average over classes), methods return scores that are weighted averages over all classes. For example, in case of the classifier with 3 classes, scores are computed for class 1 as a target class, class 2 as a target class, and class 3 as a target class. Those scores are averaged with weights based on the class size to retrieve the final score.</li>
+<li>The widget will compute a number of performance statistics. A few are shown by default. To see others, right-click on the header and select the desired statistic.<ul>
+<li>Classification
+<img alt="../../_images/TestAndScore-Classification.png" src="../../_images/TestAndScore-Classification.png" /><ul>
+<li><a class="reference external" href="http://gim.unmc.edu/dxtests/roc3.htm" target="_blank">Area under ROC</a> is the area under the receiver-operating curve.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Accuracy_and_precision" target="_blank">Classification accuracy</a> is the proportion of correctly classified examples.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/F1_score" target="_blank">F-1</a> is a weighted harmonic mean of precision and recall (see below).</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">Precision</a> is the proportion of true positives among instances classified as positive, e.g. the proportion of <em>Iris virginica</em> correctly identified as Iris virginica.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Precision_and_recall" target="_blank">Recall</a> is the proportion of true positives among all positive instances in the data, e.g. the number of sick among all diagnosed as sick.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity" target="_blank">Specificity</a> is the proportion of true negatives among all negative instances, e.g. the number of non-sick among all diagnosed as non-sick.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Cross_entropy" target="_blank">LogLoss</a> or cross-entropy loss takes into account the uncertainty of your prediction based on how much it varies from the actual label.</li>
+<li>Train time - cumulative time in seconds used for training models.</li>
+<li>Test time - cumulative time in seconds used for testing models.</li>
+</ul>
+</li>
+<li>Regression
+<img alt="../../_images/TestAndScore-Regression.png" src="../../_images/TestAndScore-Regression.png" /><ul>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mean_squared_error" target="_blank">MSE</a> measures the average of the squares of the errors or deviations (the difference between the estimator and what is estimated).</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Root_mean_square" target="_blank">RMSE</a> is the square root of the arithmetic mean of the squares of a set of numbers (a measure of imperfection of the fit of the estimator to the data)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Mean_absolute_error" target="_blank">MAE</a> is used to measure how close forecasts or predictions are to eventual outcomes.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Coefficient_of_determination" target="_blank">R2</a> is interpreted as the proportion of the variance in the dependent variable that is predictable from the independent variable.</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Root-mean-square_deviation" target="_blank">CVRMSE</a> is RMSE normalized by the mean value of actual values.</li>
+<li>Train time - cumulative time in seconds used for training models.</li>
+<li>Test time - cumulative time in seconds used for testing models.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Choose the score for pairwise comparison of models and the region of practical equivalence (ROPE), in which differences are considered negligible.</li>
+<li>Pairwise comparison of models using the selected score (available only for cross-validation). The number in the table gives the probability that the model corresponding to the row has a higher score than the model corresponding to the column. What the higher score means depends on the metric: a higher score can either mean a model is better (for example, CA or AUC) or the opposite (for example, RMSE). If negligible difference is enabled, the smaller number below shows the probability that the difference between the pair is negligible. The test is based on the <a class="reference external" href="https://link.springer.com/article/10.1007/s10994-015-5486-z" target="_blank">Bayesian interpretation of the t-test</a> (<a class="reference external" href="https://baycomp.readthedocs.io/en/latest/introduction.html" target="_blank">shorter introduction</a>).</li>
+<li>Get help and produce a report.</li>
+</ol>
+<div class="section" id="preprocessing-for-predictive-modeling">
+<h2>Preprocessing for predictive modeling</h2>
+<p>When building predictive models, one has to be careful about how to preprocess the data. There are two possible ways to do it in Orange, each slightly different:</p>
+<ol>
+<li><p class="first">Connect <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> to the learner. This will override the default preprocessing pipeline for the learner and apply only custom preprocessing pipeline (default preprocessing steps are described in each learner’s documentation). The procedure might lead to errors within the learner.</p>
+<p><img alt="../../_images/Preprocess-Models1.png" src="../../_images/Preprocess-Models1.png" /></p>
+</li>
+<li><p class="first">Connect <strong>Preprocess</strong> to Test and Score. This will apply the preprocessors to each batch within cross-validation. Then the learner’s preprocessors will be applied to the preprocessed subset.</p>
+<p><img alt="../../_images/Preprocess-Models2.png" src="../../_images/Preprocess-Models2.png" /></p>
+</li>
+</ol>
+<p>Finally, there’s a wrong way to do it. Connecting <strong>Preprocess</strong> directly to the original data and outputting preprocessed data set will likely overfit the model. Don’t do it.</p>
+<p><img alt="../../_images/Preprocess-Models3.png" src="../../_images/Preprocess-Models3.png" /></p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>In a typical use of the widget, we give it a dataset and a few learning algorithms and we observe their performance in the table inside the <strong>Test &amp; Score</strong> widget and in the <a class="reference internal" href="rocanalysis.html"><span class="doc">ROC</span></a>. The data is often preprocessed before testing; in this case we did some manual feature selection (<a class="reference internal" href="../data/selectcolumns.html"><span class="doc">Select Columns</span></a> widget) on <em>Titanic</em> dataset, where we want to know only the sex and status of the survived and omit the age.</p>
+<p>In the bottom table, we have a pairwise comparison of models. We selected that comparison is based on the <em>area under ROC curve</em> statistic. The number in the table gives the probability that the model corresponding to the row is better than the model corresponding to the column. We can, for example, see that probability for the tree to be better than SVM is almost one, and the probability that tree is better than Naive Bayes is 0.001. Smaller numbers in the table are probabilities that the difference between the pair is negligible based on the negligible threshold 0.1.</p>
+<p><img alt="../../_images/TestAndScore-Example.png" src="../../_images/TestAndScore-Example.png" /></p>
+<p>Another example of using this widget is presented in the documentation for the <a class="reference internal" href="confusionmatrix.html"><span class="doc">Confusion Matrix</span></a> widget.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/evaluate/testandscore.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

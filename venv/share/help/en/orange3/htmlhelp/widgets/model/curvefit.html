@@ -1,0 +1,98 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curve Fit</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Neural Network" href="neuralnetwork.html" />
+    <link rel="prev" title="AdaBoost" href="adaboost.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="curve-fit">
+<h1>Curve Fit</h1>
+<p>Fit a function to data.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Preprocessor: preprocessing method(s)</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Learner: curve fit learning algorithm</li>
+<li>Model: trained model</li>
+<li>Coefficients: fitted coefficients</li>
+</ul>
+<p>The <strong>Curve Fit</strong> widget fits an arbitrary function to the input data. It only works for regression tasks.
+The widget uses <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" target="_blank">scipy.curve_fit</a> to find the optimal values of the parameters.</p>
+<p>The widget works only on regression tasks and only numerical features can be used for fitting.</p>
+<p><img alt="../../_images/CurveFit-stamped.png" src="../../_images/CurveFit-stamped.png" /></p>
+<ol class="simple">
+<li>The learner/predictor name.</li>
+<li>Introduce model parameters.</li>
+<li>Input an expression in Python. The expression should consist of at least one fitting parameter.</li>
+<li>Select a feature to include into the expression. Only numerical features are available.</li>
+<li>Select a parameter. Only the introduced parameters are available.</li>
+<li>Select a function.</li>
+<li>Press <em>Apply</em> to commit changes. If <em>Apply Automatically</em> is ticked, changes are committed automatically.</li>
+<li>Show help, produce a report, input/output info.</li>
+</ol>
+<div class="section" id="preprocessing">
+<h2>Preprocessing</h2>
+<p>Curve fit uses default preprocessing when no other preprocessors are given. It executes them in the following order:</p>
+<ul class="simple">
+<li>removes instances with unknown target values</li>
+<li>removes empty columns</li>
+<li>imputes missing values with mean values</li>
+</ul>
+<p>To remove default preprocessing, connect an empty <a class="reference internal" href="../data/preprocess.html"><span class="doc">Preprocess</span></a> widget to the learner.</p>
+</div>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Below, is a simple workflow with <em>housing</em> dataset. Due to example simplicity we used only a single feature. Unlike the other modelling widgets, the Curve Fit needs data on the input. We trained <strong>Curve Fit</strong> and <a class="reference internal" href="linearregression.html"><span class="doc">Linear Regression</span></a> and evaluated their performance in <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test &amp; Score</span></a>.</p>
+<p><img alt="../../_images/CurveFit-example.png" src="../../_images/CurveFit-example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/model/curvefit.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

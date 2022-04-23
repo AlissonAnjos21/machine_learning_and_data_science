@@ -1,0 +1,86 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Columns</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Select Rows" href="selectrows.html" />
+    <link rel="prev" title="Data Table" href="datatable.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="select-columns">
+<h1>Select Columns</h1>
+<p>Manual selection of data attributes and composition of data domain.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset with columns as set in the widget</li>
+</ul>
+<p>The <strong>Select Columns</strong> widget is used to manually compose your <a class="reference external" href="https://en.wikipedia.org/wiki/Data_domain" target="_blank">data domain</a>. The user can decide which attributes will be used and how. Orange distinguishes between ordinary attributes, (optional) class attributes and meta attributes. For instance, for building a classification model, the domain would be composed of a set of attributes and a discrete class attribute. Meta attributes are not used in modeling, but several widgets can use them as instance labels.</p>
+<p>Orange attributes have a type and are either discrete, continuous or a character string. The attribute type is marked with a symbol appearing before the name of the attribute (D, C, S, respectively).</p>
+<p><img alt="../../_images/SelectColumns-stamped.png" src="../../_images/SelectColumns-stamped.png" /></p>
+<ol class="simple">
+<li>Left-out data attributes that will not be in the output data file</li>
+<li>Data attributes in the new data file</li>
+<li>Target variable. If none, the new dataset will be without a target variable.</li>
+<li>Meta attributes of the new data file. These attributes are included in the dataset but are, for most methods, not considered in the analysis.</li>
+<li>Produce a report.</li>
+<li>Reset the domain composition to that of the input data file.</li>
+<li>Tick if you wish to auto-apply changes of the data domain.</li>
+<li>Apply changes of the data domain and send the new data file to the output channel of the widget.</li>
+</ol>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>In the workflow below, the <em>Iris</em> data from the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget is fed into the <strong>Select Columns</strong> widget, where we select to output only two attributes (namely petal width and petal length). We view both the original dataset and the dataset with selected columns in the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> widget.</p>
+<p><img alt="../../_images/SelectColumns-Example1.png" src="../../_images/SelectColumns-Example1.png" /></p>
+<p>For a more complex use of the widget, we composed a workflow to redefine the classification problem in the <em>heart-disease</em> dataset. Originally, the task was to predict if the patient has a coronary artery diameter narrowing. We changed the problem to that of gender classification, based on age, chest pain and cholesterol level, and informatively kept the diameter narrowing as a meta attribute.</p>
+<p><img alt="../../_images/SelectColumns-Example2.png" src="../../_images/SelectColumns-Example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/selectcolumns.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

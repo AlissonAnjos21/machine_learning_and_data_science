@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Venn Diagram</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Linear Projection" href="linearprojection.html" />
+    <link rel="prev" title="Bar Plot" href="barplot.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="venn-diagram">
+<h1>Venn Diagram</h1>
+<p>Plots a <a class="reference external" href="http://en.wikipedia.org/wiki/Venn_diagram" target="_blank">Venn diagram</a> for two or more data subsets.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected Data: instances selected from the plot</li>
+<li>Data: entire data with a column indicating whether an instance was selected or not</li>
+</ul>
+<p>The <strong>Venn Diagram</strong> widget displays logical relations between datasets by showing the number of common data instances (rows) or the number of shared features (columns). Selecting a part of the visualization outputs the corresponding instances or features.</p>
+<p><img alt="../../_images/venn-workflow.png" src="../../_images/venn-workflow.png" /></p>
+<p><img alt="../../_images/VennDiagram-stamped.png" src="../../_images/VennDiagram-stamped.png" /></p>
+<ol class="simple">
+<li>Select whether to count common features or instances.</li>
+<li>Select whether to include duplicates or to output only unique rows; applicable only when matching instances by values of variables.</li>
+</ol>
+<p>Rows can be matched</p>
+<ul class="simple">
+<li>by their identity, e.g. rows from different data sets match if they came from the same row in a file,</li>
+<li>by equality, if all tables contain the same variables,</li>
+<li>or by values of a string variable that appears in all tables.</li>
+</ul>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>The easiest way to use the <strong>Venn Diagram</strong> is to select data subsets and find matching instances in the visualization. We use the <em>breast-cancer</em> dataset to select two subsets with <a class="reference internal" href="../data/selectrows.html"><span class="doc">Select Rows</span></a> widget - the first subset is that of breast cancer patients aged between 40 and 49 and the second is that of patients with a tumor size between 20 and 29. The <strong>Venn Diagram</strong> helps us find instances that correspond to both criteria, which can be found in the intersection of the two circles.</p>
+<p><img alt="../../_images/VennDiagram-Example1.png" src="../../_images/VennDiagram-Example1.png" /></p>
+<p>The <strong>Venn Diagram</strong> widget can be also used for exploring different prediction models. In the following example, we analysed 3 prediction methods, namely <a class="reference internal" href="../model/naivebayes.html"><span class="doc">Naive Bayes</span></a>, <a class="reference internal" href="../model/svm.html"><span class="doc">SVM</span></a> and <a class="reference internal" href="../model/randomforest.html"><span class="doc">Random Forest</span></a>, according to their misclassified instances.</p>
+<p>By selecting misclassifications in the three <a class="reference internal" href="../evaluate/confusionmatrix.html"><span class="doc">Confusion Matrix</span></a> widgets and sending them to Venn diagram, we can see all the misclassification instances visualized per method used. Then we open <strong>Venn Diagram</strong> and select, for example, the misclassified instances that were identified by all three methods. This is represented as an intersection of all three circles. Click on the intersection to see this two instances marked in the <a class="reference internal" href="scatterplot.html"><span class="doc">Scatter Plot</span></a> widget. Try selecting different diagram sections to see how the scatter plot visualization changes.</p>
+<p><img alt="../../_images/VennDiagram-Example2.png" src="../../_images/VennDiagram-Example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/venndiagram.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

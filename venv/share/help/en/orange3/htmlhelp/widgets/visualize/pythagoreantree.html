@@ -1,0 +1,101 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pythagorean Tree</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Pythagorean Forest" href="pythagoreanforest.html" />
+    <link rel="prev" title="Sieve Diagram" href="sievediagram.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="pythagorean-tree">
+<h1>Pythagorean Tree</h1>
+<p>Pythagorean tree visualization for classification or regression trees.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Tree: tree model</li>
+<li>Selected Data: instances selected from the tree</li>
+</ul>
+<p><strong>Pythagorean Trees</strong> are plane fractals that can be used to depict general tree hierarchies as presented in an article by <a class="reference external" href="http://publications.fbeck.com/ivapp14-pythagoras.pdf" target="_blank">Fabian Beck and co-authors</a>. In our case, they are used for visualizing and exploring tree models, such as <a class="reference internal" href="../model/tree.html"><span class="doc">Tree</span></a>.</p>
+<p><img alt="../../_images/Pythagorean-Tree1-stamped.png" src="../../_images/Pythagorean-Tree1-stamped.png" /></p>
+<ol class="simple">
+<li>Information on the input tree model.</li>
+<li>Visualization parameters:<ul>
+<li><em>Depth</em>: set the depth of displayed trees.</li>
+<li><em>Target class</em> (for classification trees): the intensity of the color for nodes of the tree will correspond to the probability of the target class. If <em>None</em> is selected, the color of the node will denote the most probable class.</li>
+<li><em>Node color</em> (for regression trees): node colors can correspond to mean or standard deviation of class value of the training data instances in the node.</li>
+<li><em>Size</em>: define a method to compute the size of the square representing the node. <em>Normal</em> will keep node sizes correspond to the size of training data subset in the node. <em>Square root</em> and <em>Logarithmic</em> are the respective transformations of the node size.</li>
+<li><em>Log scale factor</em> is only enabled when <em>logarithmic</em> transformation is selected. You can set the log factor between 1 and 10.</li>
+</ul>
+</li>
+<li>Plot properties:<ul>
+<li><em>Enable tooltips</em>: display node information upon hovering.</li>
+<li><em>Show legend</em>: shows color legend for the plot.</li>
+</ul>
+</li>
+<li>Reporting:<ul>
+<li><em>Save Image</em>: save the visualization to a SVG or PNG file.</li>
+<li><em>Report</em>: add visualization to the report.</li>
+</ul>
+</li>
+</ol>
+<p>Pythagorean Tree can visualize both classification and regression trees. Below is an example for regression tree. The only difference between the two is that regression tree doesn’t enable coloring by class, but can color by class mean or standard deviation.</p>
+<p><img alt="../../_images/Pythagorean-Tree1-continuous.png" src="../../_images/Pythagorean-Tree1-continuous.png" /></p>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>The workflow from the screenshot below demonstrates the difference between <a class="reference internal" href="treeviewer.html"><span class="doc">Tree Viewer</span></a> and Pythagorean Tree. They can both visualize <a class="reference internal" href="../model/tree.html"><span class="doc">Tree</span></a>, but Pythagorean visualization takes less space and is more compact, even for a small <a class="reference external" href="https://en.wikipedia.org/wiki/Iris_flower_data_set" target="_blank">Iris flower</a> dataset. For both visualization widgets, we have hidden the control area on the left by clicking on the splitter between control and visualization area.</p>
+<p><img alt="../../_images/Pythagorean-Tree-comparison.png" src="../../_images/Pythagorean-Tree-comparison.png" /></p>
+<p>Pythagorean Tree is interactive: click on any of the nodes (squares) to select training data instances that were associated with that node. The following workflow explores these feature.</p>
+<p><img alt="../../_images/Pythagorean-Tree-scatterplot-workflow.png" src="../../_images/Pythagorean-Tree-scatterplot-workflow.png" /></p>
+<p>The selected data instances are shown as a subset in the <a class="reference internal" href="scatterplot.html"><span class="doc">Scatter Plot</span></a>, sent to the <a class="reference internal" href="../data/datatable.html"><span class="doc">Data Table</span></a> and examined in the <a class="reference internal" href="boxplot.html"><span class="doc">Box Plot</span></a>. We have used brown-selected dataset in this example. The tree and scatter plot are shown below; the selected node in the tree has a black outline.</p>
+<p><img alt="../../_images/Pythagorean-Tree-scatterplot.png" src="../../_images/Pythagorean-Tree-scatterplot.png" /></p>
+</div>
+<div class="section" id="references">
+<h2>References</h2>
+<p>Beck, F., Burch, M., Munz, T., Di Silvestro, L. and Weiskopf, D. (2014). <a class="reference external" href="http://publications.fbeck.com/ivapp14-pythagoras.pdf" target="_blank">Generalized Pythagoras Trees for Visualizing Hierarchies</a>. In IVAPP ‘14 Proceedings of the 5th International Conference on Information Visualization Theory and Applications, 17-28.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/pythagoreantree.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

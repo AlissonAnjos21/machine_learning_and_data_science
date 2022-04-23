@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rank</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Correlations" href="correlations.html" />
+    <link rel="prev" title="Purge Domain" href="purgedomain.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="rank">
+<h1>Rank</h1>
+<p>Ranking of attributes in classification or regression datasets.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Scorer: models for feature scoring</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Reduced Data: dataset with selected attributes</li>
+<li>Scores: data table with feature scores</li>
+<li>Features: list of attributes</li>
+</ul>
+<p>The <strong>Rank</strong> widget scores variables according to their correlation with discrete or numeric target variable, based on applicable internal scorers (like information gain, chi-square and linear regression) and any connected external models that supports scoring, such as linear regression, logistic regression, random forest, SGD, etc. The widget can also handle unsupervised data, but only by external scorers, such as PCA.</p>
+<p><img alt="../../_images/Rank-stamped.png" src="../../_images/Rank-stamped.png" /></p>
+<ol class="simple">
+<li>Select scoring methods. See the options for classification, regression and unsupervised data in the <strong>Scoring methods</strong> section.</li>
+<li>Select attributes to output. <em>None</em> won’t output any attributes, while <em>All</em> will output all of them. With manual selection, select the attributes from the table on the right. <em>Best ranked</em> will output n best ranked attributes.
+If <em>Send Automatically</em> is ticked, the widget automatically communicates changes to other widgets.</li>
+<li>Status bar. Produce a report by clicking on the file icon. Observe input and output of the widget. On the right, warnings and errors are shown.</li>
+</ol>
+<div class="section" id="scoring-methods-classification">
+<h2>Scoring methods (classification)</h2>
+<ol class="simple">
+<li>Information Gain: the expected amount of information (reduction of entropy)</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Information_gain_ratio" target="_blank">Gain Ratio</a>: a ratio of the information gain and the attribute’s intrinsic information, which reduces the bias towards multivalued features that occurs in information gain</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Gini_coefficient" target="_blank">Gini</a>: the inequality among values of a frequency distribution</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/One-way_analysis_of_variance" target="_blank">ANOVA</a>: the difference between average values of the feature in different classes</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Chi-squared_distribution" target="_blank">Chi2</a>: dependence between the feature and the class as measured by the chi-square statistic</li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Relief_(feature_selection)" target="_blank">ReliefF</a>: the ability of an attribute to distinguish between classes on similar data instances</li>
+<li><a class="reference external" href="https://www.aaai.org/Papers/ICML/2003/ICML03-111.pdf" target="_blank">FCBF (Fast Correlation Based Filter)</a>: entropy-based measure, which also identifies redundancy due to pairwise correlations between features</li>
+</ol>
+<p>Additionally, you can connect certain learners that enable scoring the features according to how important they are in models that the learners build (e.g. <a class="reference internal" href="../model/logisticregression.html"><span class="doc">Logistic Regression</span></a>, <a class="reference internal" href="../model/randomforest.html"><span class="doc">Random Forest</span></a>, <a class="reference internal" href="../model/stochasticgradient.html"><span class="doc">SGD</span></a>). Please note that the data is normalized before ranking.</p>
+</div>
+<div class="section" id="scoring-methods-regression">
+<h2>Scoring methods (regression)</h2>
+<ol class="simple">
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Simple_linear_regression" target="_blank">Univariate Regression</a>: linear regression for a single variable</li>
+<li><a class="reference external" href="http://www.clopinet.com/isabelle/Projects/reading/robnik97-icml.pdf" target="_blank">RReliefF</a>: relative distance between the predicted (class) values of the two instances.</li>
+</ol>
+<p>Additionally, you can connect regression learners (e.g. <a class="reference internal" href="../model/linearregression.html"><span class="doc">Linear Regression</span></a>, <a class="reference internal" href="../model/randomforest.html"><span class="doc">Random Forest</span></a>, <a class="reference internal" href="../model/stochasticgradient.html"><span class="doc">SGD</span></a>). Please note that the data is normalized before ranking.</p>
+</div>
+<div class="section" id="scoring-method-unsupervised">
+<h2>Scoring method (unsupervised)</h2>
+<p>Currently, only <a class="reference internal" href="../unsupervised/PCA.html"><span class="doc">PCA</span></a> is supported for unsupervised data. Connect PCA to Rank to obtain the scores. The scores correspond to the correlation of a variable with the individual principal component.</p>
+</div>
+<div class="section" id="scoring-with-learners">
+<h2>Scoring with learners</h2>
+<p>Rank can also use certain learners for feature scoring. See <a class="reference internal" href="../../learners-as-scorers/index.html"><span class="doc">Learners as Scorers</span></a> for an example.</p>
+</div>
+<div class="section" id="example-attribute-ranking-and-selection">
+<h2>Example: Attribute Ranking and Selection</h2>
+<p>Below, we have used the <strong>Rank</strong> widget immediately after the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget to reduce the set of data attributes and include only the most informative ones:</p>
+<p><img alt="../../_images/Rank-Select-Schema.png" src="../../_images/Rank-Select-Schema.png" /></p>
+<p>Notice how the widget outputs a dataset that includes only the best-scored attributes:</p>
+<p><img alt="../../_images/Rank-Select-Widgets.png" src="../../_images/Rank-Select-Widgets.png" /></p>
+</div>
+<div class="section" id="example-feature-subset-selection-for-machine-learning">
+<h2>Example: Feature Subset Selection for Machine Learning</h2>
+<p>What follows is a bit more complicated example. In the workflow below, we first split the data into a training set and a test set. In the upper branch, the training data passes through the <strong>Rank</strong> widget to select the most informative attributes, while in the lower branch there is no feature selection. Both feature selected and original datasets are passed to their own <a class="reference internal" href="../evaluate/testandscore.html"><span class="doc">Test &amp; Score</span></a> widgets, which develop a <em>Naive Bayes</em> classifier and score it on a test set.</p>
+<p><img alt="../../_images/Rank-and-Test.png" src="../../_images/Rank-and-Test.png" /></p>
+<p>For datasets with many features, a naive Bayesian classifier feature selection, as shown above, would often yield a better predictive accuracy.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/rank.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mosaic Display</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Silhouette Plot" href="silhouetteplot.html" />
+    <link rel="prev" title="CN2 Rule Viewer" href="cn2ruleviewer.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="mosaic-display">
+<h1>Mosaic Display</h1>
+<p>Display data in a mosaic plot.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Data subset: subset of instances</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Selected data: instances selected from the plot</li>
+</ul>
+<p>The <strong>Mosaic plot</strong> is a graphical representation of a two-way frequency table or a contingency table. It is used for visualizing data from two or more qualitative variables and was introduced in 1981 by Hartigan and Kleiner and expanded and refined by Friendly in 1994. It provides the user with the means to more efficiently recognize relationships between different variables. If you wish to read up on the history of Mosaic Display, additional reading is available <a class="reference external" href="http://www.datavis.ca/papers/moshist.pdf" target="_blank">here</a>.</p>
+<p><img alt="../../_images/Mosaic-Display-stamped.png" src="../../_images/Mosaic-Display-stamped.png" /></p>
+<ol class="simple">
+<li>Select the variables you wish to see plotted.</li>
+<li>Select interior coloring. You can color the interior according to class or you can use the <em>Pearson residual</em>, which is the difference between observed and fitted values, divided by an estimate of the standard deviation of the observed value. If <em>Compare to total</em> is clicked, a comparison is made to all instances.</li>
+<li><em>Save image</em> saves the created image to your computer in a .svg or .png format.</li>
+<li>Produce a report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>We loaded the <em>titanic</em> dataset and connected it to the <strong>Mosaic Display</strong> widget. We decided to focus on two variables, namely status, sex and survival. We colored the interiors according to Pearson residuals in order to demonstrate the difference between observed and fitted values.</p>
+<p><img alt="../../_images/Mosaic-Display-Example.png" src="../../_images/Mosaic-Display-Example.png" /></p>
+<p>We can see that the survival rates for men and women clearly deviate from the fitted value.</p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/visualize/mosaicdisplay.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

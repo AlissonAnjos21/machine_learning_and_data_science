@@ -1,0 +1,82 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Melt</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Neighbors" href="neighbors.html" />
+    <link rel="prev" title="Feature Statistics" href="featurestatistics.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="melt">
+<h1>Melt</h1>
+<p>Transform <a class="reference external" href="https://en.wikipedia.org/wiki/Wide_and_narrow_data" target="_blank">wide data to narrow</a>.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: wide data table</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: narrow data table</li>
+</ul>
+<p>The <strong>Melt</strong> widget receives a dataset in the more common wide format and outputs a table of (row_id, variable, value) triplets.</p>
+<p><img alt="../../_images/Melt-Default-stamped.png" src="../../_images/Melt-Default-stamped.png" /></p>
+<ol class="simple">
+<li>Select the variable used as id. The widget offers only columns without duplicated values. Alternatively, row number can be used as id.</li>
+<li>Select whether to include non-numeric variables, and whether to exclude zero values.</li>
+<li>Set the names of the columns with name of the variable (“item”) and the corresponding value.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>In the following workflow we play with the Zoo data set, in which we convert all variables to numeric by treating them as ordinal. All variables except the number of legs boolean (e.g. the animal lays or does not lay eggs), so a value of 1 will correspond to an animal having a particular feature. In data table we select all rows (Ctrl-A or Cmd-A) and deselect the duplicate description of the frog in order to avoid duplicate values in the “name” column.</p>
+<p>We pass it to Melt, where we designate the name as the row id, and discard zero values. The resulting table has multiple rows for each animal: one for each of animals features.</p>
+<p>An interesting immediate use for this is to pass this data to Distributions and see what are the most and the least common features of animals.</p>
+<p><img alt="../../_images/Melt-Workflow.png" src="../../_images/Melt-Workflow.png" /></p>
+<p>In the next example we show how shuffling class values influences model performance on the same dataset as above.</p>
+<p><img alt="../../_images/Melt-Distribution.png" src="../../_images/Melt-Distribution.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/melt.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

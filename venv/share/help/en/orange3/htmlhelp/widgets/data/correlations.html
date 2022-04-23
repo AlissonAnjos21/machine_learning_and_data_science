@@ -1,0 +1,87 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Correlations</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Color" href="color.html" />
+    <link rel="prev" title="Rank" href="rank.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="correlations">
+<h1>Correlations</h1>
+<p>Compute all pairwise attribute correlations.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: input dataset</li>
+<li>Features: selected pair of features</li>
+<li>Correlations: data table with correlation scores</li>
+</ul>
+<p><strong>Correlations</strong> computes Pearson or Spearman correlation scores for all pairs of features in a dataset. These methods can only detect monotonic relationship.</p>
+<p><img alt="../../_images/Correlations-stamped.png" src="../../_images/Correlations-stamped.png" /></p>
+<ol class="simple">
+<li>Correlation measure:<ul>
+<li>Pairwise <a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient" target="_blank">Pearson</a> correlation.</li>
+<li>Pairwise <a class="reference external" href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient" target="_blank">Spearman</a> correlation.</li>
+</ul>
+</li>
+<li>Filter for finding attribute pairs.</li>
+<li>A list of attribute pairs with correlation coefficient. Press <em>Finished</em> to stop computation for large datasets.</li>
+<li>Access widget help and produce report.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>Correlations can be computed only for numeric (continuous) features, so we will use <em>housing</em> as an example data set. Load it in the <a class="reference internal" href="file.html"><span class="doc">File</span></a> widget and connect it to <strong>Correlations</strong>. Positively correlated feature pairs will be at the top of the list and negatively correlated will be at the bottom.</p>
+<p><img alt="../../_images/Correlations-links.png" src="../../_images/Correlations-links.png" /></p>
+<p>Go to the most negatively correlated pair, DIS-NOX. Now connect <a class="reference internal" href="../visualize/scatterplot.html"><span class="doc">Scatter Plot</span></a> to <strong>Correlations</strong> and set two outputs, Data to Data and Features to Features. Observe how the feature pair is immediately set in the scatter plot. Looks like the two features are indeed negatively correlated.</p>
+<p><img alt="../../_images/Correlations-Example.png" src="../../_images/Correlations-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/correlations.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

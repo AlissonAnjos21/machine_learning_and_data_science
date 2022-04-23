@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paint Data</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Pivot Table" href="pivot.html" />
+    <link rel="prev" title="Select by Data Index" href="select-by-data-index.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="paint-data">
+<h1>Paint Data</h1>
+<p>Paints data on a 2D plane. You can place individual data points or use a brush to paint larger datasets.</p>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: dataset as painted in the plot</li>
+</ul>
+<p>The widget supports the creation of a new dataset by visually placing data points on a two-dimension plane. Data points can be placed on the plane individually (<em>Put</em>) or in a larger number by brushing (<em>Brush</em>). Data points can belong to classes if the data is intended to be used in supervised learning.</p>
+<p><img alt="../../_images/PaintData-stamped.png" src="../../_images/PaintData-stamped.png" /></p>
+<ol class="simple">
+<li>Name the axes and select a class to paint data instances. You can add or remove classes. Use only one class to create classless, unsupervised datasets.</li>
+<li>Drawing tools. Paint data points with <em>Brush</em> (multiple data instances) or <em>Put</em> (individual data instance). Select data points with <em>Select</em> and remove them with the Delete/Backspace key. Reposition data points with <a class="reference external" href="https://en.wikipedia.org/wiki/Jitter" target="_blank">Jitter</a> (spread) and <em>Magnet</em> (focus). Use <em>Zoom</em> and scroll to zoom in or out. Below, set the radius and intensity for Brush, Put, Jitter and Magnet tools.</li>
+<li>Reset to Input Data.</li>
+<li><em>Save Image</em> saves the image to your computer in a .svg or .png format.</li>
+<li>Produce a report.</li>
+<li>Tick the box on the left to automatically commit changes to other widgets. Alternatively, press <em>Send</em> to apply them.</li>
+</ol>
+<div class="section" id="example">
+<h2>Example</h2>
+<p>In the example below, we have painted a dataset with 4 classes. Such dataset is great for demonstrating k-means and hierarchical clustering methods. In the screenshot, we see that <a class="reference internal" href="../unsupervised/kmeans.html"><span class="doc">k-Means</span></a>, overall, recognizes clusters better than <a class="reference internal" href="../unsupervised/hierarchicalclustering.html"><span class="doc">Hierarchical Clustering</span></a>. It returns a score rank, where the best score (the one with the highest value) means the most likely number of clusters. Hierarchical clustering, however, doesn’t group the right classes together. This is a great tool for learning and exploring statistical concepts.</p>
+<p><img alt="../../_images/PaintData-Example.png" src="../../_images/PaintData-Example.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/paintdata.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

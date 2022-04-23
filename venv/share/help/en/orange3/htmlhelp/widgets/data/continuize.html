@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Continuize</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="next" title="Create Instance" href="createinstance.html" />
+    <link rel="prev" title="Discretize" href="discretize.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="continuize">
+<h1>Continuize</h1>
+<p>Turns discrete variables (attributes) into numeric (“continuous”) dummy variables.</p>
+<p><strong>Inputs</strong></p>
+<ul class="simple">
+<li>Data: input data set</li>
+</ul>
+<p><strong>Outputs</strong></p>
+<ul class="simple">
+<li>Data: transformed data set</li>
+</ul>
+<p>The <strong>Continuize</strong> widget receives a data set in the input and outputs the same data set in which the discrete variables (including binary variables) are replaced with continuous ones.</p>
+<p><img alt="../../_images/Continuize-stamped.png" src="../../_images/Continuize-stamped.png" /></p>
+<ol>
+<li><p class="first">Define the treatment of non-binary categorical variables.</p>
+<p>Examples in this section will assume that we have a discrete attribute status with the values low, middle and high, listed in that order. Options for their transformation are:</p>
+<ul>
+<li><p class="first"><strong>First value as base</strong>: a N-valued categorical variable will be transformed into N-1 numeric variables, each serving as an indicator for one of the original values except for the base value. The base value is the first value in the list. By default, the values are ordered alphabetically; their order can be changed in <a class="reference internal" href="editdomain.html"><span class="doc">Edit Domain</span></a>.</p>
+<p>In the above case, the three-valued variable <em>status</em> is transformed into two numeric variables, <em>status=middle</em> with values 0 or 1 indicating whether the original variable had value <em>middle</em> on a particular example, and similarly, <em>status=high</em>.</p>
+</li>
+<li><p class="first"><strong>Most frequent value as base</strong>: similar to the above, except that the most frequent value is used as a base. So, if the most frequent value in the above example is <em>middle</em>, then <em>middle</em> is considered as the base and the two newly constructed variables are <em>status=low</em> and <em>status=high</em>.</p>
+</li>
+<li><p class="first"><strong>One attribute per value</strong>: this option constructs one numeric variable per each value of the original variable. In the above case, we would get variables <em>status=low</em>, <em>status=middle</em> and <em>status=high</em>.</p>
+</li>
+<li><p class="first"><strong>Ignore multinomial attributes</strong>: removes non-binary categorical variables from the data.</p>
+</li>
+<li><p class="first"><strong>Treat as ordinal</strong>: converts the variable into a single numeric variable enumerating the original values. In the above case, the new variable would have the value of 0 for <em>low</em>, 1 for <em>middle</em> and 2 for <em>high</em>. Again note that the order of values can be set in  <a class="reference internal" href="editdomain.html"><span class="doc">Edit Domain</span></a>.</p>
+</li>
+<li><p class="first"><strong>Divide by number of values</strong>: same as above, except that values are normalized into range 0-1. In our example, the values of the new variable would be 0, 0.5 and 1.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Define the treatment of continuous attributes. Besised the option to <em>Leave them as they are</em>, we can <em>Normalize by span</em>, which will subtract the lowest value found in the data and divide by the span, so all values will fit into [0, 1]. Option <em>Normalize by standard deviation</em> subtracts the average and divides by the standard deviation.</p>
+</li>
+<li><p class="first">Define the treatment of class attributes (outcomes, targets). Besides leaving it as it is, the available options mirror those for multinomial attributes, except for those that would split the outcome into multiple outcome variables.</p>
+</li>
+<li><p class="first">This option defines the ranges of new variables. In the above text, we supposed the range <em>from 0 to 1</em>.</p>
+</li>
+<li><p class="first">Produce a report.</p>
+</li>
+<li><p class="first">If <em>Apply automatically</em> is ticked, changes are committed automatically. Otherwise, you have to press <em>Apply</em> after each change.</p>
+</li>
+</ol>
+<div class="section" id="examples">
+<h2>Examples</h2>
+<p>First, let’s see what is the output of the <strong>Continuize</strong> widget. We feed the original data (the <em>Heart disease</em> data set) into the <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a> and see how they look like. Then we continuize the discrete values and observe them in another <a class="reference internal" href="datatable.html"><span class="doc">Data Table</span></a>.</p>
+<p><img alt="../../_images/Continuize-Example1.png" src="../../_images/Continuize-Example1.png" /></p>
+<p>In the second example, we show a typical use of this widget - in order to properly plot the linear projection of the data, discrete attributes need to be converted to continuous ones and that is why we put the data through the <strong>Continuize</strong> widget before drawing it. The attribute “<em>chest pain</em>” originally had four values and was transformed into three continuous attributes; similar happened to gender, which was transformed into a single attribute “<em>gender=female</em>”.</p>
+<p><img alt="../../_images/Continuize-Example2.png" src="../../_images/Continuize-Example2.png" /></p>
+</div>
+</div>
+
+
+          </div>
+          
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Orange Data Mining.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/widgets/data/continuize.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
