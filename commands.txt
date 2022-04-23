@@ -101,8 +101,14 @@ Orange.data.Table((caminho do arquivo csv)) -> Lê um arquivo csv;
 
 (objeto regras CN2Learner).rule_list -> Informa através de uma iteração a lista de regras criada pelo algoritmo CN2Learner;
 
-(objeto regras CN2Learner)([[dados previsores]]) -> Recebe os dados previsores e a partir das regras definidas, informa a qual classe os dados informados pertencem. O valor que ele retorna é referente ao índice que representa a sua classe;
+(objeto regras CN2Learner)([[dados previsores treinamento]]) -> Recebe os dados previsores de treinamento e a partir das regras definidas, informa a qual classe os dados informados pertencem. O valor que ele retorna é referente ao índice que representa a sua classe;
 
 (objeto base de dados Orange).domain.class_var.values -> Retorna uma tupla que informa as classes existentes na base de dados, cada opção de classe pode ser representada pelo índice da tupla retornada;
+
+Orange.evaluation.testing.sample(base de dados em formato Orange, n = (percentual da base de dados que será dedicado ao teste)) -> Divide a base de dados em duas listas, a primeira lista, com índice 0, representa os dados de teste, já a segunda lista, a de índice 1, representa os dados de treinamento;
+
+Orange.evaluation.testing.TestOnTestData(base de treinamento, base de teste, [lambda testdata: variável com as regras]) -> Realiza as predições com base nas regras estabelecidas e com base nos dados recebidos;
+
+Orange.evaluation.CA(predições) -> Recebe as predições e informa o percentual de acerto do algoritmo;
 
 ################################################################################################################
