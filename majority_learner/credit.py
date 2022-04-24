@@ -17,8 +17,8 @@ print(Counter(str(item.get_class()) for item in credit_data_base))  # Counter({'
 
 print('\n\n')
 
-# O Majority Learner serve basicamente para você ver se vale apena usar um algoritmo de predição. Pois, ele classifica novos registros com base na maioria de registros existentes
-# Exemplo: eu tenho um registro, e peço para o majority learner classificá-lo, esse registro receberá a classe presente na maioria dos registros da base de dados.
+# O Majority Learner serve basicamente para você ver se vale apena usar um algoritmo de predição. Pois, ele informa qual seria a eficiência caso se classificasse novos registros com base na maioria de registros existentes
+# Exemplo: eu tenho um registro, e quero classificá-lo, esse registro receberá a classe presente na maioria dos registros da base de dados.
 # Como a parte de testar algoritmos entra nisso? É fácil, se um algoritmo que define novos registros com base na maioria, for mais eficiente que um que realiza predições, então vale mais apena registrar com base na maioria
 
 majority_learner = Orange.classification.MajorityLearner()
