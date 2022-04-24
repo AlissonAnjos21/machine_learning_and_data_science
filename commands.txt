@@ -111,4 +111,8 @@ Orange.evaluation.testing.TestOnTestData(base de treinamento, base de teste, [la
 
 Orange.evaluation.CA(predições) -> Recebe as predições e informa o percentual de acerto do algoritmo;
 
+(registro da base de dados Orange).get_class() -> Informa a qual classe pertence um determinado registro da base de dados Orange;
+
 ################################################################################################################
+
+Counter(item) -> Retorna um dicionário onde cada chave é um dos valores que aparecem e seu valor é quantas vezes o valor aparece;
