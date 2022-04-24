@@ -115,4 +115,4 @@ Orange.evaluation.CA(predições) -> Recebe as predições e informa o percentua
 
 ################################################################################################################
 
-Counter(item) -> Retorna um dicionário onde cada chave é um dos valores que aparecem e seu valor é quantas vezes o valor aparece;
+Counter(item) -> Retorna um dicionário onde cada chave é um dos valores que aparecem e seu valor é a quantidade de vezes que o valor aparece;
