@@ -116,3 +116,5 @@ Orange.evaluation.CA(predições) -> Recebe as predições e informa o percentua
 ################################################################################################################
 
 Counter(item) -> Retorna um dicionário onde cada chave é um dos valores que aparecem e seu valor é a quantidade de vezes que o valor aparece;
+
+KNeighborsClassifier(n_neighbors = (número de vizinhos que você quer comparar (5 é o padrão)), metric='minkowski', p=2) -> O kNN é um algoritmo que classifica novos registros com base na proximidade que esses registros possuem se comparados com a base de treinamento. Ele recebe o número de vizinhos que se deseja abranger, a métrica minkowski e o p=2 que informa que o método utilizado para calcular a distância será baseado no cálculo euclidiano; 
