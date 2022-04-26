@@ -119,4 +119,6 @@ Counter(item) -> Retorna um dicionário onde cada chave é um dos valores que ap
 
 KNeighborsClassifier(n_neighbors = (número de vizinhos que você quer comparar (5 é o padrão)), metric='minkowski', p=2) -> O kNN é um algoritmo que classifica novos registros com base na proximidade que esses registros possuem se comparados com a base de treinamento. Ele recebe o número de vizinhos que se deseja abranger, a métrica minkowski e o p=2 que informa que o método utilizado para calcular a distância será baseado no cálculo euclidiano; 
 
-np.delete(variável com base de dados, [índices dos valores que se deseja apagar], axis=(0=linha/1=coluna)) -> Apaga linhas ou colunas de uma base de dados, para isso, ele recebe uma base de dados, os índices que se deseja apagar e, por fim, o atributo axis que quanto recebe 0 se refere as linhas, ou seja, acabando por fazer ele apagar as linhas, e quando recebe 1 se refere as colunas, fazendo ele apagar as colunas, ambos referentes aos respectivos índices;
+np.delete(variável com base de dados, [índices dos valores que se deseja apagar], axis=(0=linha/1=coluna)) -> Apaga linhas ou colunas de uma base de dados, para isso, ele recebe uma base de dados, os índices que se deseja apagar e, por fim, o atributo axis que quanto recebe 0 se refere as linhas, ou seja, acabando por fazer ele apagar as linhas, e quando recebe 1 se refere as colunas, fazendo ele apagar as colunas, ambos referentes aos respectivos índices. Retornando, por fim, uma lista sem os valores que foram retirados;
+
+
