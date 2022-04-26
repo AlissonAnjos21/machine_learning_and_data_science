@@ -121,4 +121,8 @@ KNeighborsClassifier(n_neighbors = (número de vizinhos que você quer comparar 
 
 np.delete(variável com base de dados, [índices dos valores que se deseja apagar], axis=(0=linha/1=coluna)) -> Apaga linhas ou colunas de uma base de dados, para isso, ele recebe uma base de dados, os índices que se deseja apagar e, por fim, o atributo axis que quanto recebe 0 se refere as linhas, ou seja, acabando por fazer ele apagar as linhas, e quando recebe 1 se refere as colunas, fazendo ele apagar as colunas, ambos referentes aos respectivos índices. Retornando, por fim, uma lista sem os valores que foram retirados;
 
+LogisticRegression(random_state = (qualquer número), max_iter = (número de vezes que se deseja rodar o algoritmo para encontrar os valores de B)) -> Constroi um objeto de Regressão Logistíca. Pode receber o parâmetro max_iter, que diz quantas vezes o algoritmo vai rodar para consiguir definir os valores de B;
 
+(objeto LogisticRegression).intercept_ -> Retorna o valor de B0;
+
+(objeto LogisticRegression).coef_ -> Retorna uma lista contendo os valores de B1, B2, B3 ... BN;
