@@ -14,6 +14,7 @@ with open(final_path, 'rb') as f:
     x_credit_training, x_credit_test, y_credit_training, y_credit_test = pickle.load(f)
 
 from sklearn.neural_network import MLPClassifier
+# Para se saber a quantidade de neurônios que deve se utilizar, a convensão é que se use a fórumula: (número de entradas + número de saídas / 2). Porém, não é obrigatório usar da mesma
 credit_neural_network = MLPClassifier(verbose = True, tol = 0.0000100, max_iter = 1500, hidden_layer_sizes = (20, 20), activation = 'relu', solver = 'adam')  # Cria um objeto do tipo rede neural multicamada, que realiza 1500 iterações e possui 2 camadas e 20 neurônios em cada camada, possuindo tolerância de 0.0000100
 credit_neural_network.fit(x_credit_training, y_credit_training)
 prediction = credit_neural_network.predict(x_credit_test)
