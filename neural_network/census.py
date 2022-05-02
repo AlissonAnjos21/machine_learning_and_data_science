@@ -12,3 +12,6 @@ final_path = os.path.join(dir_path, file_path)
 import pickle
 with open(final_path, 'rb') as f:
     x_censo_training, x_censo_test, y_censo_training, y_censo_test = pickle.load(f)
+
+print(x_censo_training.shape, y_censo_training.shape)
+print(x_censo_test.shape, y_censo_test.shape)
