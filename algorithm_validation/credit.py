@@ -84,7 +84,7 @@ print('Melhor Resultado Encontrado:')
 print(knn_best_score)  # 0.9800
 print('\n\n')
 
-# Regressão Logística
+# Logistic Regression
 logistic_regression_parameters = {
 'tol': [0.0001, 0.00001, 0.000001],
 'C': [1.0, 1.5, 2.0],
@@ -120,7 +120,7 @@ print('Melhor Resultado Encontrado:')
 print(svm_best_score)  # 0.9829
 print('\n\n')
 
-# Redes Neurais
+# Neural Network
 neural_network_parameters = {
 'activation': ['relu', 'logistic', 'tahn'],
 'solver': ['adam', 'sgd'],
@@ -135,5 +135,5 @@ print('REDES NEURAIS:')
 print('Melhores Parâmetros Encontrados:')
 print(neural_network_best_parameters)
 print('Melhor Resultado Encontrado:')
-print(neural_network_best_score)  # 
+print(neural_network_best_score)  # 0.9970
 print('\n\n')
