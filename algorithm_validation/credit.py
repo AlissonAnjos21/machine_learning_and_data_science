@@ -101,3 +101,21 @@ print(logistic_regression_best_parameters)
 print('Melhor Resultado Encontrado:')
 print(logistic_regression_best_score)  # 0.9484
 print('\n\n')
+
+# SVM
+svm_parameters = {
+'tol': [0.001, 0.0001, 0.00001],
+'C': [1.0, 1.5, 2.0],
+'kernel': ['rbf', 'linear', 'poly', 'sigmoid']
+}
+svm_grid_search = GridSearchCV(estimator = SVC(), param_grid = svm_parameters)
+svm_grid_search.fit(x_credit, y_credit)
+svm_best_parameters = svm_grid_search.best_params_
+svm_best_score = svm_grid_search.best_score_
+
+print('SVM:')
+print('Melhores Parâmetros Encontrados:')
+print(svm_best_parameters)
+print('Melhor Resultado Encontrado:')
+print(svm_best_score)  # 0.9829
+print('\n\n')
