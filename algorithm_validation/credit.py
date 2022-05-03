@@ -83,3 +83,21 @@ print(knn_best_parameters)
 print('Melhor Resultado Encontrado:')
 print(knn_best_score)  # 0.9800
 print('\n\n')
+
+# Regressão Logística
+logistic_regression_parameters = {
+'tol': [0.0001, 0.00001, 0.000001],
+'C': [1.0, 1.5, 2.0],
+'solver': ['lbfgs', 'sag', 'saga']
+}
+logistic_regression_grid_search = GridSearchCV(estimator = LogisticRegression(), param_grid = logistic_regression_parameters)
+logistic_regression_grid_search.fit(x_credit, y_credit)
+logistic_regression_best_parameters = logistic_regression_grid_search.best_params_
+logistic_regression_best_score = logistic_regression_grid_search.best_score_
+
+print('REGRESSÃO LOGÍSTICA:')
+print('Melhores Parâmetros Encontrados:')
+print(logistic_regression_best_parameters)
+print('Melhor Resultado Encontrado:')
+print(logistic_regression_best_score)  # 0.9484
+print('\n\n')
