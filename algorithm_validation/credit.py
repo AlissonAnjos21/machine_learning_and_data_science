@@ -22,3 +22,6 @@ with open(final_path, 'rb') as f:
 
 x_credit = np.concatenate((x_credit_training, x_credit_test), axis = 0)
 y_credit = np.concatenate((y_credit_training, y_credit_test), axis = 0)
+
+print('NOVA FORMA:')
+print(x_credit.shape, y_credit.shape)
