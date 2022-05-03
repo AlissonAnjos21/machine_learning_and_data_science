@@ -119,3 +119,21 @@ print(svm_best_parameters)
 print('Melhor Resultado Encontrado:')
 print(svm_best_score)  # 0.9829
 print('\n\n')
+
+# Redes Neurais
+neural_network_parameters = {
+'activation': ['relu', 'logistic', 'tahn'],
+'solver': ['adam', 'sgd'],
+'batch_size': [10, 56]
+}
+neural_network_grid_search = GridSearchCV(estimator = MLPClassifier(), param_grid = neural_network_parameters)
+neural_network_grid_search.fit(x_credit, y_credit)
+neural_network_best_parameters = neural_network_grid_search.best_params_
+neural_network_best_score = neural_network_grid_search.best_score_
+
+print('REDES NEURAIS:')
+print('Melhores Parâmetros Encontrados:')
+print(neural_network_best_parameters)
+print('Melhor Resultado Encontrado:')
+print(neural_network_best_score)  # 
+print('\n\n')
