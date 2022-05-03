@@ -23,5 +23,27 @@ with open(final_path, 'rb') as f:
 x_credit = np.concatenate((x_credit_training, x_credit_test), axis = 0)
 y_credit = np.concatenate((y_credit_training, y_credit_test), axis = 0)
 
-print('NOVA FORMA:')
+print('\nNOVA FORMA:')
 print(x_credit.shape, y_credit.shape)
+print('\n\n')
+
+# A técnica de GridSearch consiste em buscar os melhores parâmetros para serem utilizados em determinado algoritmo de machine learning e em determinada base de dados
+
+# Decision Tree:
+parameters = {
+'criterion': ['gini', 'entropy'],
+'splitter': ['best', 'random'],
+'min_samples_split': [2, 5, 10],
+'min_samples_leaf': [1, 5, 10]
+}
+grid_search = GridSearchCV(estimator = DecisionTreeClassifier(), param_grid = parameters)  # Recebe o algoritmo de machine learning e os parâmetros que se deseja encontrar a melhor combinação
+grid_search.fit(x_credit, y_credit)
+best_parameters = grid_search.best_params_  # Informa a melhor combinação de parâmetros encontrados
+best_score = grid_search.best_score_  # Informa o melhor resultado encontrado
+
+print('ÁRVORE DE DECISÃO:')
+print('Melhores Parâmetros Encontrados::')
+print(best_parameters)
+print('Melhor Resultado Encontrado:')
+print(best_score)
+print('\n\n')
