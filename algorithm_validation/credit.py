@@ -66,3 +66,20 @@ print(random_forest_best_parameters)
 print('Melhor Resultado Encontrado:')
 print(random_forest_best_score)  # 0.9875
 print('\n\n')
+
+# Knn
+knn_parameters = {
+'n_neighbors': [3, 5, 10, 20],
+'p': [1, 2]
+}
+knn_grid_search = GridSearchCV(estimator = KNeighborsClassifier(), param_grid = knn_parameters)
+knn_grid_search.fit(x_credit, y_credit)
+knn_best_parameters = knn_grid_search.best_params_
+knn_best_score = knn_grid_search.best_score_
+
+print('KNN:')
+print('Melhores Parâmetros Encontrados:')
+print(knn_best_parameters)
+print('Melhor Resultado Encontrado:')
+print(knn_best_score)  # 0.9800
+print('\n\n')
