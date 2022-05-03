@@ -42,8 +42,10 @@ best_parameters = grid_search.best_params_  # Informa a melhor combinação de p
 best_score = grid_search.best_score_  # Informa o melhor resultado encontrado
 
 print('ÁRVORE DE DECISÃO:')
-print('Melhores Parâmetros Encontrados::')
+print('Melhores Parâmetros Encontrados:')
 print(best_parameters)
 print('Melhor Resultado Encontrado:')
 print(best_score)
 print('\n\n')
+
+
