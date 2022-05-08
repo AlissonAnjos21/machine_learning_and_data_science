@@ -138,3 +138,7 @@ GrindSearchCV(estimator = tipo de algoritmo de machine learning, param_grid = di
 (objeto GrindSearchCV).best_param_ -> Após realizar o treinamento, informa a melhor combinação de parâmetros com base nos parâmetros informados;
 
 (objeto GrindSearchCV).best_score_ -> Após realizar o treinamento, informa, com base na melhor combinação dos parâmetros informados, o melhor percentual de acerto;
+
+KFold(n_splits = (número de divisões (10 por convenção)), shuffle = True, random_state = i) -> O KFold torna possível dividir a base de dados em treinamento e testes de n_splits maneiras diferentes, cada uma dessas maneiras possui um resultado de predição diferente. O parâmetro shuffle deve ser atribuido como True para que seja possível misturar os dados. Além disso, como ele normalmente, para realizar testes de validação, é usando em um for de range 30, usá-se o parâmetro random_state como sendo igual ao valor daquela iteração, ou seja, igual ao valor de i;
+
+cross_val_score(objeto de alguma classe de algoritmo de Machine Learning, elementos previsores (x), classe (y), cv = objeto KFold) -> Calcula o percentual de acerto do algoritmo para cada diferente divisão da base de dados realizada pelo objeto KFold que foi passado como parâmetro;
