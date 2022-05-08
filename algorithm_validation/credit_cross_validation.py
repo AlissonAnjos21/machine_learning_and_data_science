@@ -61,11 +61,11 @@ for i in range(30):
 
     neural_network = MLPClassifier(activation = 'relu', batch_size = 56, solver = 'adam')
     neural_network_scores = cross_val_score(neural_network, x_credit, y_credit, cv = kfold)
-    neural_network.append(neural_network_scores.mean())
+    neural_network_results.append(neural_network_scores.mean())
 
-    print(decision_tree_results)
-    print(random_forest_results)
-    print(knn_results)
-    print(logistic_regression_results)
-    print(svm_results)
-    print(neural_network_results)
+print(decision_tree_results)
+print(random_forest_results)
+print(knn_results)
+print(logistic_regression_results)
+print(svm_results)
+print(neural_network_results)
