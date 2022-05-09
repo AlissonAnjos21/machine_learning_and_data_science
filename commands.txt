@@ -158,3 +158,5 @@ MultiComparison(coluna com os valores concatenados dos resultados, coluna com o 
 (objeto MultiComparison).tukeyhsd() -> Realiza o teste de Tukey, ou seja, informa se entre cada um dos algoritmos existe diferença significativa, caso exista, normalmente, o algoritmo que fornecerá melhores valores e deve ser utilizado é aquele que possui uma média maior dos resultados;
 
 (objeto MultiComparison).plot_simultaneous() -> Cria um gráfica com os dados obtidos entre a comparação dos algoritmos, mostrando, em ordem crescente, qual deles o resultado está mais à frente;
+
+np.reshape(número de linhas, número de colunas) -> Muda a forma de um numpy array para a desejada, pode transformar um array unidimensional em uma matriz, etc;
