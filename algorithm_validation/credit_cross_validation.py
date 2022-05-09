@@ -63,15 +63,20 @@ for i in range(30):
     neural_network_scores = cross_val_score(neural_network, x_credit, y_credit, cv = kfold)
     neural_network_results.append(neural_network_scores.mean())
 
-print('\nDECISION TREE:')
-print(decision_tree_results)
-print('\nRANDOM FOREST:')
-print(random_forest_results)
-print('\nKNN:')
-print(knn_results)
-print('\nLOGISTIC REGRESSION:')
-print(logistic_regression_results)
-print('\nSVM:')
-print(svm_results)
-print('\nNEURAL NETWORK:')
-print(neural_network_results)
+results = pd.DataFrame({
+    'DECISION TREE': decision_tree_results, 
+    'RANDOM FOREST': random_forest_results,
+    'KNN': knn_results,
+    'LOGISTIC REGRESSION': logistic_regression_results,
+    'SVM': svm_results,
+    'NEURAL NETWORK': neural_network_results
+    })
+
+print('\nMédia:')
+results.mean()
+print('\nVariância:')
+results.var()
+print('\nDesvio Padrão:')
+results.std()
+print('\nTudo isso e mais um pouco:')
+results.describe()
