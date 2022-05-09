@@ -73,10 +73,15 @@ results = pd.DataFrame({
     })
 
 print('\nMédia:')
-results.mean()
+print(results.mean())
 print('\nVariância:')
-results.var()
+print(results.var())
 print('\nDesvio Padrão:')
-results.std()
+print(results.std())
 print('\nTudo isso e mais um pouco:')
-results.describe()
+print(results.describe())
+
+results_file = 'credit_and_census_data_base/credit_results.pkl'
+final_results_path = os.path.join(dir_path, results_file)
+with open(final_results_path, 'wb') as f:
+    pickle.dump([decision_tree_results, random_forest_results, knn_results, logistic_regression_results, svm_results, neural_network_results], f)

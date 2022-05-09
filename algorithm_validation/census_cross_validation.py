@@ -66,4 +66,9 @@ results = pd.DataFrame({
     'NEURAL NETWORK': neural_network_results
     })
 
-results.describe()
+print(results.describe())
+
+results_file = 'credit_and_census_data_base/censo_results.pkl'
+final_results_path = os.path.join(dir_path, results_file)
+with open(final_results_path, 'wb') as f:
+    pickle.dump([decision_tree_results, random_forest_results, knn_results, logistic_regression_results, svm_results, neural_network_results], f)
