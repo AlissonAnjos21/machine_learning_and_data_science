@@ -150,3 +150,11 @@ pd.DataFrame(dicionário com o nome de coluna desejado como chave e os dados com
 (objeto DataFrame).std() -> Informa o desvio padrão de cada chave (ou coluna) da base de dados;
 
 shapiro(lista com as médias do percentual de acerto dos algoritmos de predição) -> Retorna, em sua primeira coluna o valor statistic e em sua segunda coluna o valor de p;
+
+f_oneway(listas de algoritmos de Machine Learning contendo, cada um, uma lista com valores dos resultados obtidos) -> Fornece, como segundo valor, o resultado de p, assim é possível realizar o teste ANOVA para desobrir se entre esses valores existe diferença significativa;
+
+MultiComparison(coluna com os valores concatenados dos resultados, coluna com o nome do algoritmo que tornou possível obter cada um dos diferentes dados) -> Cria um objeto de comparação multipla;
+
+(objeto MultiComparison).tukeyhsd() -> Realiza o teste de Tukey, ou seja, informa se entre cada um dos algoritmos existe diferença significativa, caso exista, normalmente, o algoritmo que fornecerá melhores valores e deve ser utilizado é aquele que possui uma média maior dos resultados;
+
+(objeto MultiComparison).plot_simultaneous() -> Cria um gráfica com os dados obtidos entre a comparação dos algoritmos, mostrando, em ordem crescente, qual deles o resultado está mais à frente;
