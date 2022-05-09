@@ -148,3 +148,5 @@ pd.DataFrame(dicionário com o nome de coluna desejado como chave e os dados com
 (objeto DataFrame).var() -> Informa a variância de cada chave (ou coluna) da base de dados;
 
 (objeto DataFrame).std() -> Informa o desvio padrão de cada chave (ou coluna) da base de dados;
+
+shapiro(lista com as médias do percentual de acerto dos algoritmos de predição) -> Retorna, em sua primeira coluna o valor statistic e em sua segunda coluna o valor de p;
