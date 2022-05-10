@@ -160,3 +160,7 @@ MultiComparison(coluna com os valores concatenados dos resultados, coluna com o 
 (objeto MultiComparison).plot_simultaneous() -> Cria um gráfica com os dados obtidos entre a comparação dos algoritmos, mostrando, em ordem crescente, qual deles o resultado está mais à frente;
 
 np.reshape(número de linhas, número de colunas) -> Muda a forma de um numpy array para a desejada, pode transformar um array unidimensional em uma matriz, etc;
+
+.predict_proba(registro) -> Informa a probabilidade de acerto para cada uma das diferentes classes;
+
+
