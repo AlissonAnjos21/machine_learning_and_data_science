@@ -45,4 +45,18 @@ from sklearn.linear_model import LinearRegression
 linear_regressor_health_insurance = LinearRegression()
 linear_regressor_health_insurance.fit(x_health_insurance, y_health_insurance)
 
+# Realizando predições com os mesmos valores de x (não fazer isso em cenários reais, isso é apenas um teste)
 
+print('\nScore (R^2):')
+print(linear_regressor_health_insurance.score(x_health_insurance, y_health_insurance))
+
+# Criando gráficos comparativos:
+predictions = linear_regressor_health_insurance.predict(x_health_insurance)
+graph = px.scatter(x = x_health_insurance.ravel(), y = y_health_insurance)
+graph.add_scatter(x = x_health_insurance.ravel(), y = predictions, name = 'Linear Regression')
+graph.show()
+
+from yellowbrick.regressor import ResidualsPlot
+visualizer = ResidualsPlot(linear_regressor_health_insurance)
+visualizer.fit(x_health_insurance, y_health_insurance)
+visualizer.poof()
