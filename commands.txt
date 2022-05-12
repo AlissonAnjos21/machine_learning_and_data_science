@@ -164,3 +164,5 @@ np.reshape(número de linhas, número de colunas) -> Muda a forma de um numpy ar
 .predict_proba(registro) -> Informa a probabilidade de acerto para cada uma das diferentes classes;
 
 np.corrcoef(x, y) -> Retorna uma matriz mostrando a correlação entre os parâmetros informados;
+
+(variavel com matriz).reavel() -> Converte de matriz para vetor;

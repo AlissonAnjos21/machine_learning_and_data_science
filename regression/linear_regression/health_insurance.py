@@ -44,3 +44,5 @@ print(x_health_insurance.shape)
 from sklearn.linear_model import LinearRegression
 linear_regressor_health_insurance = LinearRegression()
 linear_regressor_health_insurance.fit(x_health_insurance, y_health_insurance)
+
+
