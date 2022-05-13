@@ -22,7 +22,7 @@ px.scatter_matrix(base de dados, dimensions=[coluna1, coluna2, etc]) -> Recebe c
 
 .index -> Informa o índice de algo;
 
-.sum -> Retorna a soma de determinada coisa. Dependendo de como utilizada, pode retornar quantas vezes algo apareceu;
+.sum() -> Retorna a soma de determinada coisa. Dependendo de como utilizada, pode retornar quantas vezes algo apareceu;
 
 .mean() -> Informa a média de algo;
 
