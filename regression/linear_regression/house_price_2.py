@@ -50,5 +50,3 @@ print(house_price_linear_regression.score(x_house_price_training, y_house_price_
 
 # Percentual de eficácia do algoritmo se comparado com os valores de teste
 print(house_price_linear_regression.score(x_house_price_test, y_house_price_test))  # 0.488
-
-predictions = house_price_linear_regression.predict(x_house_price_training)
