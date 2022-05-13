@@ -172,3 +172,5 @@ np.corrcoef(x, y) -> Retorna uma matriz mostrando a correlação entre os parâm
 (base de dados).corr() -> Retorna uma matriz que exibe o cálculo de correlação entre cada um dos atributos;
 
 sns.heatmap(matriz, annot = True) -> Cria um mapa de calor, ou seja, quanto mais "quente" for a cor, maior é o valor que está nele. O parâmetro "annot" com o valor "True" faz com que os valores da matriz informada sejam apresentados na representação gráfica do mapa de calor;
+
+abs(lista de valores) -> Converte o valor para o seu valor absoluto, ou seja, sem o sinal;
