@@ -31,7 +31,7 @@ graph_1.show()
 
 training_real_result_graph = px.scatter(x = x_house_price_training.ravel(), y = y_house_price_training)
 
-training_predictions_result_graph = px.scatter(x = x_house_price_training.ravel(), y = training_predictions)
+training_predictions_result_graph = px.line(x = x_house_price_training.ravel(), y = training_predictions)
 training_predictions_result_graph.data[0].line.color = 'black'
 
 concatenate_graph_1 = go.Figure(data = training_real_result_graph.data + training_predictions_result_graph.data)
@@ -43,7 +43,7 @@ graph_2.show()
 
 test_real_result_graph = px.scatter(x = x_house_price_test.ravel(), y = y_house_price_test)
 
-test_predictions_result_graph = px.scatter(x = x_house_price_test.ravel(), y = test_predictions)
+test_predictions_result_graph = px.line(x = x_house_price_test.ravel(), y = test_predictions)
 test_predictions_result_graph.data[0].line.color = 'black'
 
 concatenate_graph_2 = go.Figure(data = test_real_result_graph.data + test_predictions_result_graph.data)
