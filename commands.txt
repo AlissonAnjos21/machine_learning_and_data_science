@@ -178,3 +178,5 @@ abs(lista de valores) -> Converte o valor para o seu valor absoluto, ou seja, se
 mean_absolute_error(valor y, valor predição) -> Retorna o Mean Absolute Error;
 
 mean_squared_error(valor y, valor predição) -> Retorna o Mean Squared Error;
+
+np.sqrt(valor) -> Retorna a raiz quadrada do valor;
