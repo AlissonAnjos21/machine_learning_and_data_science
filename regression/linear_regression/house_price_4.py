@@ -25,7 +25,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 test_predictions = house_price_linear_regression.predict(x_house_price_test)
 
 # Mean Absolute Error
-print('Mean Absolute Error:')
+print('\nMean Absolute Error:')
 print(mean_absolute_error(y_house_price_test, test_predictions))  # 172604.128
 print()
 
