@@ -21,13 +21,25 @@ house_price_linear_regression = LinearRegression()
 house_price_linear_regression.fit(x_house_price_training, y_house_price_training)
 
 training_predictions = house_price_linear_regression.predict(x_house_price_training)
+test_predictions = house_price_linear_regression.predict(x_house_price_test)
 
 # Criando gráficos
+# Treinamento:
 graph = px.scatter(x = x_house_price_training.ravel(), y = training_predictions)
 graph.show()
 
 real_result_graph = px.scatter(x = x_house_price_training.ravel(), y = y_house_price_training)
 predictions_result_graph = px.scatter(x = x_house_price_training.ravel(), y = training_predictions)
+predictions_result_graph.data[0].line.color = 'black'
+concatenate_graph = go.Figure(data = real_result_graph.data + predictions_result_graph.data)
+concatenate_graph.show()
+
+# Teste:
+graph = px.scatter(x = x_house_price_training.ravel(), y = test_predictions)
+graph.show()
+
+real_result_graph = px.scatter(x = x_house_price_training.ravel(), y = y_house_price_training)
+predictions_result_graph = px.scatter(x = x_house_price_training.ravel(), y = test_predictions)
 predictions_result_graph.data[0].line.color = 'black'
 concatenate_graph = go.Figure(data = real_result_graph.data + predictions_result_graph.data)
 concatenate_graph.show()
