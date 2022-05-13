@@ -168,3 +168,7 @@ np.corrcoef(x, y) -> Retorna uma matriz mostrando a correlação entre os parâm
 (objeto LinearRegression).score((valores que serão usados para realizar a predição), (resposta real)) -> Retorna o percentual de acerto do algoritmo de regressão linear;
 
 (variavel com matriz).reavel() -> Converte de matriz para vetor;
+
+(base de dados).corr() -> Retorna uma matriz que exibe o cálculo de correlação entre cada um dos atributos;
+
+sns.heatmap(matriz, annot = True) -> Cria um mapa de calor, ou seja, quanto mais "quente" for a cor, maior é o valor que está nele. O parâmetro "annot" com o valor "True" faz com que os valores da matriz informada sejam apresentados na representação gráfica do mapa de calor;
