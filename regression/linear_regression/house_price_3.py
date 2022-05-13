@@ -19,14 +19,15 @@ x_house_price_training, x_house_price_test, y_house_price_training, y_house_pric
 from sklearn.linear_model import LinearRegression
 house_price_linear_regression = LinearRegression()
 house_price_linear_regression.fit(x_house_price_training, y_house_price_training)
-predictions = house_price_linear_regression.predict(x_house_price_training)
+
+training_predictions = house_price_linear_regression.predict(x_house_price_training)
 
 # Criando gráficos
-graph = px.scatter(x = x_house_price_training.ravel(), y = predictions)
+graph = px.scatter(x = x_house_price_training.ravel(), y = training_predictions)
 graph.show()
 
 real_result_graph = px.scatter(x = x_house_price_training.ravel(), y = y_house_price_training)
-predictions_result_graph = px.scatter(x = x_house_price_training.ravel(), y = predictions)
+predictions_result_graph = px.scatter(x = x_house_price_training.ravel(), y = training_predictions)
 predictions_result_graph.data[0].line.color = 'black'
 concatenate_graph = go.Figure(data = real_result_graph.data + predictions_result_graph.data)
 concatenate_graph.show()
