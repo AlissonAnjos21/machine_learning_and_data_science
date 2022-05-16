@@ -182,3 +182,5 @@ mean_squared_error(valor y, valor predição) -> Retorna o Mean Squared Error;
 np.sqrt(valor) -> Retorna a raiz quadrada do valor;
 
 np.arange(começo, fim, step) -> Funciona de forma semelhante ao range();
+
+(objeto StandardScaler).inverse_transform(valor) -> Converte um valor que foi normalizado para um valor comum;
