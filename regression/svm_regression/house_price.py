@@ -30,7 +30,15 @@ from sklearn.svm import SVR
 house_price_svm_regressor = SVR(kernel = 'rbf')
 house_price_svm_regressor.fit(x_house_price_training_standard_scaler, y_house_price_training_standard_scaler.ravel())
 
+from sklearn.metrics import mean_absolute_error
+predictions = house_price_svm_regressor.predict(x_house_price_test_standard_scaler).reshape(-1, 1)  # Para convertê-lo a seu real valor, eu preciso que ele seja uma matriz
+real_predictions = y_standard_scaler.inverse_transform(predictions).ravel()  # Agora que eu já converti para o seu valor real, eu preciso que ele esteja em seu formato de vetor para eu ver o mean absolute error
+real_y_test = y_standard_scaler.inverse_transform(y_house_price_test_standard_scaler).ravel()  # Também preciso desse em seu formato de vetor
+
+print('\nMean Absolute Error:')
+print(mean_absolute_error(real_y_test, real_predictions))  # 82453.021
+
 print('\nScore with training base:')
-print(house_price_svm_regressor.score(x_house_price_training_standard_scaler, y_house_price_training_standard_scaler.ravel()))
+print(house_price_svm_regressor.score(x_house_price_training_standard_scaler, y_house_price_training_standard_scaler.ravel()))  # 0.812
 print('\nScore with test base:')
-print(house_price_svm_regressor.score(x_house_price_test_standard_scaler, y_house_price_test_standard_scaler.ravel()))
+print(house_price_svm_regressor.score(x_house_price_test_standard_scaler, y_house_price_test_standard_scaler.ravel()))  # 0.812
